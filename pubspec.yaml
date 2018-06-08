@@ -45,6 +45,10 @@ flutter:
           - assets/images/bag.png
           - assets/images/cloth.png
           - assets/images/footwear.png
+          - assets/images/menu_black.png
+          - assets/images/shopping_bag_black.png
+          - assets/images/img.png
+          - assets/images/img_order.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

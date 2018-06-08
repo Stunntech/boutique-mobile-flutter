@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'top_collection.dart';
 import 'item_category_selection.dart';
+import 'my_orders.dart';
+import 'shipping_details.dart';
 
 class StyleSelectionPage extends StatefulWidget {
   StyleSelectionPageState createState() => StyleSelectionPageState();
@@ -159,11 +161,11 @@ class ButtonSection extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  /*  Navigator.push(
+                  Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new SignUpPage()),
-                  );*/
+                        builder: (context) => new ShippingDetailPage()),
+                  );
                 }),
           ),
           new Container(
