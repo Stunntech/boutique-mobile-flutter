@@ -49,6 +49,7 @@ flutter:
           - assets/images/shopping_bag_black.png
           - assets/images/img.png
           - assets/images/img_order.png
+          - assets/images/triangle_right.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

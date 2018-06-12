@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'user_profile.dart';
 
 class ShippingDetailPage extends StatefulWidget {
   ShippingDetailPageState createState() => ShippingDetailPageState();
@@ -733,7 +734,11 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
               children: <Widget>[
                 new GestureDetector(
                   onTap: () {
-                    // Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => new UserProfilePage()),
+                    );
                   },
                   child: Container(
                     padding: new EdgeInsets.all(16.0),
