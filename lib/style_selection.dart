@@ -3,6 +3,7 @@ import 'top_collection.dart';
 import 'item_category_selection.dart';
 import 'my_orders.dart';
 import 'shipping_details.dart';
+import 'product_list.dart';
 
 class StyleSelectionPage extends StatefulWidget {
   StyleSelectionPageState createState() => StyleSelectionPageState();
@@ -164,7 +165,7 @@ class ButtonSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new ShippingDetailPage()),
+                        builder: (context) => new ProductListPage()),
                   );
                 }),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'style_selection.dart';
+import 'side_navigation.dart';
 
 class GenderSelectionPage extends StatefulWidget {
   GenderSelectionPageState createState() => GenderSelectionPageState();
@@ -41,7 +42,11 @@ class CustomAppBar extends StatelessWidget {
         children: <Widget>[
           new GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new SideNavigationPage()),
+              );
             },
             child: new Container(
               margin: new EdgeInsets.only(top: 20.0),
@@ -65,7 +70,11 @@ class CustomAppBar extends StatelessWidget {
           ),
           new GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new SideNavigationPage()),
+              );
             },
             child: new Container(
               alignment: Alignment.topRight,

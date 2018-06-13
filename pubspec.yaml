@@ -50,7 +50,14 @@ flutter:
           - assets/images/img.png
           - assets/images/img_order.png
           - assets/images/triangle_right.png
-
+          - assets/images/close.png
+          - assets/images/triangle_down.png
+          - assets/images/accesorices.png
+          - assets/images/bag_category.png
+          - assets/images/books.png
+          - assets/images/jewellery.png
+          - assets/images/outfits.png
+          - assets/images/paintings.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

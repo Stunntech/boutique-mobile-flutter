@@ -1,45 +1,29 @@
 import 'package:flutter/material.dart';
 
-List<_MyOrderTile> _tiles = <_MyOrderTile>[
-  new _MyOrderTile(
+List<_ProductListTile> _tiles = <_ProductListTile>[
+  new _ProductListTile(
     'assets/images/img.png',
     'Harajuku shirt ',
-    'ORDER PLACED',
     '16.25',
   ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
-  new _MyOrderTile(
+  new _ProductListTile('assets/images/img_order.png', 'Novelty ', "14.25"),
+  new _ProductListTile(
     'assets/images/img.png',
     'Harajuku ',
-    'ORDER PLACED',
     '16.25',
   ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
-  new _MyOrderTile(
-    'assets/images/img.png',
-    'Harajuku ',
-    'ORDER PLACED',
-    '16.25',
+  new _ProductListTile(
+    'assets/images/img_order.png',
+    'Novelty ',
+    "14.25",
   ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
-  new _MyOrderTile(
-    'assets/images/img.png',
-    'Harajuku ',
-    'ORDER PLACED',
-    '16.25',
-  ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
 ];
 
-class MyOrderPage extends StatefulWidget {
-  MyOrderPageState createState() => MyOrderPageState();
+class ProductListPage extends StatefulWidget {
+  ProductListPageState createState() => ProductListPageState();
 }
 
-class MyOrderPageState extends State<MyOrderPage> {
+class ProductListPageState extends State<ProductListPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -71,7 +55,7 @@ class MyOrderPageState extends State<MyOrderPage> {
                   new Container(
                     margin: new EdgeInsets.only(top: 25.0),
                     child: new Text(
-                      'MY ORDERS',
+                      'JAHMAIKA',
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.black,
@@ -98,69 +82,43 @@ class MyOrderPageState extends State<MyOrderPage> {
             ),
             new Flexible(
               child: new GridView.count(
-                childAspectRatio: 2.0,
-                crossAxisCount: 1,
-                mainAxisSpacing: 6.0,
-                children: _tiles.map((_MyOrderTile item) {
+                childAspectRatio: 1.0,
+                crossAxisCount: 2,
+                mainAxisSpacing: 10.0,
+                children: _tiles.map((_ProductListTile item) {
                   return new GridTile(
                     child: new Container(
-                      margin: new EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: new Card(
-                        child: new Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      // margin: new EdgeInsets.only(left: 10.0, right: 10.0),
+                      child: new Container(
+                        child: new Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             new Expanded(
                               child: new Container(
-                                height: 80.0,
-                                width: 80.0,
+                                height: 150.0,
+                                width: 100.0,
                                 child: new Image.asset(
                                   item.imageUrl,
-                                  fit: BoxFit.scaleDown,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                             ),
                             new Expanded(
                               child: new Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    new Container(
-                                      // margin: new EdgeInsets.only(top: 25.0),
-                                      child: new Text(
-                                        item.itemName,
-                                        textAlign: TextAlign.center,
-                                        style: new TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.0,
-                                          fontFamily: 'helvetica_neue_medium',
-                                        ),
-                                      ),
-                                    ),
-                                    new Container(
-                                      // margin: new EdgeInsets.only(top: 25.0),
-                                      child: new Text(
-                                        item.itemCost,
-                                        textAlign: TextAlign.center,
-                                        style: new TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.0,
-                                          fontFamily: 'avenir_black',
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                child: new Text(
+                                  item.itemName,
+                                  textAlign: TextAlign.center,
+                                  style: new TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.0,
+                                    fontFamily: 'helvetica_neue_medium',
+                                  ),
                                 ),
                               ),
                             ),
                             new Expanded(
                                 child: new Container(
-                              alignment: Alignment.center,
-                              decoration: new BoxDecoration(
-                                color: const Color(0xFFfafafa),
-                              ),
                               // margin: new EdgeInsets.only(top: 25.0),
                               child: new Text(
                                 item.itemDescription,
@@ -187,12 +145,10 @@ class MyOrderPageState extends State<MyOrderPage> {
   }
 }
 
-class _MyOrderTile {
+class _ProductListTile {
   final String imageUrl;
   final String itemName;
   final String itemDescription;
-  final String itemCost;
 
-  _MyOrderTile(
-      this.imageUrl, this.itemName, this.itemDescription, this.itemCost);
+  _ProductListTile(this.imageUrl, this.itemName, this.itemDescription);
 }
