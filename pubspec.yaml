@@ -31,33 +31,34 @@ flutter:
   #  - images/a_dot_ham.jpeg
 
   assets:
-          - assets/images/home_page_background.png
-          - assets/images/back.png
-          - assets/images/bg_gender_selection.png
-          - assets/images/menu_white.png
-          - assets/images/shopping_bag_white.png
-          - assets/images/bg_style_selection.png
-          - assets/images/background_top_collection.png
-          - assets/images/image_top_collection.png
-          - assets/images/image_top_collection_winter.png
-          - assets/images/bg_select_item_type.png
-          - assets/images/watch.png
-          - assets/images/bag.png
-          - assets/images/cloth.png
-          - assets/images/footwear.png
-          - assets/images/menu_black.png
-          - assets/images/shopping_bag_black.png
-          - assets/images/img.png
-          - assets/images/img_order.png
-          - assets/images/triangle_right.png
-          - assets/images/close.png
-          - assets/images/triangle_down.png
-          - assets/images/accesorices.png
-          - assets/images/bag_category.png
-          - assets/images/books.png
-          - assets/images/jewellery.png
-          - assets/images/outfits.png
-          - assets/images/paintings.png
+   - assets/images/home_page_background.png
+   - assets/images/back.png
+   - assets/images/bg_gender_selection.png
+   - assets/images/menu_white.png
+   - assets/images/shopping_bag_white.png
+   - assets/images/bg_style_selection.png
+   - assets/images/background_top_collection.png
+   - assets/images/image_top_collection.png
+   - assets/images/image_top_collection_winter.png
+   - assets/images/bg_select_item_type.png
+   - assets/images/watch.png
+   - assets/images/bag.png
+   - assets/images/cloth.png
+   - assets/images/footwear.png
+   - assets/images/menu_black.png
+   - assets/images/shopping_bag_black.png
+   - assets/images/img.png
+   - assets/images/img_order.png
+   - assets/images/triangle_right.png
+   - assets/images/close.png
+   - assets/images/triangle_down.png
+   - assets/images/accesorices.png
+   - assets/images/bag_category.png
+   - assets/images/books.png
+   - assets/images/jewellery.png
+   - assets/images/outfits.png
+   - assets/images/paintings.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

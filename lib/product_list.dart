@@ -28,52 +28,91 @@ class ProductListPageState extends State<ProductListPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
+        decoration: new BoxDecoration(
+          color: Colors.white,
+        ),
         child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             new Container(
-              padding: new EdgeInsets.all(8.0),
-              decoration: new BoxDecoration(
-                color: Colors.white,
-              ),
+              height: 60.0,
+              padding: new EdgeInsets.only(top: 40.0, left: 16.0, right: 16.0),
               child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  new GestureDetector(
-                    onTap: () {
-                      //  Navigator.pop(context);
-                    },
-                    child: new Container(
-                      margin: new EdgeInsets.only(top: 20.0),
-                      padding: new EdgeInsets.all(8.0),
-                      child: new Image.asset(
-                        "assets/images/menu_black.png",
+                  new Expanded(
+                    child: new GestureDetector(
+                      onTap: () {
+                        //  Navigator.pop(context);
+                      },
+                      child: new Container(
+                        alignment: Alignment.topLeft,
+                        // margin: new EdgeInsets.only(top: 20.0),
+                        // padding: new EdgeInsets.all(8.0),
+                        child: new Image.asset(
+                          "assets/images/menu_black.png",
+                        ),
                       ),
                     ),
                   ),
+                  new Expanded(
+                    child: new Container(
+                      alignment: Alignment.center,
+                      child: new Text(
+                        'JAHMAIKA',
+                        textAlign: TextAlign.center,
+                        style: new TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontFamily: 'avenir_black',
+                        ),
+                      ),
+                    ),
+                  ),
+                  new Expanded(
+                    child: new GestureDetector(
+                      onTap: () {
+                        // Navigator.pop(context);
+                      },
+                      child: new Container(
+                        alignment: Alignment.centerRight,
+                        child: new Image.asset(
+                          "assets/images/shopping_bag_black.png",
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            new Container(
+              decoration: new BoxDecoration(
+                color: const Color(0xFFf9f9f9),
+              ),
+              padding: new EdgeInsets.all(16.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
                   new Container(
-                    margin: new EdgeInsets.only(top: 25.0),
                     child: new Text(
-                      'JAHMAIKA',
-                      textAlign: TextAlign.center,
+                      'Filter',
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: 20.0,
                         fontFamily: 'avenir_black',
                       ),
                     ),
                   ),
                   new GestureDetector(
                     onTap: () {
-                      // Navigator.pop(context);
+                      //  Navigator.pop(context);
                     },
                     child: new Container(
-                      alignment: Alignment.topRight,
-                      margin: new EdgeInsets.only(top: 20.0),
-                      padding: new EdgeInsets.all(8.0),
+                      height: 15.0,
                       child: new Image.asset(
-                        "assets/images/shopping_bag_black.png",
+                        "assets/images/triangle_down.png",
                       ),
                     ),
                   ),
@@ -83,7 +122,7 @@ class ProductListPageState extends State<ProductListPage> {
             new Flexible(
               child: new GridView.count(
                 childAspectRatio: 1.0,
-                crossAxisCount: 2,
+                crossAxisCount: 3,
                 mainAxisSpacing: 10.0,
                 children: _tiles.map((_ProductListTile item) {
                   return new GridTile(
