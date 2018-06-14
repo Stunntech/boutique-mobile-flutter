@@ -2,18 +2,34 @@ import 'package:flutter/material.dart';
 
 List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(
-    'assets/images/img.png',
+    'assets/images/product_2.png',
     'Harajuku shirt ',
     '16.25',
   ),
-  new _ProductListTile('assets/images/img_order.png', 'Novelty ', "14.25"),
+  new _ProductListTile('assets/images/product_3.png', 'Novelty ', "14.25"),
   new _ProductListTile(
-    'assets/images/img.png',
+    'assets/images/product_4.png',
     'Harajuku ',
     '16.25',
   ),
   new _ProductListTile(
-    'assets/images/img_order.png',
+    'assets/images/product_3.png',
+    'Novelty ',
+    "14.25",
+  ),
+  new _ProductListTile(
+    'assets/images/product_2.png',
+    'Harajuku shirt ',
+    '16.25',
+  ),
+  new _ProductListTile('assets/images/product_3.png', 'Novelty ', "14.25"),
+  new _ProductListTile(
+    'assets/images/product_4.png',
+    'Harajuku ',
+    '16.25',
+  ),
+  new _ProductListTile(
+    'assets/images/product_3.png',
     'Novelty ',
     "14.25",
   ),
@@ -87,6 +103,7 @@ class ProductListPageState extends State<ProductListPage> {
               ),
             ),
             new Container(
+              margin: new EdgeInsets.only(top: 16.0),
               decoration: new BoxDecoration(
                 color: const Color(0xFFf9f9f9),
               ),
@@ -100,7 +117,7 @@ class ProductListPageState extends State<ProductListPage> {
                       'Filter',
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                         fontFamily: 'avenir_black',
                       ),
                     ),
@@ -110,7 +127,8 @@ class ProductListPageState extends State<ProductListPage> {
                       //  Navigator.pop(context);
                     },
                     child: new Container(
-                      height: 15.0,
+                      margin: new EdgeInsets.only(left: 16.0),
+                      height: 10.0,
                       child: new Image.asset(
                         "assets/images/triangle_down.png",
                       ),
@@ -121,9 +139,9 @@ class ProductListPageState extends State<ProductListPage> {
             ),
             new Flexible(
               child: new GridView.count(
-                childAspectRatio: 1.0,
-                crossAxisCount: 3,
-                mainAxisSpacing: 10.0,
+                childAspectRatio: .70,
+                crossAxisCount: 2,
+                mainAxisSpacing: 20.0,
                 children: _tiles.map((_ProductListTile item) {
                   return new GridTile(
                     child: new Container(
@@ -133,42 +151,40 @@ class ProductListPageState extends State<ProductListPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            new Expanded(
-                              child: new Container(
-                                height: 150.0,
-                                width: 100.0,
-                                child: new Image.asset(
-                                  item.imageUrl,
-                                  fit: BoxFit.fill,
+                            new Container(
+                              height: 150.0,
+                              width: 80.0,
+                              child: new Image.asset(
+                                item.imageUrl,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            new Container(
+                              margin: new EdgeInsets.only(top: 20.0),
+                              child: new Text(
+                                item.itemName,
+                                textAlign: TextAlign.center,
+                                style: new TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.0,
+                                  fontFamily: 'helvetica_neue_medium',
+                                  letterSpacing: 0.56,
                                 ),
                               ),
                             ),
-                            new Expanded(
-                              child: new Container(
-                                child: new Text(
-                                  item.itemName,
-                                  textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16.0,
-                                    fontFamily: 'helvetica_neue_medium',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            new Expanded(
-                                child: new Container(
-                              // margin: new EdgeInsets.only(top: 25.0),
+                            new Container(
+                              margin: new EdgeInsets.only(top: 15.0),
                               child: new Text(
                                 item.itemDescription,
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
-                                  color: const Color(0xFF33b17c),
+                                  color: Colors.black,
                                   fontSize: 16.0,
-                                  fontFamily: 'avenir_black',
+                                  fontFamily: 'helvetica_neue_light',
+                                  letterSpacing: 0.56,
                                 ),
                               ),
-                            )),
+                            ),
                           ],
                         ),
                       ),

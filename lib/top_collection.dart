@@ -11,8 +11,12 @@ class TopCollectionPageState extends State<TopCollectionPage> {
       body: new Container(
         child: new Column(
           children: <Widget>[
-            topSection,
-            bottomSection,
+            new Expanded(
+              child: topSection,
+            ),
+            new Expanded(
+              child: bottomSection,
+            ),
           ],
         ),
       ),
@@ -137,145 +141,165 @@ class TopCollectionPageState extends State<TopCollectionPage> {
   Widget bottomSection = new Container(
     child: new Column(
       children: <Widget>[
-        new Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            new Expanded(
-              child: new Container(
-                child: new Column(
-                  children: <Widget>[
-                    new Container(
-                      alignment: Alignment.center,
-                      child: new Text(
-                        'Christmas is back !',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                          color: Colors.black,
-                          fontSize: 12.0,
-                          fontFamily: 'helvetica_neue_light',
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      alignment: Alignment.center,
-                      child: new Text(
-                        'Wide collection of santa themed clothes for your christmas party.',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                          color: Colors.black,
-                          fontSize: 10.0,
-                          fontFamily: 'helvetica_neue_light',
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      // margin: new EdgeInsets.only(top: 16.0, bottom: 8.0),
-                      child: new FlatButton(
-                        child: new Container(
-                          padding: new EdgeInsets.only(
-                              left: 5.0, right: 5.0, top: 5.0, bottom: 5.0),
-                          decoration: new BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            border: new Border.all(
-                              color: Colors.black,
-                              width: 1.0,
-                            ),
-                          ),
-                          child: new Text(
-                            'Get them!',
-                            style: new TextStyle(
-                              color: Colors.black,
-                              fontSize: 10.0,
-                              fontFamily: 'helvetica_neue_medium',
-                            ),
-                            textAlign: TextAlign.center,
+        new Flexible(
+          child: new Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              new Expanded(
+                child: new Container(
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: new EdgeInsets.only(
+                      top: 16.0, left: 8.0, right: 8.0, bottom: 8.0),
+                  alignment: Alignment.center,
+                  child: new Column(
+                    children: <Widget>[
+                      new Container(
+                        alignment: Alignment.center,
+                        child: new Text(
+                          'Christmas is back !',
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontFamily: 'helvetica_neue_light',
                           ),
                         ),
-                        onPressed: () {},
                       ),
-                    ),
-                  ],
+                      new Container(
+                        margin: new EdgeInsets.only(top: 8.0),
+                        alignment: Alignment.center,
+                        child: new Text(
+                          'Wide collection of santa themed clothes for your christmas party.',
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.black,
+                            fontSize: 12.0,
+                            fontFamily: 'helvetica_neue_light',
+                          ),
+                        ),
+                      ),
+                      new Container(
+                        margin: new EdgeInsets.only(top: 8.0),
+                        child: new FlatButton(
+                          child: new Container(
+                            padding: new EdgeInsets.only(
+                                left: 10.0, right: 10.0, top: 8.0, bottom: 8.0),
+                            decoration: new BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.rectangle,
+                              border: new Border.all(
+                                color: Colors.black,
+                                width: 1.0,
+                              ),
+                            ),
+                            child: new Text(
+                              'Get them!',
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.0,
+                                fontFamily: 'helvetica_neue_medium',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            new Expanded(
-              child: new Container(
-                child: new Image.asset(
-                  "assets/images/image_top_collection.png",
+              new Expanded(
+                child: new Container(
+                  child: new Image.asset(
+                    "assets/images/image_top_collection.png",
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        new Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            new Expanded(
-              child: new Container(
-                child: new Image.asset(
-                  "assets/images/image_top_collection_winter.png",
+        new Flexible(
+          child: new Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              new Expanded(
+                child: new Container(
+                  child: new Image.asset(
+                    "assets/images/image_top_collection_winter.png",
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-            new Expanded(
-              child: new Container(
-                child: new Column(
-                  children: <Widget>[
-                    new Container(
-                      child: new Text(
-                        'Winter escape',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                          color: Colors.black,
-                          fontSize: 12.0,
-                          fontFamily: 'helvetica_neue_light',
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      child: new Text(
-                        'Protect your dear ones from winter with our wide range of winter clothes.',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                          color: Colors.black,
-                          fontSize: 10.0,
-                          fontFamily: 'helvetica_neue_light',
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      // margin: new EdgeInsets.only(top: 16.0, bottom: 8.0),
-                      child: new FlatButton(
-                        child: new Container(
-                          padding: new EdgeInsets.only(
-                              left: 5.0, right: 5.0, top: 5.0, bottom: 5.0),
-                          decoration: new BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            border: new Border.all(
-                              color: Colors.black,
-                              width: 1.0,
-                            ),
-                          ),
-                          child: new Text(
-                            'Get them!',
-                            style: new TextStyle(
-                              color: Colors.black,
-                              fontSize: 10.0,
-                              fontFamily: 'helvetica_neue_medium',
-                            ),
-                            textAlign: TextAlign.center,
+              new Expanded(
+                child: new Container(
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  padding: new EdgeInsets.only(
+                      top: 16.0, left: 8.0, right: 8.0, bottom: 8.0),
+                  alignment: Alignment.center,
+                  child: new Column(
+                    children: <Widget>[
+                      new Container(
+                        child: new Text(
+                          'Winter escape',
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontFamily: 'helvetica_neue_light',
                           ),
                         ),
-                        onPressed: () {},
                       ),
-                    ),
-                  ],
+                      new Container(
+                        margin: new EdgeInsets.only(top: 8.0),
+                        child: new Text(
+                          'Protect your dear ones from winter with our wide range of winter clothes.',
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.black,
+                            fontSize: 12.0,
+                            fontFamily: 'helvetica_neue_light',
+                          ),
+                        ),
+                      ),
+                      new Container(
+                        margin: new EdgeInsets.only(top: 8.0),
+                        child: new FlatButton(
+                          child: new Container(
+                            padding: new EdgeInsets.only(
+                                left: 10.0, right: 10.0, top: 8.0, bottom: 8.0),
+                            decoration: new BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.rectangle,
+                              border: new Border.all(
+                                color: Colors.black,
+                                width: 1.0,
+                              ),
+                            ),
+                            child: new Text(
+                              'Get them!',
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.0,
+                                fontFamily: 'helvetica_neue_medium',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     ),

@@ -6,11 +6,11 @@ List<_ShopItemTile> _tiles = <_ShopItemTile>[
     'Outfits',
   ),
   new _ShopItemTile(
-    'assets/images/accesories.png',
+    'assets/images/accesorices.png',
     'Accesories',
   ),
   new _ShopItemTile(
-    'assets/images/book.png',
+    'assets/images/books.png',
     'Books',
   ),
   new _ShopItemTile(
@@ -112,6 +112,8 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       //  Navigator.pop(context);
                     },
                     child: new Container(
+                      height: 12.0,
+                      width: 12.0,
                       child: new Image.asset(
                         "assets/images/triangle_down.png",
                       ),
@@ -128,32 +130,30 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                 children: _tiles.map((_ShopItemTile item) {
                   return new GridTile(
                     child: new Container(
-                      // margin: new EdgeInsets.only(left: 10.0, right: 10.0),
+                      margin: new EdgeInsets.only(left: 10.0, right: 10.0),
                       child: new Container(
                         child: new Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            new Expanded(
-                              child: new Container(
-                                height: 150.0,
-                                width: 100.0,
-                                child: new Image.asset(
-                                  item.imageUrl,
-                                  fit: BoxFit.fill,
-                                ),
+                            new Container(
+                              height: 50.0,
+                              width: 50.0,
+                              child: new Image.asset(
+                                item.imageUrl,
+                                fit: BoxFit.fill,
                               ),
                             ),
-                            new Expanded(
-                              child: new Container(
-                                child: new Text(
-                                  item.itemName,
-                                  textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16.0,
-                                    fontFamily: 'helvetica_neue_medium',
-                                  ),
+                            new Container(
+                              margin: new EdgeInsets.only(top: 10.0),
+                              child: new Text(
+                                item.itemName,
+                                textAlign: TextAlign.center,
+                                style: new TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.0,
+                                  fontFamily: 'helvetica_neue_medium',
+                                  letterSpacing: 0.59,
                                 ),
                               ),
                             ),
@@ -165,51 +165,6 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                 }).toList(),
               ),
             ),
-
-            /* new Expanded(
-              child: new GridView.count(
-                childAspectRatio: 2.0,
-                crossAxisCount: 1,
-                mainAxisSpacing: 2.0,
-                children: _tiles.map((_ShopItemTile item) {
-                  return new GridTile(
-                    child: new Container(
-                      margin: new EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: new Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Container(
-                            // height: 50.0,
-                            // width: 50.0,
-                            child: new Image.asset(
-                              item.imageUrl,
-                              fit: BoxFit.scaleDown,
-                            ),
-                          ),
-                          new Container(
-                            alignment: Alignment.center,
-                            decoration: new BoxDecoration(
-                              color: const Color(0xFFfafafa),
-                            ),
-                            // margin: new EdgeInsets.only(top: 25.0),
-                            child: new Text(
-                              item.itemName,
-                              textAlign: TextAlign.center,
-                              style: new TextStyle(
-                                color: const Color(0xFF33b17c),
-                                fontSize: 16.0,
-                                fontFamily: 'avenir_black',
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                }).toList(),
-              ),
-            ),*/
             new Container(
               margin: new EdgeInsets.all(2.0),
               padding: new EdgeInsets.all(24.0),
