@@ -61,6 +61,7 @@ flutter:
    - assets/images/product_2.png
    - assets/images/product_3.png
    - assets/images/product_4.png
+   - assets/images/stars.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

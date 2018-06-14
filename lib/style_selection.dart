@@ -235,7 +235,7 @@ class ButtonSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new TopCollectionPage()),
+                        builder: (context) => new ShippingDetailPage()),
                   );
                 }),
           ),

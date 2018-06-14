@@ -734,11 +734,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
               children: <Widget>[
                 new GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => new UserProfilePage()),
-                    );
+                    _showAlert();
                   },
                   child: Container(
                     padding: new EdgeInsets.all(16.0),
@@ -762,5 +758,83 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
         ),
       ),
     );
+  }
+
+  // alert
+
+  void _showAlert() {
+    AlertDialog dialog = new AlertDialog(
+      content: new Container(
+        width: 290.0,
+        height: 430.0,
+        decoration: new BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.rectangle,
+        ),
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            new Container(
+              child: new Image.asset(
+                "assets/images/stars.png",
+                fit: BoxFit.fill,
+              ),
+            ),
+            new Container(
+              child: new Text(
+                'Thank you! ',
+                textAlign: TextAlign.center,
+                style: new TextStyle(
+                  color: Colors.black,
+                  fontSize: 30.0,
+                  fontFamily: 'avenir_heavy',
+                  letterSpacing: 0.24,
+                ),
+              ),
+            ),
+            new Container(
+              child: new Text(
+                'Your order has been successful placed. ',
+                textAlign: TextAlign.center,
+                style: new TextStyle(
+                  color: Colors.black,
+                  fontSize: 13.0,
+                  fontFamily: 'avenir_book',
+                  letterSpacing: -0.08,
+                ),
+              ),
+            ),
+            new Container(
+              child: new FlatButton(
+                  child: new Container(
+                    padding: new EdgeInsets.only(
+                        left: 65.0, right: 65.0, top: 15.0, bottom: 15.0),
+                    decoration: new BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: const Color(0xFF33b17c),
+                      borderRadius: new BorderRadius.all(
+                          new Radius.elliptical(10.0, 50.0)),
+                      border: new Border.all(
+                        color: const Color(0xFF33b17c),
+                      ),
+                    ),
+                    child: new Text(
+                      'OK',
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        fontFamily: 'avenir_medium',
+                      ),
+                    ),
+                  ),
+                  onPressed: () async {}),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    showDialog(context: context, child: dialog);
   }
 }
