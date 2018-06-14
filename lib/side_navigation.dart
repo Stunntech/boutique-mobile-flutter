@@ -32,6 +32,16 @@ class SideNavigationPage extends StatefulWidget {
 }
 
 class SideNavigationPageState extends State<SideNavigationPage> {
+  bool visibilityTag = false;
+
+  void _changed(bool visibility, String field) {
+    setState(() {
+      if (field == "tag") {
+        visibilityTag = visibility;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -109,11 +119,15 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
+                      visibilityTag
+                          ? _changed(false, "tag")
+                          : _changed(true, "tag");
                       //  Navigator.pop(context);
                     },
                     child: new Container(
-                      height: 12.0,
-                      width: 12.0,
+                      padding: new EdgeInsets.all(6.0),
+                      height: 25.0,
+                      width: 25.0,
                       child: new Image.asset(
                         "assets/images/triangle_down.png",
                       ),
@@ -122,49 +136,52 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                 ],
               ),
             ),
-            new Flexible(
-              child: new GridView.count(
-                childAspectRatio: 1.0,
-                crossAxisCount: 3,
-                mainAxisSpacing: 10.0,
-                children: _tiles.map((_ShopItemTile item) {
-                  return new GridTile(
-                    child: new Container(
-                      margin: new EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: new Container(
-                        child: new Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new Container(
-                              height: 50.0,
-                              width: 50.0,
-                              child: new Image.asset(
-                                item.imageUrl,
-                                fit: BoxFit.fill,
+            visibilityTag
+                ? new Flexible(
+                    child: new GridView.count(
+                      childAspectRatio: 1.0,
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 10.0,
+                      children: _tiles.map((_ShopItemTile item) {
+                        return new GridTile(
+                          child: new Container(
+                            margin:
+                                new EdgeInsets.only(left: 10.0, right: 10.0),
+                            child: new Container(
+                              child: new Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  new Container(
+                                    height: 50.0,
+                                    width: 50.0,
+                                    child: new Image.asset(
+                                      item.imageUrl,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  new Container(
+                                    margin: new EdgeInsets.only(top: 10.0),
+                                    child: new Text(
+                                      item.itemName,
+                                      textAlign: TextAlign.center,
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16.0,
+                                        fontFamily: 'helvetica_neue_medium',
+                                        letterSpacing: 0.59,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            new Container(
-                              margin: new EdgeInsets.only(top: 10.0),
-                              child: new Text(
-                                item.itemName,
-                                textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16.0,
-                                  fontFamily: 'helvetica_neue_medium',
-                                  letterSpacing: 0.59,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                          ),
+                        );
+                      }).toList(),
                     ),
-                  );
-                }).toList(),
-              ),
-            ),
+                  )
+                : new Container(),
             new Container(
               margin: new EdgeInsets.all(2.0),
               padding: new EdgeInsets.all(24.0),
