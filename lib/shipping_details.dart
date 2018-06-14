@@ -768,8 +768,9 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
         width: 290.0,
         height: 430.0,
         decoration: new BoxDecoration(
-          color: Colors.white,
           shape: BoxShape.rectangle,
+          color: Colors.white,
+          borderRadius: new BorderRadius.all(new Radius.circular(70.0)),
         ),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -813,8 +814,8 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                     decoration: new BoxDecoration(
                       shape: BoxShape.rectangle,
                       color: const Color(0xFF33b17c),
-                      borderRadius: new BorderRadius.all(
-                          new Radius.elliptical(10.0, 50.0)),
+                      borderRadius:
+                          new BorderRadius.all(new Radius.circular(10.0)),
                       border: new Border.all(
                         color: const Color(0xFF33b17c),
                       ),
@@ -837,4 +838,94 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
 
     showDialog(context: context, child: dialog);
   }
+
+  /* void _showAlert() {
+    AlertDialog dialog = new AlertDialog(
+      content: new Container(
+        decoration: new BoxDecoration(
+          color: const Color(0xFFFFFFFF),
+        ),
+        child: new Container(
+          padding: new EdgeInsets.only(
+              left: 65.0, right: 65.0, top: 15.0, bottom: 15.0),
+          width: 240.0,
+          height: 140.0,
+          decoration: new BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: const Color(0xFFFFFFFF),
+            borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+            border: new Border.all(
+              color: const Color(0xFF33b17c),
+            ),
+          ),
+          child: new Column(
+            children: <Widget>[
+              // dialog top
+              new Expanded(
+                child: new Row(
+                  children: <Widget>[
+                    new Container(
+                      padding: new EdgeInsets.all(10.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: new Text(
+                        'Rate',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                          fontFamily: 'helvetica_neue_light',
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // dialog centre
+              new Expanded(
+                child: new Container(
+                    child: new TextField(
+                  decoration: new InputDecoration(
+                    border: InputBorder.none,
+                    filled: false,
+                    contentPadding: new EdgeInsets.only(
+                        left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                    hintText: ' add review',
+                    hintStyle: new TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 12.0,
+                      fontFamily: 'helvetica_neue_light',
+                    ),
+                  ),
+                )),
+              ),
+
+              // dialog bottom
+              new Expanded(
+                child: new Container(
+                  padding: new EdgeInsets.all(16.0),
+                  decoration: new BoxDecoration(
+                    color: const Color(0xFF33b17c),
+                  ),
+                  child: new Text(
+                    'Rate product',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      fontFamily: 'helvetica_neue_light',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    showDialog(context: context, child: dialog);
+  }*/
 }
