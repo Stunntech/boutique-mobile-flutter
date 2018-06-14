@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'style_selection.dart';
 import 'side_navigation.dart';
+import 'shopping_cart.dart';
 
 class GenderSelectionPage extends StatefulWidget {
   GenderSelectionPageState createState() => GenderSelectionPageState();
@@ -73,7 +74,7 @@ class CustomAppBar extends StatelessWidget {
               Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new SideNavigationPage()),
+                    builder: (context) => new MyShoppingCartPage()),
               );
             },
             child: new Container(
