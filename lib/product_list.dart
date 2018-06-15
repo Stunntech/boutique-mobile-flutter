@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'filter.dart';
 
 List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(
@@ -124,7 +125,11 @@ class ProductListPageState extends State<ProductListPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
-                      //  Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new FilterPage()),
+                      );
                     },
                     child: new Container(
                       margin: new EdgeInsets.only(left: 16.0),
