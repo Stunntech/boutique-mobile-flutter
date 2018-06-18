@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'filter.dart';
+import 'product_detail.dart';
 
 List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(
@@ -151,7 +152,7 @@ class ProductListPageState extends State<ProductListPage> {
                   return new GridTile(
                     child: new Container(
                       // margin: new EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: new Container(
+                      child: new GestureDetector(
                         child: new Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -192,6 +193,13 @@ class ProductListPageState extends State<ProductListPage> {
                             ),
                           ],
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => new ProductDetailPage()),
+                          );
+                        },
                       ),
                     ),
                   );
