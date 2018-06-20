@@ -99,240 +99,254 @@ class FilterPageState extends State<FilterPage> {
                 color: const Color(0xFF979797),
               ),
             ),
-
-            new Container(
-              padding: new EdgeInsets.all(24.0),
-              decoration: new BoxDecoration(
-                color: const Color(0xFFececec),
-              ),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  new Container(
-                    child: new Text(
-                      'CATEGORIES',
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                        color: Colors.black,
-                        fontSize: 18.0,
-                        fontFamily: 'helvetica_neue_medium',
-                        letterSpacing: 0.69,
+            new Expanded(
+              child: new NestedScrollView(
+                headerSliverBuilder:
+                    (BuildContext context, bool innerBoxIsScrolled) {
+                  return <Widget>[];
+                },
+                body: new Column(
+                  children: <Widget>[
+                    new Container(
+                      padding: new EdgeInsets.all(24.0),
+                      decoration: new BoxDecoration(
+                        color: const Color(0xFFececec),
                       ),
-                    ),
-                  ),
-                  new GestureDetector(
-                    onTap: () {
-                      visibilityCategory
-                          ? _changed(false, "category")
-                          : _changed(true, "category");
-                      //  Navigator.pop(context);
-                    },
-                    child: new Container(
-                      padding: new EdgeInsets.all(6.0),
-                      height: 25.0,
-                      width: 25.0,
-                      child: new Image.asset(
-                        "assets/images/triangle_down.png",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            visibilityCategory
-                ? new Flexible(
-                    child: new GridView.count(
-                      childAspectRatio: 2.0,
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10.0,
-                      children: _kCategoryTiles.map((_FilterItemTile item) {
-                        return new GridTile(
-                          child: new Container(
-                            margin: new EdgeInsets.all(10.0),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
                             child: new Text(
-                              item.itemName,
-                              textAlign: TextAlign.center,
+                              'CATEGORIES',
+                              textAlign: TextAlign.left,
                               style: new TextStyle(
                                 color: Colors.black,
-                                fontSize: 16.0,
+                                fontSize: 18.0,
                                 fontFamily: 'helvetica_neue_medium',
-                                letterSpacing: 0.59,
+                                letterSpacing: 0.69,
                               ),
                             ),
                           ),
-                        );
-                      }).toList(),
-                    ),
-                  )
-                : new Container(),
-
-            new Container(
-              margin: new EdgeInsets.all(2.0),
-              padding: new EdgeInsets.all(24.0),
-              decoration: new BoxDecoration(
-                color: const Color(0xFFececec),
-              ),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  new Container(
-                    child: new Text(
-                      'BRAND',
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                        color: Colors.black,
-                        fontSize: 18.0,
-                        fontFamily: 'helvetica_neue_medium',
-                        letterSpacing: 0.69,
-                      ),
-                    ),
-                  ),
-                  new GestureDetector(
-                    onTap: () {
-                      visibilityBrand
-                          ? _changed(false, "brand")
-                          : _changed(true, "brand");
-                    },
-                    child: new Container(
-                      child: new Image.asset(
-                        "assets/images/triangle_right.png",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // Brand list
-
-            visibilityBrand
-                ? new Flexible(
-                    child: new GridView.count(
-                      childAspectRatio: 2.0,
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10.0,
-                      children: _kCategoryTiles.map((_FilterItemTile item) {
-                        return new GridTile(
-                          child: new Container(
-                            margin: new EdgeInsets.all(10.0),
-                            child: new Text(
-                              item.itemName,
-                              textAlign: TextAlign.center,
-                              style: new TextStyle(
-                                color: Colors.black,
-                                fontSize: 16.0,
-                                fontFamily: 'helvetica_neue_medium',
-                                letterSpacing: 0.59,
+                          new GestureDetector(
+                            onTap: () {
+                              visibilityCategory
+                                  ? _changed(false, "category")
+                                  : _changed(true, "category");
+                              //  Navigator.pop(context);
+                            },
+                            child: new Container(
+                              padding: new EdgeInsets.all(6.0),
+                              height: 25.0,
+                              width: 25.0,
+                              child: new Image.asset(
+                                "assets/images/triangle_down.png",
                               ),
                             ),
                           ),
-                        );
-                      }).toList(),
+                        ],
+                      ),
                     ),
-                  )
-                : new Container(),
+                    visibilityCategory
+                        ? new Flexible(
+                            child: new GridView.count(
+                              childAspectRatio: 2.0,
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 10.0,
+                              children:
+                                  _kCategoryTiles.map((_FilterItemTile item) {
+                                return new GridTile(
+                                  child: new Container(
+                                    margin: new EdgeInsets.all(10.0),
+                                    child: new Text(
+                                      item.itemName,
+                                      textAlign: TextAlign.center,
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16.0,
+                                        fontFamily: 'helvetica_neue_medium',
+                                        letterSpacing: 0.59,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          )
+                        : new Container(),
 
-            new Container(
-              margin: new EdgeInsets.all(2.0),
-              padding: new EdgeInsets.all(24.0),
-              decoration: new BoxDecoration(
-                color: const Color(0xFFececec),
-              ),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  new Container(
-                    child: new Text(
-                      'COLOUR',
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                        color: Colors.black,
-                        fontSize: 18.0,
-                        fontFamily: 'helvetica_neue_medium',
-                        letterSpacing: 0.69,
+                    new Container(
+                      margin: new EdgeInsets.all(2.0),
+                      padding: new EdgeInsets.all(24.0),
+                      decoration: new BoxDecoration(
+                        color: const Color(0xFFececec),
                       ),
-                    ),
-                  ),
-                  new GestureDetector(
-                    onTap: () {
-                      //  Navigator.pop(context);
-                    },
-                    child: new Container(
-                      child: new Image.asset(
-                        "assets/images/triangle_right.png",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              margin: new EdgeInsets.all(2.0),
-              padding: new EdgeInsets.all(24.0),
-              decoration: new BoxDecoration(
-                color: const Color(0xFFececec),
-              ),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  new Container(
-                    child: new Text(
-                      'SIZE',
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                        fontFamily: 'helvetica_neue_medium',
-                        letterSpacing: 0.69,
-                      ),
-                    ),
-                  ),
-                  new GestureDetector(
-                    onTap: () {
-                      visibilitySize
-                          ? _changed(false, "size")
-                          : _changed(true, "size");
-                    },
-                    child: new Container(
-                      child: new Image.asset(
-                        "assets/images/triangle_right.png",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            visibilitySize
-                ? new Flexible(
-                    child: new GridView.count(
-                      childAspectRatio: 2.0,
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10.0,
-                      children: _kCategoryTiles.map((_FilterItemTile item) {
-                        return new GridTile(
-                          child: new Container(
-                            margin: new EdgeInsets.all(10.0),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
                             child: new Text(
-                              item.itemName,
-                              textAlign: TextAlign.center,
+                              'BRAND',
+                              textAlign: TextAlign.left,
                               style: new TextStyle(
                                 color: Colors.black,
-                                fontSize: 16.0,
+                                fontSize: 18.0,
                                 fontFamily: 'helvetica_neue_medium',
-                                letterSpacing: 0.59,
+                                letterSpacing: 0.69,
                               ),
                             ),
                           ),
-                        );
-                      }).toList(),
+                          new GestureDetector(
+                            onTap: () {
+                              visibilityBrand
+                                  ? _changed(false, "brand")
+                                  : _changed(true, "brand");
+                            },
+                            child: new Container(
+                              child: new Image.asset(
+                                "assets/images/triangle_right.png",
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                : new Container(),
+
+                    // Brand list
+
+                    visibilityBrand
+                        ? new Flexible(
+                            child: new GridView.count(
+                              childAspectRatio: 2.0,
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 10.0,
+                              children:
+                                  _kCategoryTiles.map((_FilterItemTile item) {
+                                return new GridTile(
+                                  child: new Container(
+                                    margin: new EdgeInsets.all(10.0),
+                                    child: new Text(
+                                      item.itemName,
+                                      textAlign: TextAlign.center,
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16.0,
+                                        fontFamily: 'helvetica_neue_medium',
+                                        letterSpacing: 0.59,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          )
+                        : new Container(),
+
+                    new Container(
+                      margin: new EdgeInsets.all(2.0),
+                      padding: new EdgeInsets.all(24.0),
+                      decoration: new BoxDecoration(
+                        color: const Color(0xFFececec),
+                      ),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
+                            child: new Text(
+                              'COLOUR',
+                              textAlign: TextAlign.left,
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.0,
+                                fontFamily: 'helvetica_neue_medium',
+                                letterSpacing: 0.69,
+                              ),
+                            ),
+                          ),
+                          new GestureDetector(
+                            onTap: () {
+                              //  Navigator.pop(context);
+                            },
+                            child: new Container(
+                              child: new Image.asset(
+                                "assets/images/triangle_right.png",
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.all(2.0),
+                      padding: new EdgeInsets.all(24.0),
+                      decoration: new BoxDecoration(
+                        color: const Color(0xFFececec),
+                      ),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
+                            child: new Text(
+                              'SIZE',
+                              textAlign: TextAlign.left,
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.0,
+                                fontFamily: 'helvetica_neue_medium',
+                                letterSpacing: 0.69,
+                              ),
+                            ),
+                          ),
+                          new GestureDetector(
+                            onTap: () {
+                              visibilitySize
+                                  ? _changed(false, "size")
+                                  : _changed(true, "size");
+                            },
+                            child: new Container(
+                              child: new Image.asset(
+                                "assets/images/triangle_right.png",
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    visibilitySize
+                        ? new Flexible(
+                            child: new GridView.count(
+                              childAspectRatio: 2.0,
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 10.0,
+                              children:
+                                  _kCategoryTiles.map((_FilterItemTile item) {
+                                return new GridTile(
+                                  child: new Container(
+                                    margin: new EdgeInsets.all(10.0),
+                                    child: new Text(
+                                      item.itemName,
+                                      textAlign: TextAlign.center,
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16.0,
+                                        fontFamily: 'helvetica_neue_medium',
+                                        letterSpacing: 0.59,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          )
+                        : new Container(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

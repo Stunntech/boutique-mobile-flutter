@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'shipping_details.dart';
+import 'shopping_cart.dart';
 
 class ProductDetailPage extends StatefulWidget {
   ProductDetailPageState createState() => ProductDetailPageState();
@@ -80,7 +81,12 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
-                      // Navigator.pop(context);
+
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new MyShoppingCartPage()),
+                      );
                     },
                     child: new Container(
                       alignment: Alignment.topRight,
@@ -137,7 +143,6 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ),
             ),
-
             // item name
             new Container(
               margin: new EdgeInsets.only(top: 25.0),

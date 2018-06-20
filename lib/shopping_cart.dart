@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'shipping_details.dart';
+import 'side_navigation.dart';
 
 List<_MyShoppingCartTile> _tiles = <_MyShoppingCartTile>[
   new _MyShoppingCartTile(
@@ -44,7 +45,11 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                 children: <Widget>[
                   new GestureDetector(
                     onTap: () {
-                      //  Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new SideNavigationPage()),
+                      );
                     },
                     child: new Container(
                       margin: new EdgeInsets.only(top: 20.0),

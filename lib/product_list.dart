@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'filter.dart';
 import 'product_detail.dart';
+import 'side_navigation.dart';
+import 'shopping_cart.dart';
 
 List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(
@@ -50,24 +52,24 @@ class ProductListPageState extends State<ProductListPage> {
           color: Colors.white,
         ),
         child: new Column(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             new Container(
               height: 60.0,
               padding: new EdgeInsets.only(top: 40.0, left: 16.0, right: 16.0),
               child: new Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   new Expanded(
                     child: new GestureDetector(
                       onTap: () {
-                        //  Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new SideNavigationPage()),
+                        );
                       },
                       child: new Container(
                         alignment: Alignment.topLeft,
-                        // margin: new EdgeInsets.only(top: 20.0),
-                        // padding: new EdgeInsets.all(8.0),
                         child: new Image.asset(
                           "assets/images/menu_black.png",
                         ),
@@ -91,7 +93,11 @@ class ProductListPageState extends State<ProductListPage> {
                   new Expanded(
                     child: new GestureDetector(
                       onTap: () {
-                        // Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new MyShoppingCartPage()),
+                        );
                       },
                       child: new Container(
                         alignment: Alignment.centerRight,
@@ -151,7 +157,6 @@ class ProductListPageState extends State<ProductListPage> {
                 children: _tiles.map((_ProductListTile item) {
                   return new GridTile(
                     child: new Container(
-                      // margin: new EdgeInsets.only(left: 10.0, right: 10.0),
                       child: new GestureDetector(
                         child: new Column(
                           crossAxisAlignment: CrossAxisAlignment.center,

@@ -4,6 +4,8 @@ import 'item_category_selection.dart';
 import 'my_orders.dart';
 import 'shipping_details.dart';
 import 'product_list.dart';
+import 'side_navigation.dart';
+import 'shopping_cart.dart';
 
 class StyleSelectionPage extends StatefulWidget {
   StyleSelectionPageState createState() => StyleSelectionPageState();
@@ -45,7 +47,12 @@ class CustomAppBar extends StatelessWidget {
         children: <Widget>[
           new GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new SideNavigationPage()),
+              );
+
             },
             child: new Container(
               margin: new EdgeInsets.only(top: 20.0),
@@ -69,7 +76,11 @@ class CustomAppBar extends StatelessWidget {
           ),
           new GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new MyShoppingCartPage()),
+              );
             },
             child: new Container(
               alignment: Alignment.topRight,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'user_profile.dart';
+import 'shopping_cart.dart';
+import 'side_navigation.dart';
 
 class ShippingDetailPage extends StatefulWidget {
   ShippingDetailPageState createState() => ShippingDetailPageState();
@@ -10,6 +12,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
+        color: Colors.white,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -25,7 +28,11 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                 children: <Widget>[
                   new GestureDetector(
                     onTap: () {
-                      //  Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new SideNavigationPage()),
+                      );
                     },
                     child: new Container(
                       margin: new EdgeInsets.only(top: 20.0),
@@ -49,7 +56,11 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
-                      // Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new MyShoppingCartPage()),
+                      );
                     },
                     child: new Container(
                       alignment: Alignment.topRight,

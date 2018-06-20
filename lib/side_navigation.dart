@@ -56,12 +56,11 @@ class SideNavigationPageState extends State<SideNavigationPage> {
             new Container(
               padding: new EdgeInsets.all(16.0),
               child: new Row(
-                // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   new GestureDetector(
                     onTap: () {
-                      //  Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     child: new Container(
                       width: 40.0,
@@ -122,7 +121,6 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       visibilityTag
                           ? _changed(false, "tag")
                           : _changed(true, "tag");
-                      //  Navigator.pop(context);
                     },
                     child: new Container(
                       padding: new EdgeInsets.all(6.0),
