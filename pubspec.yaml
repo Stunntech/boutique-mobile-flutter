@@ -86,9 +86,12 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-         - family: avenir
+         - family: avenir_black
            fonts:
              - asset: assets/fonts/avenir_black.ttf
+
+         - family: avenir_book
+           fonts:
              - asset: assets/fonts/avenir_book.ttf
              - asset: assets/fonts/avenir_heavy.ttf
              - asset: assets/fonts/avenir_light.ttf
@@ -96,8 +99,14 @@ flutter:
 
          - family: helvetica_neue
            fonts:
-              - asset: assets/fonts/helvetica_neue.ttf
+           - asset: assets/fonts/helvetica_neue.ttf
+
+         - family: helvetica_neue_bold
+           fonts:
               - asset: assets/fonts/helvetica_neue_bold.ttf
+
+         - family: helvetica_neue_light
+           fonts:
               - asset: assets/fonts/helvetica_neue_light.ttf
               - asset: assets/fonts/helvetica_neue_medium.ttf
 

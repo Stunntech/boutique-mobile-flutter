@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'user_profile.dart';
 import 'shopping_cart.dart';
 import 'side_navigation.dart';
+import 'CustomShowDialog.dart';
 
 class ShippingDetailPage extends StatefulWidget {
   ShippingDetailPageState createState() => ShippingDetailPageState();
@@ -773,7 +774,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
 
   // alert
 
-  void _showAlert() {
+/*  void _showAlert() {
     AlertDialog dialog = new AlertDialog(
       content: new Container(
         width: 290.0,
@@ -848,73 +849,80 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
     );
 
     showDialog(context: context, child: dialog);
-  }
+  }*/
 
-  /* void _showAlert() {
-    AlertDialog dialog = new AlertDialog(
+  void _showAlert() {
+    CustomAlertDialog dialog = new CustomAlertDialog(
       content: new Container(
+        width: 260.0,
+        height: 260.0,
         decoration: new BoxDecoration(
-          color: const Color(0xFFFFFFFF),
+          shape: BoxShape.rectangle,
+          color: const Color(0xFFFFFF),
+          borderRadius: new BorderRadius.all(new Radius.circular(32.0)),
         ),
-        child: new Container(
-          padding: new EdgeInsets.only(
-              left: 65.0, right: 65.0, top: 15.0, bottom: 15.0),
-          width: 240.0,
-          height: 140.0,
-          decoration: new BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: const Color(0xFFFFFFFF),
-            borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
-            border: new Border.all(
-              color: const Color(0xFF33b17c),
-            ),
-          ),
-          child: new Column(
-            children: <Widget>[
-              // dialog top
-              new Expanded(
-                child: new Row(
-                  children: <Widget>[
-                    new Container(
-                      padding: new EdgeInsets.all(10.0),
-                      decoration: new BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: new Text(
-                        'Rate',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                          fontFamily: 'helvetica_neue_light',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            // dialog top
+            new Expanded(
+              child: new Row(
+                children: <Widget>[
+                  new Container(
+                    padding: new EdgeInsets.all(8.0),
+                    decoration: new BoxDecoration(
+                      color: Colors.white,
                     ),
-                  ],
-                ),
-              ),
-
-              // dialog centre
-              new Expanded(
-                child: new Container(
-                    child: new TextField(
-                  decoration: new InputDecoration(
-                    border: InputBorder.none,
-                    filled: false,
-                    contentPadding: new EdgeInsets.only(
-                        left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
-                    hintText: ' add review',
-                    hintStyle: new TextStyle(
-                      color: Colors.grey.shade500,
-                      fontSize: 12.0,
-                      fontFamily: 'helvetica_neue_light',
+                    child: new Text(
+                      'Rate',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_light',
+                        letterSpacing: 0.83,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                )),
+                ],
               ),
+            ),
 
-              // dialog bottom
-              new Expanded(
+            new Container(
+              // margin: new EdgeInsets.only(top: 16.0),
+              padding: new EdgeInsets.all(0.5),
+              decoration: new BoxDecoration(
+                color: Colors.grey,
+              ),
+            ),
+
+            // dialog centre
+            new Expanded(
+              child: new Container(
+                  child: new TextField(
+                decoration: new InputDecoration(
+                  border: InputBorder.none,
+                  filled: false,
+                  contentPadding: new EdgeInsets.only(
+                      left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                  hintText: ' add review',
+                  hintStyle: new TextStyle(
+                    color: Colors.grey.shade500,
+                    fontSize: 20.0,
+                    fontFamily: 'helvetica_neue_light',
+                    letterSpacing: 0.83,
+                  ),
+                ),
+              )),
+              flex: 2,
+            ),
+
+            // dialog bottom
+            new Expanded(
+              child: new GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: new Container(
                   padding: new EdgeInsets.all(16.0),
                   decoration: new BoxDecoration(
@@ -924,19 +932,19 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                     'Rate product',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       fontFamily: 'helvetica_neue_light',
+                      letterSpacing: 0.83,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
-
     showDialog(context: context, child: dialog);
-  }*/
+  }
 }
