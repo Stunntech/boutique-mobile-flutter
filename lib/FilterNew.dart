@@ -205,7 +205,7 @@ class FilterPageState extends State<FilterPage> {
                     children: <Widget>[
                       new GridView.count(
                         shrinkWrap: true,
-                        primary: false,
+                        primary: true,
                         childAspectRatio: 2.0,
                         crossAxisCount: 3,
                         mainAxisSpacing: 10.0,

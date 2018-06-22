@@ -98,8 +98,17 @@ flutter:
          - family: avenir_book
            fonts:
              - asset: assets/fonts/avenir_book.ttf
+
+         - family: avenir_heavy
+           fonts:
              - asset: assets/fonts/avenir_heavy.ttf
+
+         - family: avenir_light
+           fonts:
              - asset: assets/fonts/avenir_light.ttf
+
+         - family: avenir_medium
+           fonts:
              - asset: assets/fonts/avenir_medium.ttf
 
          - family: helvetica_neue
@@ -113,6 +122,9 @@ flutter:
          - family: helvetica_neue_light
            fonts:
               - asset: assets/fonts/helvetica_neue_light.ttf
+
+         - family: helvetica_neue_medium
+           fonts:
               - asset: assets/fonts/helvetica_neue_medium.ttf
 
   #

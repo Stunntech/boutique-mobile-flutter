@@ -270,7 +270,7 @@ class TopSection extends StatelessWidget {
               style: new TextStyle(
                 color: Colors.white,
                 fontSize: 32.0,
-                fontFamily: 'helvetica_neue_light.ttf',
+                fontFamily: 'helvetica_neue_light',
               ),
             ),
           ),
@@ -282,7 +282,7 @@ class TopSection extends StatelessWidget {
               style: new TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
-                fontFamily: 'helvetica_neue_light.ttf',
+                fontFamily: 'helvetica_neue_light',
               ),
             ),
           ),

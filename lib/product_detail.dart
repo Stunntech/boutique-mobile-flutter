@@ -81,7 +81,6 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
-
                       Navigator.push(
                         context,
                         new MaterialPageRoute(
@@ -100,137 +99,184 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                 ],
               ),
             ),
-
-            // viewpager
-
             new Expanded(
-              child: new IconTheme(
-                data: new IconThemeData(color: _kArrowColor),
-                child: new Stack(
-                  children: <Widget>[
-                    new PageView.builder(
-                      physics: new AlwaysScrollableScrollPhysics(),
-                      controller: _controller,
-                      itemCount: _pages.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return _buildPageItem(context, index % _pages.length);
-                      },
-                    ),
-                    new Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: new Container(
-                        color: const Color(0xFF979797).withOpacity(0.5),
-                        margin: EdgeInsets.only(top: 50.0),
-                        padding: const EdgeInsets.all(20.0),
-                        child: new Center(
-                          child: new DotsIndicator(
-                            controller: _controller,
-                            itemCount: _pages.length,
-                            onPageSelected: (int page) {
-                              _controller.animateToPage(
-                                page,
-                                duration: _kDuration,
-                                curve: _kCurve,
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // item name
-            new Container(
-              margin: new EdgeInsets.only(top: 25.0),
-              child: new Text(
-                'Avenir Long Maxi',
-                textAlign: TextAlign.center,
-                style: new TextStyle(
-                  color: Colors.black,
-                  fontSize: 32.0,
-                  fontFamily: 'helvetica_neue_light.ttf',
-                ),
-              ),
-            ),
-
-            new Container(
-              padding: EdgeInsets.only(right: 25.0, left: 35.0),
-              margin: new EdgeInsets.only(top: 15.0),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              child: new ListView(
                 children: <Widget>[
                   new Expanded(
-                    child: new Container(
-                      child: new StarRating(
-                        rating: rating,
-                        onRatingChanged: (rating) =>
-                            setState(() => this.rating = rating),
+                    child: new IconTheme(
+                      data: new IconThemeData(color: _kArrowColor),
+                      child: new Stack(
+                        children: <Widget>[
+                          new PageView.builder(
+                            physics: new AlwaysScrollableScrollPhysics(),
+                            controller: _controller,
+                            itemCount: _pages.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return _buildPageItem(
+                                  context, index % _pages.length);
+                            },
+                          ),
+                          new Positioned(
+                            bottom: 0.0,
+                            left: 0.0,
+                            right: 0.0,
+                            child: new Container(
+                              color: const Color(0xFF979797).withOpacity(0.5),
+                              margin: EdgeInsets.only(top: 50.0),
+                              padding: const EdgeInsets.all(20.0),
+                              child: new Center(
+                                child: new DotsIndicator(
+                                  controller: _controller,
+                                  itemCount: _pages.length,
+                                  onPageSelected: (int page) {
+                                    _controller.animateToPage(
+                                      page,
+                                      duration: _kDuration,
+                                      curve: _kCurve,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  new Expanded(
-                    child: new Container(
-                      // margin: new EdgeInsets.only(top: 25.0),
-                      child: new Text(
-                        'Based on 23 reviews',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15.0,
-                          fontFamily: 'helvetica_neue.ttf',
-                        ),
+                  // item name
+                  new Container(
+                    margin: new EdgeInsets.only(top: 25.0),
+                    child: new Text(
+                      'Avenir Long Maxi',
+                      textAlign: TextAlign.center,
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 32.0,
+                        fontFamily: 'helvetica_neue_light',
                       ),
+                    ),
+                  ),
+
+                  new Container(
+                    padding: EdgeInsets.only(right: 25.0, left: 35.0),
+                    margin: new EdgeInsets.only(top: 15.0),
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        new Expanded(
+                          child: new Container(
+                            child: new StarRating(
+                              rating: rating,
+                              onRatingChanged: (rating) =>
+                                  setState(() => this.rating = rating),
+                            ),
+                          ),
+                        ),
+                        new Expanded(
+                          child: new Container(
+                            // margin: new EdgeInsets.only(top: 25.0),
+                            child: new Text(
+                              'Based on 23 reviews',
+                              textAlign: TextAlign.center,
+                              style: new TextStyle(
+                                color: Colors.grey,
+                                fontSize: 15.0,
+                                fontFamily: 'helvetica_neue',
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  new Container(
+                    width: 200.0,
+                    margin: new EdgeInsets.only(top: 16.0),
+                    padding: new EdgeInsets.all(0.5),
+                    decoration: new BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
+
+                  new Container(
+                    margin: new EdgeInsets.only(top: 25.0),
+                    child: new Text(
+                      'Size',
+                      textAlign: TextAlign.center,
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontFamily: 'helvetica_neue_light',
+                      ),
+                    ),
+                  ),
+
+                  new Container(
+                    margin: new EdgeInsets.only(top: 25.0),
+                    child: new Text(
+                      'Color',
+                      textAlign: TextAlign.center,
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontFamily: 'helvetica_neue_light',
+                      ),
+                    ),
+                  ),
+
+                  new Container(
+                    margin: new EdgeInsets.all(16.0),
+                    padding: new EdgeInsets.all(0.5),
+                    decoration: new BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
+
+                  new Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        new Container(
+                          child: new Text(
+                            "40",
+                            textAlign: TextAlign.center,
+                            style: new TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                              fontFamily: 'helvetica_neue_medium',
+                            ),
+                          ),
+                        ),
+                        new Container(
+                          child: new FlatButton(
+                              child: new Container(
+                                padding: new EdgeInsets.only(
+                                    left: 65.0,
+                                    right: 65.0,
+                                    top: 15.0,
+                                    bottom: 15.0),
+                                decoration: new BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  color: Colors.black,
+                                ),
+                                child: new Text(
+                                  'ADD TO CART',
+                                  style: new TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                    fontFamily: 'helvetica_neue_medium',
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {}),
+                        ),
+                      ],
                     ),
                   ),
                 ],
-              ),
-            ),
-
-            new Container(
-              width: 200.0,
-              margin: new EdgeInsets.only(top: 16.0),
-              padding: new EdgeInsets.all(0.5),
-              decoration: new BoxDecoration(
-                color: Colors.black,
-              ),
-            ),
-
-            new Container(
-              margin: new EdgeInsets.only(top: 25.0),
-              child: new Text(
-                'Size',
-                textAlign: TextAlign.center,
-                style: new TextStyle(
-                  color: Colors.black,
-                  fontSize: 16.0,
-                  fontFamily: 'helvetica_neue_light.ttf',
-                ),
-              ),
-            ),
-
-            new Container(
-              margin: new EdgeInsets.only(top: 25.0),
-              child: new Text(
-                'Color',
-                textAlign: TextAlign.center,
-                style: new TextStyle(
-                  color: Colors.black,
-                  fontSize: 16.0,
-                  fontFamily: 'helvetica_neue_light.ttf',
-                ),
-              ),
-            ),
-
-            new Container(
-              margin: new EdgeInsets.all(16.0),
-              padding: new EdgeInsets.all(0.5),
-              decoration: new BoxDecoration(
-                color: Colors.black,
               ),
             ),
           ],

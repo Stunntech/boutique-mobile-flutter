@@ -207,7 +207,7 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
-                        fontFamily: 'avenir_medium.ttf',
+                        fontFamily: 'avenir_medium',
                       ),
                       textAlign: TextAlign.center,
                     ),
