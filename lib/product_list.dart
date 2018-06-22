@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'filter.dart';
+import 'FilterNew.dart';
 import 'product_detail.dart';
 import 'side_navigation.dart';
 import 'shopping_cart.dart';

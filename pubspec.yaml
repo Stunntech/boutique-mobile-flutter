@@ -62,6 +62,11 @@ flutter:
    - assets/images/product_3.png
    - assets/images/product_4.png
    - assets/images/stars.png
+   - assets/images/color_black.png
+   - assets/images/color_blue.png
+   - assets/images/color_green.png
+   - assets/images/color_red.png
+   - assets/images/color_white.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
