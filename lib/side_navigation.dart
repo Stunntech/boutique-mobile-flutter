@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'user_profile.dart';
+import 'gender_selection.dart';
 
 List<_ShopItemTile> _tiles = <_ShopItemTile>[
   new _ShopItemTile(
@@ -204,7 +206,11 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
-                      //  Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new GenderSelectionPage()),
+                      );
                     },
                     child: new Container(
                       child: new Image.asset(
@@ -275,6 +281,45 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                   new GestureDetector(
                     onTap: () {
                       //  Navigator.pop(context);
+                    },
+                    child: new Container(
+                      child: new Image.asset(
+                        "assets/images/triangle_right.png",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            new Container(
+              margin: new EdgeInsets.all(2.0),
+              padding: new EdgeInsets.all(24.0),
+              decoration: new BoxDecoration(
+                color: const Color(0xFFececec),
+              ),
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  new Container(
+                    child: new Text(
+                      'PROFILE',
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_medium',
+                        letterSpacing: 0.81,
+                      ),
+                    ),
+                  ),
+                  new GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new UserProfilePage()),
+                      );
                     },
                     child: new Container(
                       child: new Image.asset(

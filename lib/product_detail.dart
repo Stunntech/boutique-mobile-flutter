@@ -143,6 +143,57 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/* new Expanded(
+                    child: new IconTheme(
+                      data: new IconThemeData(color: _kArrowColor),
+                      child: new Stack(
+                        children: <Widget>[
+                          new PageView.builder(
+                            physics: new AlwaysScrollableScrollPhysics(),
+                            controller: _controller,
+                            itemCount: _pages.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return _buildPageItem(
+                                  context, index % _pages.length);
+                            },
+                          ),
+                          new Positioned(
+                            bottom: 0.0,
+                            left: 0.0,
+                            right: 0.0,
+                            child: new Container(
+                              color: const Color(0xFF979797).withOpacity(0.5),
+                              margin: EdgeInsets.only(top: 50.0),
+                              padding: const EdgeInsets.all(20.0),
+                              child: new Center(
+                                child: new DotsIndicator(
+                                  controller: _controller,
+                                  itemCount: _pages.length,
+                                  onPageSelected: (int page) {
+                                    _controller.animateToPage(
+                                      page,
+                                      duration: _kDuration,
+                                      curve: _kCurve,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   // item name
                   new Container(
                     margin: new EdgeInsets.only(top: 25.0),
@@ -276,15 +327,8 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+
+                  */
 
 class Page extends StatelessWidget {
   final page;
