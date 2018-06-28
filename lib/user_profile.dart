@@ -22,7 +22,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                 children: <Widget>[
                   new GestureDetector(
                     onTap: () {
-                      //  Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     child: new Container(
                       margin: new EdgeInsets.only(top: 25.0),

@@ -128,7 +128,7 @@ class SignInPageState extends State<SignInPage> {
                       'password': myPasswordController.text.toString(),
                     };
                     Map signInResponse = await signIn(url, signInMap);
-                     Navigator.push(
+                    Navigator.push(
                       context,
                       new MaterialPageRoute(
                           builder: (context) => new GenderSelectionPage()),
