@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'shopping_cart.dart';
+import 'side_navigation.dart';
 
 List<_MyOrderTile> _tiles = <_MyOrderTile>[
   new _MyOrderTile(
@@ -59,6 +61,11 @@ class MyOrderPageState extends State<MyOrderPage> {
                   new GestureDetector(
                     onTap: () {
                       //  Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new SideNavigationPage()),
+                      );
                     },
                     child: new Container(
                       margin: new EdgeInsets.only(top: 20.0),
@@ -82,7 +89,11 @@ class MyOrderPageState extends State<MyOrderPage> {
                   ),
                   new GestureDetector(
                     onTap: () {
-                      // Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new MyShoppingCartPage()),
+                      );
                     },
                     child: new Container(
                       alignment: Alignment.topRight,
@@ -128,7 +139,6 @@ class MyOrderPageState extends State<MyOrderPage> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: <Widget>[
                                     new Container(
-                                      // margin: new EdgeInsets.only(top: 25.0),
                                       child: new Text(
                                         item.itemName,
                                         textAlign: TextAlign.center,
@@ -140,7 +150,6 @@ class MyOrderPageState extends State<MyOrderPage> {
                                       ),
                                     ),
                                     new Container(
-                                      // margin: new EdgeInsets.only(top: 25.0),
                                       child: new Text(
                                         item.itemCost,
                                         textAlign: TextAlign.center,

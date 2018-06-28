@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'side_navigation.dart';
 import 'shopping_cart.dart';
+import 'style_selection.dart';
+import 'top_collection.dart';
 
 List<_CategoryTile> _tiles = <_CategoryTile>[
   new _CategoryTile('assets/images/footwear.png', 'BEST IN FOOTWEAR',
@@ -80,7 +82,6 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
                                 ),
                               ),
                               new Container(
-                                // margin: new EdgeInsets.only(top: 16.0, bottom: 8.0),
                                 child: new FlatButton(
                                   child: new Container(
                                     padding: new EdgeInsets.only(
@@ -106,7 +107,14 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) =>
+                                              new StyleSelectionPage()),
+                                    );
+                                  },
                                 ),
                               ),
                             ],

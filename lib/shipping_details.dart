@@ -284,8 +284,6 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                         ),
                       ),
 
-                      // sdfghj
-
                       new Container(
                         margin: new EdgeInsets.only(top: 10.0),
                         child: new Text(
@@ -560,8 +558,6 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                         ),
                       ),
 
-                      // sdfghj
-
                       new Container(
                         margin: new EdgeInsets.only(top: 10.0),
                         child: new Text(
@@ -775,7 +771,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
   // alert
 
   void _showAlert() {
-    AlertDialog dialog = new AlertDialog(
+    CustomAlertDialog dialog = new CustomAlertDialog(
       content: new Container(
         width: 290.0,
         height: 430.0,
@@ -841,7 +837,9 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                       ),
                     ),
                   ),
-                  onPressed: () async {}),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
             ),
           ],
         ),

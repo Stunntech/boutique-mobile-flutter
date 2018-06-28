@@ -10,7 +10,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class SignUpPageState extends State<SignUpPage> {
-
   String token;
   String status;
   String url =

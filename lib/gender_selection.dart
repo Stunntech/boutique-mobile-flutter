@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'style_selection.dart';
 import 'side_navigation.dart';
 import 'shopping_cart.dart';
+import 'item_category_selection.dart';
 
 class GenderSelectionPage extends StatefulWidget {
   GenderSelectionPageState createState() => GenderSelectionPageState();
@@ -166,11 +167,11 @@ class ButtonSection extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  /*  Navigator.push(
+                  Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new SignUpPage()),
-                  );*/
+                        builder: (context) => new ItemCategorySelectionPage()),
+                  );
                 }),
           ),
           new Container(
@@ -201,7 +202,7 @@ class ButtonSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new StyleSelectionPage()),
+                        builder: (context) => new ItemCategorySelectionPage()),
                   );
                 }),
           ),

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'top_collection.dart';
-import 'item_category_selection.dart';
-import 'my_orders.dart';
-import 'shipping_details.dart';
-import 'product_list.dart';
 import 'side_navigation.dart';
 import 'shopping_cart.dart';
 
@@ -52,7 +48,6 @@ class CustomAppBar extends StatelessWidget {
                 new MaterialPageRoute(
                     builder: (context) => new SideNavigationPage()),
               );
-
             },
             child: new Container(
               margin: new EdgeInsets.only(top: 20.0),
@@ -176,7 +171,7 @@ class ButtonSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new ProductListPage()),
+                        builder: (context) => new TopCollectionPage()),
                   );
                 }),
           ),
@@ -211,7 +206,7 @@ class ButtonSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new ItemCategorySelectionPage()),
+                        builder: (context) => new TopCollectionPage()),
                   );
                 }),
           ),
@@ -246,7 +241,7 @@ class ButtonSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new ShippingDetailPage()),
+                        builder: (context) => new TopCollectionPage()),
                   );
                 }),
           ),

@@ -108,20 +108,20 @@ class ProductDetailPageState extends State<ProductDetailPage> {
             new Expanded(
               child: new Container(
                   child: new TextField(
-                decoration: new InputDecoration(
-                  border: InputBorder.none,
-                  filled: false,
-                  contentPadding: new EdgeInsets.only(
-                      left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
-                  hintText: ' add review',
-                  hintStyle: new TextStyle(
-                    color: Colors.grey.shade500,
-                    fontSize: 20.0,
-                    fontFamily: 'helvetica_neue_light',
-                    letterSpacing: 0.83,
-                  ),
-                ),
-              )),
+                    decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      filled: false,
+                      contentPadding: new EdgeInsets.only(
+                          left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                      hintText: ' add review',
+                      hintStyle: new TextStyle(
+                        color: Colors.grey.shade500,
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_light',
+                        letterSpacing: 0.83,
+                      ),
+                    ),
+                  )),
               flex: 2,
             ),
 
@@ -240,7 +240,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                 children: <Widget>[
                                   new PageView.builder(
                                     physics:
-                                        new AlwaysScrollableScrollPhysics(),
+                                    new AlwaysScrollableScrollPhysics(),
                                     controller: _controller,
                                     itemCount: _pages.length,
                                     itemBuilder:
@@ -411,7 +411,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           new ExpansionTile(
                             title: new Container(
                               padding:
-                                  new EdgeInsets.only(top: 24.0, bottom: 24.0),
+                              new EdgeInsets.only(top: 24.0, bottom: 24.0),
                               child: new Text(
                                 'DESCRIPTION',
                                 textAlign: TextAlign.left,
@@ -440,7 +440,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           new ExpansionTile(
                             title: new Container(
                               padding:
-                                  new EdgeInsets.only(top: 24.0, bottom: 24.0),
+                              new EdgeInsets.only(top: 24.0, bottom: 24.0),
                               child: new Text(
                                 'SPECIFICATION',
                                 textAlign: TextAlign.left,
@@ -469,7 +469,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           new ExpansionTile(
                             title: new Container(
                               padding:
-                                  new EdgeInsets.only(top: 24.0, bottom: 24.0),
+                              new EdgeInsets.only(top: 24.0, bottom: 24.0),
                               child: new Text(
                                 'REVIEWS',
                                 textAlign: TextAlign.left,
@@ -488,7 +488,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                 crossAxisCount: 1,
                                 mainAxisSpacing: 2.0,
                                 children:
-                                    _kReviewTiles.map((_ReviewItemTile item) {
+                                _kReviewTiles.map((_ReviewItemTile item) {
                                   return new GridTile(
                                     child: new Container(
                                       margin: new EdgeInsets.all(16.0),
@@ -496,9 +496,9 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                         children: <Widget>[
                                           new Row(
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                             children: <Widget>[
                                               new Container(
                                                 // margin: new EdgeInsets.only(top: 25.0),
@@ -509,7 +509,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                                     color: Colors.black,
                                                     fontSize: 24.0,
                                                     fontFamily:
-                                                        'helvetica_neue',
+                                                    'helvetica_neue',
                                                   ),
                                                 ),
                                               ),
@@ -524,7 +524,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                           ),
                                           new Container(
                                             margin:
-                                                new EdgeInsets.only(top: 15.0),
+                                            new EdgeInsets.only(top: 15.0),
                                             child: new Text(
                                               item.userReview,
                                               textAlign: TextAlign.start,
@@ -537,7 +537,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                           ),
                                           new Container(
                                             margin:
-                                                new EdgeInsets.only(top: 20.0),
+                                            new EdgeInsets.only(top: 20.0),
                                             padding: new EdgeInsets.all(0.3),
                                             decoration: new BoxDecoration(
                                               color: Colors.black,
@@ -553,7 +553,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           ),
                           new Container(
                             margin:
-                                new EdgeInsets.only(top: 40.0, bottom: 50.0),
+                            new EdgeInsets.only(top: 40.0, bottom: 50.0),
                             alignment: Alignment.center,
                             child: new FlatButton(
                                 child: new Container(
@@ -741,7 +741,7 @@ class StarRating extends StatelessWidget {
     }
     return new InkResponse(
       onTap:
-          onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
+      onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
       child: icon,
     );
   }
@@ -750,7 +750,7 @@ class StarRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Row(
         children:
-            new List.generate(starCount, (index) => buildStar(context, index)));
+        new List.generate(starCount, (index) => buildStar(context, index)));
   }
 }
 

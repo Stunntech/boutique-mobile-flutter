@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                           'Create an account',
                           style: new TextStyle(
                             color: Colors.white,
-                            fontSize: 16.0,
+                            fontSize: 17.0,
                             fontFamily: 'helvetica_neue',
                           ),
                         ),
