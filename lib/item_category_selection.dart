@@ -37,6 +37,7 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
             ),
             new Expanded(
               child: new GridView.count(
+                childAspectRatio: 0.9,
                 crossAxisCount: 2,
                 mainAxisSpacing: 16.0,
                 crossAxisSpacing: 0.0,
@@ -63,21 +64,25 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                     color: Colors.black,
-                                    fontSize: 14.0,
-                                    fontFamily: 'helvetica_neue_medium',
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.2,
+                                    fontFamily: 'avenir_light',
                                   ),
                                 ),
                               ),
                               new Container(
                                 alignment: Alignment.center,
                                 margin: new EdgeInsets.only(top: 8.0),
+                                padding:
+                                    new EdgeInsets.only(left: 8.0, right: 8.0),
                                 child: new Text(
                                   item.itemDescription,
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                     color: Colors.black,
-                                    fontSize: 8.0,
-                                    fontFamily: 'helvetica_neue_medium',
+                                    fontSize: 11.0,
+                                    letterSpacing: 0.25,
+                                    fontFamily: 'avenir_heavy',
                                   ),
                                 ),
                               ),
@@ -101,8 +106,9 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
                                       'SHOP NOW',
                                       style: new TextStyle(
                                         color: Colors.black,
-                                        fontSize: 10.0,
-                                        fontFamily: 'helvetica_neue_medium',
+                                        fontSize: 9.0,
+                                        letterSpacing: 0.19,
+                                        fontFamily: 'avenir_medium',
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
@@ -171,7 +177,7 @@ class TopSection extends StatelessWidget {
                   },
                   child: new Container(
                     margin: new EdgeInsets.only(top: 20.0),
-                    padding: new EdgeInsets.all(8.0),
+                    padding: new EdgeInsets.all(10.0),
                     child: new Image.asset(
                       "assets/images/menu_white.png",
                     ),
@@ -184,8 +190,9 @@ class TopSection extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                       color: Colors.white,
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                       fontFamily: 'avenir_black',
+                      letterSpacing: 0.78,
                     ),
                   ),
                 ),
@@ -200,7 +207,7 @@ class TopSection extends StatelessWidget {
                   child: new Container(
                     alignment: Alignment.topRight,
                     margin: new EdgeInsets.only(top: 20.0),
-                    padding: new EdgeInsets.all(8.0),
+                    padding: new EdgeInsets.all(10.0),
                     child: new Image.asset(
                       "assets/images/shopping_bag_white.png",
                     ),
@@ -218,8 +225,9 @@ class TopSection extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 24.0,
+                fontSize: 22.0,
                 fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.69,
               ),
             ),
           ),
@@ -233,6 +241,7 @@ class TopSection extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 26.0,
                 fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.83,
               ),
             ),
           ),

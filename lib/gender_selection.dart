@@ -52,7 +52,7 @@ class CustomAppBar extends StatelessWidget {
             },
             child: new Container(
               margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(8.0),
+              padding: new EdgeInsets.all(10.0),
               child: new Image.asset(
                 "assets/images/menu_white.png",
               ),
@@ -65,8 +65,9 @@ class CustomAppBar extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 16.0,
+                fontSize: 14.0,
                 fontFamily: 'avenir_black',
+                letterSpacing: 0.78,
               ),
             ),
           ),
@@ -81,7 +82,7 @@ class CustomAppBar extends StatelessWidget {
             child: new Container(
               alignment: Alignment.topRight,
               margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(8.0),
+              padding: new EdgeInsets.all(10.0),
               child: new Image.asset(
                 "assets/images/shopping_bag_white.png",
               ),
@@ -110,8 +111,9 @@ class StaticText extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 24.0,
+                fontSize: 22.0,
                 fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.69,
               ),
             ),
           ),
@@ -123,8 +125,9 @@ class StaticText extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 28.0,
+                fontSize: 26.0,
                 fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.83,
               ),
             ),
           ),
@@ -145,7 +148,7 @@ class ButtonSection extends StatelessWidget {
           new Container(
             child: new FlatButton(
                 child: new Container(
-                  width: 100.0,
+                  width: 130.0,
                   height: 50.0,
                   padding: new EdgeInsets.only(
                       left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
@@ -160,8 +163,9 @@ class ButtonSection extends StatelessWidget {
                     'MEN',
                     style: new TextStyle(
                       color: Colors.white,
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 0.63,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -177,7 +181,7 @@ class ButtonSection extends StatelessWidget {
           new Container(
             child: new FlatButton(
                 child: new Container(
-                  width: 100.0,
+                  width: 130.0,
                   height: 50.0,
                   padding: new EdgeInsets.only(
                       left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
@@ -192,8 +196,9 @@ class ButtonSection extends StatelessWidget {
                     'WOMEN',
                     style: new TextStyle(
                       color: Colors.white,
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 0.63,
                     ),
                     textAlign: TextAlign.center,
                   ),

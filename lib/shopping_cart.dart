@@ -7,16 +7,16 @@ List<_MyShoppingCartTile> _tiles = <_MyShoppingCartTile>[
     'assets/images/img.png',
     'Harajuku shirt ',
     'Clothing',
-    '16.25',
+    '\$ 16.25',
   ),
   new _MyShoppingCartTile(
     'assets/images/img.png',
     'Harajuku  T Shirt',
     'Clothing',
-    "34",
+    "\$ 34",
   ),
   new _MyShoppingCartTile(
-      'assets/images/img_order.png', 'Novelty  Shirt', 'Clothing', "14.25"),
+      'assets/images/img_order.png', 'Novelty  Shirt', 'Clothing', "\$ 14.25"),
 ];
 
 class MyShoppingCartPage extends StatefulWidget {
@@ -66,8 +66,9 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         fontFamily: 'avenir_black',
+                        letterSpacing: 0.78,
                       ),
                     ),
                   ),
@@ -129,7 +130,7 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                                             textAlign: TextAlign.center,
                                             style: new TextStyle(
                                               color: const Color(0xFF989898),
-                                              fontSize: 22.0,
+                                              fontSize: 21.0,
                                               fontFamily: 'avenir_medium',
                                             ),
                                           ),
@@ -143,7 +144,7 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                                             textAlign: TextAlign.center,
                                             style: new TextStyle(
                                               color: const Color(0xFF989898),
-                                              fontSize: 16.0,
+                                              fontSize: 14.0,
                                               fontFamily: 'avenir_medium',
                                             ),
                                           ),
@@ -157,7 +158,7 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                                             textAlign: TextAlign.center,
                                             style: new TextStyle(
                                               color: const Color(0xFF989898),
-                                              fontSize: 16.0,
+                                              fontSize: 14.0,
                                               fontFamily: 'avenir_medium',
                                             ),
                                           ),
@@ -206,7 +207,7 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                       'Proceed to checkout',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18.0,
+                        fontSize: 20.0,
                         fontFamily: 'avenir_medium',
                       ),
                       textAlign: TextAlign.center,

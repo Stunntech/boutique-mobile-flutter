@@ -82,8 +82,8 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
-                        fontFamily: 'avenir_medium',
+                        fontSize: 16.0,
+                        fontFamily: 'avenir_black',
                         letterSpacing: 0.91,
                       ),
                     ),
@@ -112,7 +112,7 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         fontFamily: 'helvetica_neue_medium',
                         letterSpacing: 0.81,
                       ),
@@ -198,7 +198,7 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         fontFamily: 'helvetica_neue_medium',
                         letterSpacing: 0.81,
                       ),
@@ -237,7 +237,7 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         fontFamily: 'helvetica_neue_medium',
                         letterSpacing: 0.81,
                       ),
@@ -272,7 +272,7 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         fontFamily: 'helvetica_neue_medium',
                         letterSpacing: 0.81,
                       ),
@@ -307,7 +307,7 @@ class SideNavigationPageState extends State<SideNavigationPage> {
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         fontFamily: 'helvetica_neue_medium',
                         letterSpacing: 0.81,
                       ),

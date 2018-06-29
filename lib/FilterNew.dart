@@ -82,7 +82,7 @@ class FilterPageState extends State<FilterPage> {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: const Color(0xFF33b17c),
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                         fontFamily: 'avenir_black',
                         letterSpacing: 0.91,
                       ),
@@ -105,11 +105,11 @@ class FilterPageState extends State<FilterPage> {
                       padding: new EdgeInsets.only(
                           left: 4.0, right: 8.0, top: 24.0, bottom: 24.0),
                       child: new Text(
-                        'Category',
+                        'CATEGORIES',
                         textAlign: TextAlign.left,
                         style: new TextStyle(
                           // color: Colors.black,
-                          fontSize: 20.0,
+                          fontSize: 14.0,
                           fontFamily: 'helvetica_neue_medium',
                           letterSpacing: 0.69,
                         ),
@@ -131,7 +131,7 @@ class FilterPageState extends State<FilterPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                   color: Colors.black,
-                                  fontSize: 16.0,
+                                  fontSize: 12.0,
                                   fontFamily: 'helvetica_neue_medium',
                                   letterSpacing: 0.59,
                                 ),
@@ -150,11 +150,11 @@ class FilterPageState extends State<FilterPage> {
                       padding: new EdgeInsets.only(
                           left: 4.0, right: 8.0, top: 24.0, bottom: 24.0),
                       child: new Text(
-                        'Brand',
+                        'BRAND',
                         textAlign: TextAlign.left,
                         style: new TextStyle(
                           // color: Colors.black,
-                          fontSize: 20.0,
+                          fontSize: 14.0,
                           fontFamily: 'helvetica_neue_medium',
                           letterSpacing: 0.69,
                         ),
@@ -176,7 +176,7 @@ class FilterPageState extends State<FilterPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                   color: Colors.black,
-                                  fontSize: 16.0,
+                                  fontSize: 12.0,
                                   fontFamily: 'helvetica_neue_medium',
                                   letterSpacing: 0.59,
                                 ),
@@ -193,10 +193,10 @@ class FilterPageState extends State<FilterPage> {
                       padding: new EdgeInsets.only(
                           left: 4.0, right: 8.0, top: 24.0, bottom: 24.0),
                       child: new Text(
-                        'Color',
+                        'COLORS',
                         textAlign: TextAlign.left,
                         style: new TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 14.0,
                           fontFamily: 'helvetica_neue_medium',
                           letterSpacing: 0.69,
                         ),
@@ -228,11 +228,11 @@ class FilterPageState extends State<FilterPage> {
                       padding: new EdgeInsets.only(
                           left: 4.0, right: 8.0, top: 24.0, bottom: 24.0),
                       child: new Text(
-                        'Size',
+                        'SIZE',
                         textAlign: TextAlign.left,
                         style: new TextStyle(
                           // color: Colors.black,
-                          fontSize: 20.0,
+                          fontSize: 14.0,
                           fontFamily: 'helvetica_neue_medium',
                           letterSpacing: 0.69,
                         ),
@@ -254,7 +254,7 @@ class FilterPageState extends State<FilterPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                   color: Colors.black,
-                                  fontSize: 16.0,
+                                  fontSize: 12.0,
                                   fontFamily: 'helvetica_neue_medium',
                                   letterSpacing: 0.59,
                                 ),

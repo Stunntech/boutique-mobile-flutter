@@ -5,36 +5,20 @@ import 'side_navigation.dart';
 List<_MyOrderTile> _tiles = <_MyOrderTile>[
   new _MyOrderTile(
     'assets/images/img.png',
-    'Harajuku shirt ',
+    'Brand Clothing Harajuku shirt Homme Hip Hop ',
     'ORDER PLACED',
-    '16.25',
+    '\$ 16.25',
   ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
+  new _MyOrderTile('assets/images/img_order.png',
+      'Brand Clothing Harajuku shirt ', 'OUT FOR DELIVERY', "\$ 14.25"),
   new _MyOrderTile(
     'assets/images/img.png',
-    'Harajuku ',
+    'Brand Clothing Harajuku shirt ',
     'ORDER PLACED',
-    '16.25',
+    '\$ 16.25',
   ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
-  new _MyOrderTile(
-    'assets/images/img.png',
-    'Harajuku ',
-    'ORDER PLACED',
-    '16.25',
-  ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
-  new _MyOrderTile(
-    'assets/images/img.png',
-    'Harajuku ',
-    'ORDER PLACED',
-    '16.25',
-  ),
-  new _MyOrderTile(
-      'assets/images/img_order.png', 'Novelty ', 'OUT FOR DELIVERY', "14.25"),
+  new _MyOrderTile('assets/images/img_order.png',
+      'Brand Clothing Harajuku shirt ', 'OUT FOR DELIVERY', "\$ 14.25"),
 ];
 
 class MyOrderPage extends StatefulWidget {
@@ -82,8 +66,9 @@ class MyOrderPageState extends State<MyOrderPage> {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         fontFamily: 'avenir_black',
+                        letterSpacing: 0.78,
                       ),
                     ),
                   ),
@@ -145,7 +130,7 @@ class MyOrderPageState extends State<MyOrderPage> {
                                         style: new TextStyle(
                                           color: Colors.black,
                                           fontSize: 16.0,
-                                          fontFamily: 'helvetica_neue_medium',
+                                          fontFamily: 'helvetica_neue_bold',
                                         ),
                                       ),
                                     ),
@@ -154,9 +139,9 @@ class MyOrderPageState extends State<MyOrderPage> {
                                         item.itemCost,
                                         textAlign: TextAlign.center,
                                         style: new TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.0,
-                                          fontFamily: 'avenir_black',
+                                          color: const Color(0xFF33b17c),
+                                          fontSize: 18.0,
+                                          fontFamily: 'helvetica_neue_bold',
                                         ),
                                       ),
                                     ),
@@ -176,8 +161,8 @@ class MyOrderPageState extends State<MyOrderPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                   color: const Color(0xFF33b17c),
-                                  fontSize: 16.0,
-                                  fontFamily: 'avenir_black',
+                                  fontSize: 14.0,
+                                  fontFamily: 'helvetica_neue_bold',
                                 ),
                               ),
                             )),

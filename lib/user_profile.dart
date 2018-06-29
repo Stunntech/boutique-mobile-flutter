@@ -32,8 +32,8 @@ class UserProfilePageState extends State<UserProfilePage> {
                         textAlign: TextAlign.center,
                         style: new TextStyle(
                           color: const Color(0xFF7ec0ee),
-                          fontSize: 14.0,
-                          fontFamily: 'helvetica_neue_bold.ttf',
+                          fontSize: 16.0,
+                          fontFamily: 'helvetica_neue_bold',
                         ),
                       ),
                     ),
@@ -45,8 +45,8 @@ class UserProfilePageState extends State<UserProfilePage> {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 18.0,
-                        fontFamily: 'helvetica_neue_bold.ttf',
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_bold',
                       ),
                     ),
                   ),
@@ -62,8 +62,8 @@ class UserProfilePageState extends State<UserProfilePage> {
                         textAlign: TextAlign.center,
                         style: new TextStyle(
                           color: const Color(0xFF7ec0ee),
-                          fontSize: 14.0,
-                          fontFamily: 'helvetica_neue_bold.ttf',
+                          fontSize: 16.0,
+                          fontFamily: 'helvetica_neue_bold',
                         ),
                       ),
                     ),
@@ -133,7 +133,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                               hintStyle: new TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.0,
-                                fontFamily: 'helvetica_neue_bold.ttf',
+                                fontFamily: 'helvetica_neue_bold',
                               ),
                             ),
                           )),
@@ -168,7 +168,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                               hintStyle: new TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.0,
-                                fontFamily: 'helvetica_neue_bold.ttf',
+                                fontFamily: 'helvetica_neue_bold',
                               ),
                             ),
                           )),
@@ -204,7 +204,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                               hintStyle: new TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.0,
-                                fontFamily: 'helvetica_neue_bold.ttf',
+                                fontFamily: 'helvetica_neue_bold',
                               ),
                             ),
                           )),
@@ -251,7 +251,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                               hintStyle: new TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.0,
-                                fontFamily: 'helvetica_neue_bold.ttf',
+                                fontFamily: 'helvetica_neue_bold',
                               ),
                             ),
                           )),
@@ -286,7 +286,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                               hintStyle: new TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.0,
-                                fontFamily: 'helvetica_neue_bold.ttf',
+                                fontFamily: 'helvetica_neue_bold',
                               ),
                             ),
                           )),
@@ -321,7 +321,7 @@ class UserProfilePageState extends State<UserProfilePage> {
                               style: new TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.0,
-                                fontFamily: 'helvetica_neue_bold.ttf',
+                                fontFamily: 'helvetica_neue_bold',
                               ),
                             ),
                           ),

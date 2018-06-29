@@ -50,8 +50,9 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                       textAlign: TextAlign.center,
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         fontFamily: 'avenir_black',
+                        letterSpacing: 0.73,
                       ),
                     ),
                   ),
@@ -117,6 +118,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'full name',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -143,6 +145,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'address line',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -182,6 +185,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: 'USA',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -208,6 +212,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: 'abcdef',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -246,6 +251,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: 'San Diego',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -272,6 +278,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: '2345',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -305,6 +312,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'something@gmail.com',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -331,6 +339,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: '9876543210',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -391,6 +400,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'full name',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -417,6 +427,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'address line',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -456,6 +467,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: 'USA',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -482,6 +494,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: 'abcdef',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -520,6 +533,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: 'San Diego',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -546,6 +560,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                                                 new EdgeInsets.all(15.0),
                                             hintText: '2345',
                                             hintStyle: new TextStyle(
+                                              fontSize: 16.0,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -579,6 +594,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'something@gmail.com',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -605,6 +621,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: '9876543210',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -646,6 +663,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'full name',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -672,6 +690,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: 'card number',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -698,6 +717,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: '25/2025',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),
@@ -724,6 +744,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                               contentPadding: new EdgeInsets.all(15.0),
                               hintText: '025',
                               hintStyle: new TextStyle(
+                                fontSize: 16.0,
                                 color: Colors.grey,
                               ),
                             ),

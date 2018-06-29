@@ -51,7 +51,7 @@ class CustomAppBar extends StatelessWidget {
             },
             child: new Container(
               margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(8.0),
+              padding: new EdgeInsets.all(10.0),
               child: new Image.asset(
                 "assets/images/menu_white.png",
               ),
@@ -64,8 +64,9 @@ class CustomAppBar extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 16.0,
+                fontSize: 14.0,
                 fontFamily: 'avenir_black',
+                letterSpacing: 0.78,
               ),
             ),
           ),
@@ -80,7 +81,7 @@ class CustomAppBar extends StatelessWidget {
             child: new Container(
               alignment: Alignment.topRight,
               margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(8.0),
+              padding: new EdgeInsets.all(10.0),
               child: new Image.asset(
                 "assets/images/shopping_bag_white.png",
               ),
@@ -109,8 +110,9 @@ class StaticText extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 24.0,
+                fontSize: 22.0,
                 fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.69,
               ),
             ),
           ),
@@ -122,8 +124,9 @@ class StaticText extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 28.0,
+                fontSize: 26.0,
                 fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.83,
               ),
             ),
           ),
@@ -161,8 +164,9 @@ class ButtonSection extends StatelessWidget {
                     'CASUAL',
                     style: new TextStyle(
                       color: Colors.black,
-                      fontSize: 18.0,
+                      fontSize: 14.0,
                       fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 2.57,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -196,8 +200,9 @@ class ButtonSection extends StatelessWidget {
                     'CLASSICAL',
                     style: new TextStyle(
                       color: Colors.black,
-                      fontSize: 18.0,
+                      fontSize: 14.0,
                       fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 2.57,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -231,8 +236,9 @@ class ButtonSection extends StatelessWidget {
                     'SPORT',
                     style: new TextStyle(
                       color: Colors.black,
-                      fontSize: 18.0,
+                      fontSize: 14.0,
                       fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 2.57,
                     ),
                     textAlign: TextAlign.center,
                   ),

@@ -123,11 +123,11 @@ class SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   onPressed: () async {
-                    Map signInMap = {
+                    /*Map signInMap = {
                       'email': myEmailAddressController.text.toString(),
                       'password': myPasswordController.text.toString(),
                     };
-                    Map signInResponse = await signIn(url, signInMap);
+                    Map signInResponse = await signIn(url, signInMap);*/
                     Navigator.push(
                       context,
                       new MaterialPageRoute(

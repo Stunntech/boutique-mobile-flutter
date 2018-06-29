@@ -38,79 +38,88 @@ class BottomSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 new Expanded(
-                  child: new Container(
-                    decoration: new BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    padding: new EdgeInsets.only(
-                        top: 16.0, left: 8.0, right: 8.0, bottom: 8.0),
-                    alignment: Alignment.center,
-                    child: new Column(
-                      children: <Widget>[
-                        new Container(
-                          alignment: Alignment.center,
-                          child: new Text(
-                            'Christmas is back !',
-                            textAlign: TextAlign.center,
-                            style: new TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                              fontFamily: 'helvetica_neue_light',
-                            ),
-                          ),
-                        ),
-                        new Container(
-                          margin: new EdgeInsets.only(top: 8.0),
-                          alignment: Alignment.center,
-                          child: new Text(
-                            'Wide collection of santa themed clothes for your christmas party.',
-                            textAlign: TextAlign.center,
-                            style: new TextStyle(
-                              color: Colors.black,
-                              fontSize: 12.0,
-                              fontFamily: 'helvetica_neue_light',
-                            ),
-                          ),
-                        ),
-                        new Container(
-                          margin: new EdgeInsets.only(top: 8.0),
-                          child: new FlatButton(
-                            child: new Container(
-                              padding: new EdgeInsets.only(
-                                  left: 10.0,
-                                  right: 10.0,
-                                  top: 8.0,
-                                  bottom: 8.0),
-                              decoration: new BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.rectangle,
-                                border: new Border.all(
-                                  color: Colors.black,
-                                  width: 1.0,
-                                ),
-                              ),
-                              child: new Text(
-                                'Get them!',
-                                style: new TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.0,
-                                  fontFamily: 'helvetica_neue_medium',
-                                ),
-                                textAlign: TextAlign.center,
+                  child: new GestureDetector(
+                    child: new Container(
+                      decoration: new BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      padding: new EdgeInsets.only(
+                          top: 16.0, left: 8.0, right: 8.0, bottom: 8.0),
+                      alignment: Alignment.center,
+                      child: new Column(
+                        children: <Widget>[
+                          new Container(
+                            alignment: Alignment.center,
+                            child: new Text(
+                              'Christmas is back !',
+                              textAlign: TextAlign.center,
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.0,
+                                fontFamily: 'helvetica_neue_light',
                               ),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) =>
-                                        new ProductListPage()),
-                              );
-                            },
                           ),
-                        ),
-                      ],
+                          new Container(
+                            margin: new EdgeInsets.only(top: 8.0),
+                            alignment: Alignment.center,
+                            child: new Text(
+                              'Wide collection of santa themed clothes for your christmas party.',
+                              textAlign: TextAlign.center,
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.0,
+                                fontFamily: 'helvetica_neue_light',
+                              ),
+                            ),
+                          ),
+                          new Container(
+                            margin: new EdgeInsets.only(top: 8.0),
+                            child: new FlatButton(
+                              child: new Container(
+                                padding: new EdgeInsets.only(
+                                    left: 10.0,
+                                    right: 10.0,
+                                    top: 8.0,
+                                    bottom: 8.0),
+                                decoration: new BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.rectangle,
+                                  border: new Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: new Text(
+                                  'Get them!',
+                                  style: new TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    fontFamily: 'helvetica_neue_medium',
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (context) =>
+                                          new ProductListPage()),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new ProductListPage()),
+                      );
+                    },
                   ),
                 ),
                 new Expanded(
@@ -137,70 +146,86 @@ class BottomSection extends StatelessWidget {
                   ),
                 ),
                 new Expanded(
-                  child: new Container(
-                    decoration: new BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    padding: new EdgeInsets.only(
-                        top: 16.0, left: 8.0, right: 8.0, bottom: 8.0),
-                    alignment: Alignment.center,
-                    child: new Column(
-                      children: <Widget>[
-                        new Container(
-                          child: new Text(
-                            'Winter escape',
-                            textAlign: TextAlign.center,
-                            style: new TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                              fontFamily: 'helvetica_neue_light',
-                            ),
-                          ),
-                        ),
-                        new Container(
-                          margin: new EdgeInsets.only(top: 8.0),
-                          child: new Text(
-                            'Protect your dear ones from winter with our wide range of winter clothes.',
-                            textAlign: TextAlign.center,
-                            style: new TextStyle(
-                              color: Colors.black,
-                              fontSize: 12.0,
-                              fontFamily: 'helvetica_neue_light',
-                            ),
-                          ),
-                        ),
-                        new Container(
-                          margin: new EdgeInsets.only(top: 8.0),
-                          child: new FlatButton(
-                            child: new Container(
-                              padding: new EdgeInsets.only(
-                                  left: 10.0,
-                                  right: 10.0,
-                                  top: 8.0,
-                                  bottom: 8.0),
-                              decoration: new BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.rectangle,
-                                border: new Border.all(
-                                  color: Colors.black,
-                                  width: 1.0,
-                                ),
-                              ),
-                              child: new Text(
-                                'Get them!',
-                                style: new TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.0,
-                                  fontFamily: 'helvetica_neue_medium',
-                                ),
-                                textAlign: TextAlign.center,
+                  child: new GestureDetector(
+                    child: new Container(
+                      decoration: new BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      padding: new EdgeInsets.only(
+                          top: 16.0, left: 8.0, right: 8.0, bottom: 8.0),
+                      alignment: Alignment.center,
+                      child: new Column(
+                        children: <Widget>[
+                          new Container(
+                            child: new Text(
+                              'Winter escape',
+                              textAlign: TextAlign.center,
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 18.0,
+                                fontFamily: 'helvetica_neue_light',
                               ),
                             ),
-                            onPressed: () {},
                           ),
-                        ),
-                      ],
+                          new Container(
+                            margin: new EdgeInsets.only(top: 8.0),
+                            child: new Text(
+                              'Protect your dear ones from winter with our wide range of winter clothes.',
+                              textAlign: TextAlign.center,
+                              style: new TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.0,
+                                fontFamily: 'helvetica_neue_light',
+                              ),
+                            ),
+                          ),
+                          new Container(
+                            margin: new EdgeInsets.only(top: 8.0),
+                            child: new FlatButton(
+                              child: new Container(
+                                padding: new EdgeInsets.only(
+                                    left: 10.0,
+                                    right: 10.0,
+                                    top: 8.0,
+                                    bottom: 8.0),
+                                decoration: new BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.rectangle,
+                                  border: new Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: new Text(
+                                  'Get them!',
+                                  style: new TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    fontFamily: 'helvetica_neue_medium',
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (context) =>
+                                          new ProductListPage()),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new ProductListPage()),
+                      );
+                    },
                   ),
                 ),
               ],
@@ -223,6 +248,7 @@ class TopSection extends StatelessWidget {
         ),
       ),
       child: new Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           new Container(
             padding: new EdgeInsets.all(8.0),
@@ -243,7 +269,7 @@ class TopSection extends StatelessWidget {
                   },
                   child: new Container(
                     margin: new EdgeInsets.only(top: 20.0),
-                    padding: new EdgeInsets.all(8.0),
+                    padding: new EdgeInsets.all(10.0),
                     child: new Image.asset(
                       "assets/images/menu_white.png",
                     ),
@@ -252,7 +278,7 @@ class TopSection extends StatelessWidget {
                 new Container(
                   margin: new EdgeInsets.only(top: 25.0),
                   child: new Text(
-                    'JAHMAIKA',
+                    '',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                       color: Colors.white,
@@ -272,7 +298,7 @@ class TopSection extends StatelessWidget {
                   child: new Container(
                     alignment: Alignment.topRight,
                     margin: new EdgeInsets.only(top: 20.0),
-                    padding: new EdgeInsets.all(8.0),
+                    padding: new EdgeInsets.all(10.0),
                     child: new Image.asset(
                       "assets/images/shopping_bag_white.png",
                     ),
@@ -282,7 +308,7 @@ class TopSection extends StatelessWidget {
             ),
           ),
           new Container(
-            margin: new EdgeInsets.only(top: 90.0),
+            margin: new EdgeInsets.only(top: 60.0),
             child: new Text(
               'JAHMAIKA',
               textAlign: TextAlign.center,
@@ -300,7 +326,7 @@ class TopSection extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontFamily: 'helvetica_neue_light',
               ),
             ),
@@ -326,8 +352,9 @@ class TopSection extends StatelessWidget {
                   'DISCOVER',
                   style: new TextStyle(
                     color: Colors.black,
-                    fontSize: 18.0,
-                    fontFamily: 'helvetica_neue_medium',
+                    fontSize: 16.0,
+                    fontFamily: 'helvetica_neue_light',
+                    letterSpacing: 0.78,
                   ),
                   textAlign: TextAlign.center,
                 ),

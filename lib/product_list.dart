@@ -8,34 +8,34 @@ List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(
     'assets/images/product_2.png',
     'Harajuku shirt ',
-    '16.25',
+    '\$ 16.25',
   ),
-  new _ProductListTile('assets/images/product_3.png', 'Novelty ', "14.25"),
+  new _ProductListTile('assets/images/product_3.png', 'Novelty ', "\$ 14.25"),
   new _ProductListTile(
     'assets/images/product_4.png',
     'Harajuku ',
-    '16.25',
+    '\$ 16.25',
   ),
   new _ProductListTile(
     'assets/images/product_3.png',
     'Novelty ',
-    "14.25",
+    "\$ 14.25",
   ),
   new _ProductListTile(
     'assets/images/product_2.png',
     'Harajuku shirt ',
-    '16.25',
+    '\$ 16.25',
   ),
-  new _ProductListTile('assets/images/product_3.png', 'Novelty ', "14.25"),
+  new _ProductListTile('assets/images/product_3.png', 'Novelty ', "\$ 14.25"),
   new _ProductListTile(
     'assets/images/product_4.png',
     'Harajuku ',
-    '16.25',
+    '\$ 16.25',
   ),
   new _ProductListTile(
     'assets/images/product_3.png',
     'Novelty ',
-    "14.25",
+    "\$ 14.25",
   ),
 ];
 
@@ -84,8 +84,9 @@ class ProductListPageState extends State<ProductListPage> {
                         textAlign: TextAlign.center,
                         style: new TextStyle(
                           color: Colors.black,
-                          fontSize: 16.0,
+                          fontSize: 14.0,
                           fontFamily: 'avenir_black',
+                          letterSpacing: 0.78,
                         ),
                       ),
                     ),
@@ -125,8 +126,9 @@ class ProductListPageState extends State<ProductListPage> {
                       'Filter',
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 18.0,
-                        fontFamily: 'avenir_black',
+                        fontSize: 14.0,
+                        letterSpacing: 0.69,
+                        fontFamily: 'Helvetica_neue_medium',
                       ),
                     ),
                   ),
@@ -177,7 +179,7 @@ class ProductListPageState extends State<ProductListPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                   color: Colors.black,
-                                  fontSize: 16.0,
+                                  fontSize: 12.0,
                                   fontFamily: 'helvetica_neue_medium',
                                   letterSpacing: 0.56,
                                 ),
@@ -190,7 +192,7 @@ class ProductListPageState extends State<ProductListPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                   color: Colors.black,
-                                  fontSize: 16.0,
+                                  fontSize: 12.0,
                                   fontFamily: 'helvetica_neue_light',
                                   letterSpacing: 0.56,
                                 ),

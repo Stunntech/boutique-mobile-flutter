@@ -17,6 +17,19 @@ List<_ReviewItemTile> _kReviewTiles = <_ReviewItemTile>[
   ),
 ];
 
+List<ProductFeatureFilter> _kFilterSizeList = <ProductFeatureFilter>[
+  new ProductFeatureFilter('S'),
+  new ProductFeatureFilter('M'),
+  new ProductFeatureFilter('L'),
+  new ProductFeatureFilter('XL'),
+  new ProductFeatureFilter('XXL'),
+];
+
+List<ProductFeatureFilter> _kFilterColorList = <ProductFeatureFilter>[
+  new ProductFeatureFilter('Red'),
+  new ProductFeatureFilter('Green'),
+];
+
 class ProductDetailPage extends StatefulWidget {
   ProductDetailPageState createState() => ProductDetailPageState();
 }
@@ -50,7 +63,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
     return new Page(page: _pages[index], idx: index);
   }
 
-  void _showAlert() {
+  /* void _showAlert() {
     CustomAlertDialog dialog = new CustomAlertDialog(
       content: new Container(
         width: 260.0,
@@ -108,20 +121,20 @@ class ProductDetailPageState extends State<ProductDetailPage> {
             new Expanded(
               child: new Container(
                   child: new TextField(
-                    decoration: new InputDecoration(
-                      border: InputBorder.none,
-                      filled: false,
-                      contentPadding: new EdgeInsets.only(
-                          left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
-                      hintText: ' add review',
-                      hintStyle: new TextStyle(
-                        color: Colors.grey.shade500,
-                        fontSize: 20.0,
-                        fontFamily: 'helvetica_neue_light',
-                        letterSpacing: 0.83,
-                      ),
-                    ),
-                  )),
+                decoration: new InputDecoration(
+                  border: InputBorder.none,
+                  filled: false,
+                  contentPadding: new EdgeInsets.only(
+                      left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                  hintText: ' add review',
+                  hintStyle: new TextStyle(
+                    color: Colors.grey.shade500,
+                    fontSize: 20.0,
+                    fontFamily: 'helvetica_neue_light',
+                    letterSpacing: 0.83,
+                  ),
+                ),
+              )),
               flex: 2,
             ),
 
@@ -154,7 +167,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
       ),
     );
     showDialog(context: context, child: dialog);
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -229,6 +242,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                         minHeight: viewportConstraints.maxHeight,
                       ),
                       child: new Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
@@ -240,7 +254,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                 children: <Widget>[
                                   new PageView.builder(
                                     physics:
-                                    new AlwaysScrollableScrollPhysics(),
+                                        new AlwaysScrollableScrollPhysics(),
                                     controller: _controller,
                                     itemCount: _pages.length,
                                     itemBuilder:
@@ -337,7 +351,32 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                             ),
                           ),
                           new Container(
-                            margin: new EdgeInsets.only(top: 25.0),
+                            alignment: Alignment.center,
+                            height: 50.0,
+                            child: new ListView(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              children: _kFilterSizeList
+                                  .map((ProductFeatureFilter filterItem) {
+                                return new Container(
+                                  padding: new EdgeInsets.only(
+                                      left: 16.0, right: 16.0),
+                                  alignment: Alignment.center,
+                                  child: new Text(
+                                    filterItem.itemName,
+                                    textAlign: TextAlign.center,
+                                    style: new TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16.0,
+                                      fontFamily: 'helvetica_neue_medium',
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                          new Container(
+                            margin: new EdgeInsets.only(top: 20.0),
                             child: new Text(
                               'Color',
                               textAlign: TextAlign.center,
@@ -346,6 +385,31 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                 fontSize: 16.0,
                                 fontFamily: 'helvetica_neue_light',
                               ),
+                            ),
+                          ),
+                          new Container(
+                            alignment: Alignment.center,
+                            height: 50.0,
+                            child: new ListView(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              children: _kFilterColorList
+                                  .map((ProductFeatureFilter filterItem) {
+                                return new Container(
+                                  padding: new EdgeInsets.only(
+                                      left: 16.0, right: 16.0),
+                                  alignment: Alignment.center,
+                                  child: new Text(
+                                    filterItem.itemName,
+                                    textAlign: TextAlign.center,
+                                    style: new TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16.0,
+                                      fontFamily: 'helvetica_neue_medium',
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
                             ),
                           ),
                           new Container(
@@ -363,7 +427,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                 new Container(
                                   margin: new EdgeInsets.only(left: 16.0),
                                   child: new Text(
-                                    "40",
+                                    "\$ 40",
                                     textAlign: TextAlign.center,
                                     style: new TextStyle(
                                       color: Colors.black,
@@ -411,7 +475,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           new ExpansionTile(
                             title: new Container(
                               padding:
-                              new EdgeInsets.only(top: 24.0, bottom: 24.0),
+                                  new EdgeInsets.only(top: 24.0, bottom: 24.0),
                               child: new Text(
                                 'DESCRIPTION',
                                 textAlign: TextAlign.left,
@@ -440,7 +504,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           new ExpansionTile(
                             title: new Container(
                               padding:
-                              new EdgeInsets.only(top: 24.0, bottom: 24.0),
+                                  new EdgeInsets.only(top: 24.0, bottom: 24.0),
                               child: new Text(
                                 'SPECIFICATION',
                                 textAlign: TextAlign.left,
@@ -469,7 +533,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           new ExpansionTile(
                             title: new Container(
                               padding:
-                              new EdgeInsets.only(top: 24.0, bottom: 24.0),
+                                  new EdgeInsets.only(top: 24.0, bottom: 24.0),
                               child: new Text(
                                 'REVIEWS',
                                 textAlign: TextAlign.left,
@@ -488,7 +552,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                 crossAxisCount: 1,
                                 mainAxisSpacing: 2.0,
                                 children:
-                                _kReviewTiles.map((_ReviewItemTile item) {
+                                    _kReviewTiles.map((_ReviewItemTile item) {
                                   return new GridTile(
                                     child: new Container(
                                       margin: new EdgeInsets.all(16.0),
@@ -496,9 +560,9 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                         children: <Widget>[
                                           new Row(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                                CrossAxisAlignment.center,
                                             mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.spaceBetween,
                                             children: <Widget>[
                                               new Container(
                                                 // margin: new EdgeInsets.only(top: 25.0),
@@ -509,7 +573,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                                     color: Colors.black,
                                                     fontSize: 24.0,
                                                     fontFamily:
-                                                    'helvetica_neue',
+                                                        'helvetica_neue',
                                                   ),
                                                 ),
                                               ),
@@ -524,7 +588,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                           ),
                                           new Container(
                                             margin:
-                                            new EdgeInsets.only(top: 15.0),
+                                                new EdgeInsets.only(top: 15.0),
                                             child: new Text(
                                               item.userReview,
                                               textAlign: TextAlign.start,
@@ -537,7 +601,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                           ),
                                           new Container(
                                             margin:
-                                            new EdgeInsets.only(top: 20.0),
+                                                new EdgeInsets.only(top: 20.0),
                                             padding: new EdgeInsets.all(0.3),
                                             decoration: new BoxDecoration(
                                               color: Colors.black,
@@ -553,13 +617,13 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                           ),
                           new Container(
                             margin:
-                            new EdgeInsets.only(top: 40.0, bottom: 50.0),
+                                new EdgeInsets.only(top: 40.0, bottom: 50.0),
                             alignment: Alignment.center,
                             child: new FlatButton(
                                 child: new Container(
                                   padding: new EdgeInsets.only(
-                                      left: 95.0,
-                                      right: 95.0,
+                                      left: 50.0,
+                                      right: 50.0,
                                       top: 15.0,
                                       bottom: 15.0),
                                   decoration: new BoxDecoration(
@@ -571,7 +635,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                     ),
                                   ),
                                   child: new Text(
-                                    'Add Review',
+                                    '+ Add review',
                                     style: new TextStyle(
                                       color: Colors.black,
                                       fontSize: 30.0,
@@ -581,7 +645,9 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  _showAlert();
+                                  showDialog(
+                                      context: context,
+                                      child: new ReviewDialog());
                                 }),
                           ),
                         ],
@@ -741,7 +807,7 @@ class StarRating extends StatelessWidget {
     }
     return new InkResponse(
       onTap:
-      onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
+          onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
       child: icon,
     );
   }
@@ -750,7 +816,7 @@ class StarRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Row(
         children:
-        new List.generate(starCount, (index) => buildStar(context, index)));
+            new List.generate(starCount, (index) => buildStar(context, index)));
   }
 }
 
@@ -760,4 +826,124 @@ class _ReviewItemTile {
   final String userReview;
 
   _ReviewItemTile(this.userName, this.userRating, this.userReview);
+}
+
+class ProductFeatureFilter {
+  final String itemName;
+
+  ProductFeatureFilter(this.itemName);
+}
+
+class ReviewDialog extends StatefulWidget {
+  ReviewDialogState createState() => ReviewDialogState();
+}
+
+class ReviewDialogState extends State<ReviewDialog> {
+  double productRating = 0.0;
+  @override
+  Widget build(BuildContext context) {
+    return new CustomAlertDialog(
+      content: new Container(
+        width: 260.0,
+        height: 280.0,
+        decoration: new BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: const Color(0xFFFFFF),
+          borderRadius: new BorderRadius.all(new Radius.circular(32.0)),
+        ),
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            // dialog top
+            new Expanded(
+              child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  new Container(
+                    padding: new EdgeInsets.all(16.0),
+                    decoration: new BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: new Text(
+                      'Rate',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_light',
+                        letterSpacing: 0.83,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  new Container(
+                    padding: new EdgeInsets.all(16.0),
+                    child: new StarRating(
+                      rating: productRating,
+                      onRatingChanged: (rating) =>
+                          setState(() => this.productRating = rating),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            new Container(
+              // margin: new EdgeInsets.only(top: 16.0),
+              padding: new EdgeInsets.all(0.5),
+              decoration: new BoxDecoration(
+                color: Colors.grey,
+              ),
+            ),
+
+            // dialog centre
+            new Expanded(
+              child: new Container(
+                  child: new TextField(
+                decoration: new InputDecoration(
+                  border: InputBorder.none,
+                  filled: false,
+                  contentPadding: new EdgeInsets.only(
+                      left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                  hintText: ' add review',
+                  hintStyle: new TextStyle(
+                    color: Colors.grey.shade500,
+                    fontSize: 20.0,
+                    fontFamily: 'helvetica_neue_light',
+                    letterSpacing: 0.83,
+                  ),
+                ),
+              )),
+              flex: 2,
+            ),
+
+            // dialog bottom
+            new Expanded(
+              child: new GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: new Container(
+                  padding: new EdgeInsets.all(16.0),
+                  decoration: new BoxDecoration(
+                    color: const Color(0xFF33b17c),
+                  ),
+                  child: new Text(
+                    'Rate product',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontFamily: 'helvetica_neue_light',
+                      letterSpacing: 0.83,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
