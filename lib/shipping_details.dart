@@ -774,7 +774,7 @@ class ShippingDetailPageState extends State<ShippingDetailPage> {
                       'Proceed to checkout',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18.0,
+                        fontSize: 20.0,
                         fontFamily: 'avenir_medium',
                       ),
                       textAlign: TextAlign.center,

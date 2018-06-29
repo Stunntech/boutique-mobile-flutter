@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'shopping_cart.dart';
 import 'CustomShowDialog.dart';
+import 'side_navigation.dart';
 
 List<_ReviewItemTile> _kReviewTiles = <_ReviewItemTile>[
   new _ReviewItemTile(
@@ -63,112 +64,6 @@ class ProductDetailPageState extends State<ProductDetailPage> {
     return new Page(page: _pages[index], idx: index);
   }
 
-  /* void _showAlert() {
-    CustomAlertDialog dialog = new CustomAlertDialog(
-      content: new Container(
-        width: 260.0,
-        height: 260.0,
-        decoration: new BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: const Color(0xFFFFFF),
-          borderRadius: new BorderRadius.all(new Radius.circular(32.0)),
-        ),
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            // dialog top
-            new Expanded(
-              child: new Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  new Container(
-                    padding: new EdgeInsets.all(8.0),
-                    decoration: new BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: new Text(
-                      'Rate',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                        fontFamily: 'helvetica_neue_light',
-                        letterSpacing: 0.83,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  new Container(
-                    child: new StarRating(
-                      rating: productRating,
-                      onRatingChanged: (rating) =>
-                          setState(() => this.productRating = rating),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            new Container(
-              // margin: new EdgeInsets.only(top: 16.0),
-              padding: new EdgeInsets.all(0.5),
-              decoration: new BoxDecoration(
-                color: Colors.grey,
-              ),
-            ),
-
-            // dialog centre
-            new Expanded(
-              child: new Container(
-                  child: new TextField(
-                decoration: new InputDecoration(
-                  border: InputBorder.none,
-                  filled: false,
-                  contentPadding: new EdgeInsets.only(
-                      left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
-                  hintText: ' add review',
-                  hintStyle: new TextStyle(
-                    color: Colors.grey.shade500,
-                    fontSize: 20.0,
-                    fontFamily: 'helvetica_neue_light',
-                    letterSpacing: 0.83,
-                  ),
-                ),
-              )),
-              flex: 2,
-            ),
-
-            // dialog bottom
-            new Expanded(
-              child: new GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: new Container(
-                  padding: new EdgeInsets.all(16.0),
-                  decoration: new BoxDecoration(
-                    color: const Color(0xFF33b17c),
-                  ),
-                  child: new Text(
-                    'Rate product',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontFamily: 'helvetica_neue_light',
-                      letterSpacing: 0.83,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-    showDialog(context: context, child: dialog);
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -180,52 +75,56 @@ class ProductDetailPageState extends State<ProductDetailPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             new Container(
-              padding: new EdgeInsets.all(8.0),
-              decoration: new BoxDecoration(
-                color: Colors.white,
-              ),
+              height: 80.0,
+              padding: new EdgeInsets.only(top: 40.0, left: 16.0, right: 16.0),
               child: new Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  new GestureDetector(
-                    onTap: () {
-                      //  Navigator.pop(context);
-                    },
-                    child: new Container(
-                      margin: new EdgeInsets.only(top: 20.0),
-                      padding: new EdgeInsets.all(8.0),
-                      child: new Image.asset(
-                        "assets/images/menu_black.png",
+                  new Expanded(
+                    child: new GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new SideNavigationPage()),
+                        );
+                      },
+                      child: new Container(
+                        alignment: Alignment.topLeft,
+                        child: new Image.asset(
+                          "assets/images/menu_black.png",
+                        ),
                       ),
                     ),
                   ),
-                  new Container(
-                    margin: new EdgeInsets.only(top: 25.0),
-                    child: new Text(
-                      'JAHMAIKA',
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(
-                        color: Colors.black,
-                        fontSize: 18.0,
-                        fontFamily: 'avenir_black',
+                  new Expanded(
+                    child: new Container(
+                      alignment: Alignment.center,
+                      child: new Text(
+                        'JAHMAIKA',
+                        textAlign: TextAlign.center,
+                        style: new TextStyle(
+                          color: Colors.black,
+                          fontSize: 14.0,
+                          fontFamily: 'avenir_black',
+                          letterSpacing: 0.78,
+                        ),
                       ),
                     ),
                   ),
-                  new GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new MyShoppingCartPage()),
-                      );
-                    },
-                    child: new Container(
-                      alignment: Alignment.topRight,
-                      margin: new EdgeInsets.only(top: 20.0),
-                      padding: new EdgeInsets.all(8.0),
-                      child: new Image.asset(
-                        "assets/images/shopping_bag_black.png",
+                  new Expanded(
+                    child: new GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new MyShoppingCartPage()),
+                        );
+                      },
+                      child: new Container(
+                        alignment: Alignment.centerRight,
+                        child: new Image.asset(
+                          "assets/images/shopping_bag_black.png",
+                        ),
                       ),
                     ),
                   ),

@@ -88,6 +88,7 @@ class MyShoppingCartPageState extends State<MyShoppingCartPage> {
                 ],
               ),
             ),
+
             new Expanded(
               child: new GridView.count(
                 childAspectRatio: 2.0,
