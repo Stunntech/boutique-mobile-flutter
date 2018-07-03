@@ -3,12 +3,20 @@ import 'style_selection.dart';
 import 'side_navigation.dart';
 import 'shopping_cart.dart';
 import 'item_category_selection.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class GenderSelectionPage extends StatefulWidget {
   GenderSelectionPageState createState() => GenderSelectionPageState();
 }
 
 class GenderSelectionPageState extends State<GenderSelectionPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    // FlutterStatusbarcolor.setStatusBarColor(Colors.green);
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

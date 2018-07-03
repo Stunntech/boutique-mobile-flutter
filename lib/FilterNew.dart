@@ -1,4 +1,7 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_jahmaika/Jahmaika.dart';
 
 List<_FilterItemTile> _kCategoryTiles = <_FilterItemTile>[
   new _FilterItemTile(
@@ -41,6 +44,19 @@ class FilterPage extends StatefulWidget {
 }
 
 class FilterPageState extends State<FilterPage> {
+  HashMap<int, int> selectedMap = new HashMap();
+
+  @override
+  void initState() {
+    if (selectedMap.isEmpty) {
+      selectedMap[0] = 0;
+      selectedMap[1] = 0;
+      selectedMap[2] = 0;
+      selectedMap[3] = 0;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -137,6 +153,8 @@ class FilterPageState extends State<FilterPage> {
                                 ),
                               ),
                             ),
+
+                            //
                           );
                         }).toList(),
                       ),
@@ -168,23 +186,38 @@ class FilterPageState extends State<FilterPage> {
                         crossAxisCount: 3,
                         mainAxisSpacing: 10.0,
                         children: _kCategoryTiles.map((_FilterItemTile item) {
-                          return new GridTile(
-                            child: new Container(
-                              margin: new EdgeInsets.all(10.0),
-                              child: new Text(
-                                item.itemName,
-                                textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.0,
-                                  fontFamily: 'helvetica_neue_medium',
-                                  letterSpacing: 0.59,
+                          return new GestureDetector(
+                            onTap: () {
+                              print(item);
+                              // do something
+                            },
+                            child: new GridTile(
+                              child: new Container(
+                                alignment: Alignment.center,
+                                decoration: new BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius: new BorderRadius.all(
+                                      new Radius.elliptical(10.0, 20.0)),
+                                  border: new Border.all(
+                                    color: const Color(0xFF33b17c),
+                                  ),
+                                ),
+                                margin: new EdgeInsets.all(10.0),
+                                child: new Text(
+                                  item.itemName,
+                                  textAlign: TextAlign.center,
+                                  style: new TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.0,
+                                    fontFamily: 'helvetica_neue_medium',
+                                    letterSpacing: 0.59,
+                                  ),
                                 ),
                               ),
                             ),
                           );
                         }).toList(),
-                      )
+                      ),
                     ],
                   ),
 
