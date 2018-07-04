@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/Jahmaika.dart';
 
 List<_FilterItemTile> _kCategoryTiles = <_FilterItemTile>[
   new _FilterItemTile(
@@ -132,32 +131,64 @@ class FilterPageState extends State<FilterPage> {
                       ),
                     ),
                     children: <Widget>[
-                      new GridView.count(
-                        shrinkWrap: true,
-                        primary: false,
-                        childAspectRatio: 2.0,
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 10.0,
-                        children: _kCategoryTiles.map((_FilterItemTile item) {
-                          return new GridTile(
-                            child: new Container(
-                              margin: new EdgeInsets.all(10.0),
-                              child: new Text(
-                                item.itemName,
-                                textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.0,
-                                  fontFamily: 'helvetica_neue_medium',
-                                  letterSpacing: 0.59,
-                                ),
-                              ),
-                            ),
-
-                            //
-                          );
-                        }).toList(),
-                      ),
+                      new GridView.builder(
+                          shrinkWrap: true,
+                          primary: false,
+                          itemCount: _kCategoryTiles.length,
+                          gridDelegate:
+                              new SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3),
+                          itemBuilder: (BuildContext context, int index) {
+                            return new GestureDetector(
+                              child: selectedMap[0] == index
+                                  ? new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          borderRadius: new BorderRadius.all(
+                                              new Radius.elliptical(
+                                                  50.0, 50.0)),
+                                          border: new Border.all(
+                                            color: const Color(0xFF33b17c),
+                                          ),
+                                        ),
+                                        margin: new EdgeInsets.all(10.0),
+                                        child: new Text(
+                                          _kCategoryTiles[index].itemName,
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.0,
+                                            fontFamily: 'helvetica_neue_medium',
+                                            letterSpacing: 0.59,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        margin: new EdgeInsets.all(10.0),
+                                        child: new Text(
+                                          _kCategoryTiles[index].itemName,
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.0,
+                                            fontFamily: 'helvetica_neue_medium',
+                                            letterSpacing: 0.59,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                              onTap: () {
+                                setState(() {
+                                  selectedMap[0] = index;
+                                });
+                              },
+                            );
+                          }),
                     ],
                   ),
 
@@ -179,45 +210,64 @@ class FilterPageState extends State<FilterPage> {
                       ),
                     ),
                     children: <Widget>[
-                      new GridView.count(
-                        shrinkWrap: true,
-                        primary: false,
-                        childAspectRatio: 2.0,
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 10.0,
-                        children: _kCategoryTiles.map((_FilterItemTile item) {
-                          return new GestureDetector(
-                            onTap: () {
-                              print(item);
-                              // do something
-                            },
-                            child: new GridTile(
-                              child: new Container(
-                                alignment: Alignment.center,
-                                decoration: new BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  borderRadius: new BorderRadius.all(
-                                      new Radius.elliptical(10.0, 20.0)),
-                                  border: new Border.all(
-                                    color: const Color(0xFF33b17c),
-                                  ),
-                                ),
-                                margin: new EdgeInsets.all(10.0),
-                                child: new Text(
-                                  item.itemName,
-                                  textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 12.0,
-                                    fontFamily: 'helvetica_neue_medium',
-                                    letterSpacing: 0.59,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      ),
+                      new GridView.builder(
+                          shrinkWrap: true,
+                          primary: false,
+                          itemCount: _kCategoryTiles.length,
+                          gridDelegate:
+                              new SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3),
+                          itemBuilder: (BuildContext context, int index) {
+                            return new GestureDetector(
+                              child: selectedMap[1] == index
+                                  ? new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          borderRadius: new BorderRadius.all(
+                                              new Radius.elliptical(
+                                                  50.0, 50.0)),
+                                          border: new Border.all(
+                                            color: const Color(0xFF33b17c),
+                                          ),
+                                        ),
+                                        margin: new EdgeInsets.all(10.0),
+                                        child: new Text(
+                                          _kCategoryTiles[index].itemName,
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.0,
+                                            fontFamily: 'helvetica_neue_medium',
+                                            letterSpacing: 0.59,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        margin: new EdgeInsets.all(10.0),
+                                        child: new Text(
+                                          _kCategoryTiles[index].itemName,
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.0,
+                                            fontFamily: 'helvetica_neue_medium',
+                                            letterSpacing: 0.59,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                              onTap: () {
+                                setState(() {
+                                  selectedMap[1] = index;
+                                });
+                              },
+                            );
+                          }),
                     ],
                   ),
 
@@ -236,23 +286,50 @@ class FilterPageState extends State<FilterPage> {
                       ),
                     ),
                     children: <Widget>[
-                      new GridView.count(
-                        shrinkWrap: true,
-                        primary: true,
-                        childAspectRatio: 2.0,
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 10.0,
-                        children: _kColorTiles.map((_FilterItemTile item) {
-                          return new GridTile(
-                            child: new Container(
-                              margin: new EdgeInsets.all(14.0),
-                              child: new Image.asset(
-                                item.itemName,
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      )
+                      new GridView.builder(
+                          shrinkWrap: true,
+                          primary: true,
+                          itemCount: _kCategoryTiles.length,
+                          gridDelegate:
+                              new SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3),
+                          itemBuilder: (BuildContext context, int index) {
+                            return new GestureDetector(
+                              child: selectedMap[2] == index
+                                  ? new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          borderRadius: new BorderRadius.all(
+                                              new Radius.elliptical(
+                                                  50.0, 50.0)),
+                                          border: new Border.all(
+                                            color: const Color(0xFF33b17c),
+                                          ),
+                                        ),
+                                        margin: new EdgeInsets.all(14.0),
+                                        child: new Image.asset(
+                                          _kColorTiles[index].itemName,
+                                        ),
+                                      ),
+                                    )
+                                  : new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        margin: new EdgeInsets.all(14.0),
+                                        child: new Image.asset(
+                                          _kColorTiles[index].itemName,
+                                        ),
+                                      ),
+                                    ),
+                              onTap: () {
+                                setState(() {
+                                  selectedMap[2] = index;
+                                });
+                              },
+                            );
+                          })
                     ],
                   ),
 
@@ -272,30 +349,64 @@ class FilterPageState extends State<FilterPage> {
                       ),
                     ),
                     children: <Widget>[
-                      new GridView.count(
-                        shrinkWrap: true,
-                        primary: false,
-                        childAspectRatio: 2.0,
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 10.0,
-                        children: _kCategoryTiles.map((_FilterItemTile item) {
-                          return new GridTile(
-                            child: new Container(
-                              margin: new EdgeInsets.all(10.0),
-                              child: new Text(
-                                item.itemName,
-                                textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.0,
-                                  fontFamily: 'helvetica_neue_medium',
-                                  letterSpacing: 0.59,
-                                ),
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      ),
+                      new GridView.builder(
+                          shrinkWrap: true,
+                          primary: false,
+                          itemCount: _kCategoryTiles.length,
+                          gridDelegate:
+                              new SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3),
+                          itemBuilder: (BuildContext context, int index) {
+                            return new GestureDetector(
+                              child: selectedMap[3] == index
+                                  ? new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          borderRadius: new BorderRadius.all(
+                                              new Radius.elliptical(
+                                                  50.0, 50.0)),
+                                          border: new Border.all(
+                                            color: const Color(0xFF33b17c),
+                                          ),
+                                        ),
+                                        margin: new EdgeInsets.all(10.0),
+                                        child: new Text(
+                                          _kCategoryTiles[index].itemName,
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.0,
+                                            fontFamily: 'helvetica_neue_medium',
+                                            letterSpacing: 0.59,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : new GridTile(
+                                      child: new Container(
+                                        alignment: Alignment.center,
+                                        margin: new EdgeInsets.all(10.0),
+                                        child: new Text(
+                                          _kCategoryTiles[index].itemName,
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.0,
+                                            fontFamily: 'helvetica_neue_medium',
+                                            letterSpacing: 0.59,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                              onTap: () {
+                                setState(() {
+                                  selectedMap[3] = index;
+                                });
+                              },
+                            );
+                          }),
                     ],
                   ),
                 ],
