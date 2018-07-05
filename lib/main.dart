@@ -18,9 +18,37 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  MyHomePageState createState() => new MyHomePageState();
+}
+
+class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    TextStyle style50 = new TextStyle(
+      inherit: true,
+      fontSize: 50.0,
+      color: Colors.white,
+    );
+    TextStyle style19 = new TextStyle(
+      inherit: true,
+      color: Colors.white,
+      fontSize: 19.0,
+      fontFamily: 'helvetica_neue',
+    );
+    TextStyle style15White = new TextStyle(
+      inherit: true,
+      color: Colors.white,
+      fontSize: 15.0,
+      fontFamily: 'helvetica_neue',
+    );
+    TextStyle style15Green = new TextStyle(
+      inherit: true,
+      color: Colors.green,
+      fontSize: 15.0,
+      fontFamily: 'helvetica_neue',
+    );
     return new Scaffold(
       body: new Container(
           decoration: new BoxDecoration(
@@ -39,10 +67,7 @@ class MyHomePage extends StatelessWidget {
                   child: new Text(
                     'JAHMAIKA',
                     textAlign: TextAlign.center,
-                    style: new TextStyle(
-                      color: Colors.white,
-                      fontSize: 50.0,
-                    ),
+                    style: style50,
                   ),
                 ),
                 new Container(
@@ -61,11 +86,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                         child: new Text(
                           'Create an account',
-                          style: new TextStyle(
-                            color: Colors.white,
-                            fontSize: 17.0,
-                            fontFamily: 'helvetica_neue',
-                          ),
+                          style: style19,
                         ),
                       ),
                       onPressed: () {
@@ -85,11 +106,7 @@ class MyHomePage extends StatelessWidget {
                         child: new Text(
                           'Already have an account?',
                           textAlign: TextAlign.center,
-                          style: new TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.0,
-                            fontFamily: 'helvetica_neue',
-                          ),
+                          style: style15White,
                         ),
                       ),
                       new GestureDetector(
@@ -102,15 +119,8 @@ class MyHomePage extends StatelessWidget {
                         },
                         child: new Container(
                           margin: new EdgeInsets.only(left: 16.0),
-                          child: new Text(
-                            'Login',
-                            textAlign: TextAlign.center,
-                            style: new TextStyle(
-                              color: Colors.green,
-                              fontSize: 15.0,
-                              fontFamily: 'helvetica_neue',
-                            ),
-                          ),
+                          child: new Text('Login',
+                              textAlign: TextAlign.center, style: style15Green),
                         ),
                       ),
                     ],
