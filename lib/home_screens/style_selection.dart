@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'top_collection.dart';
-import 'side_navigation.dart';
-import 'shopping_cart.dart';
+import 'package:flutter_jahmaika/home_screens/top_collection.dart';
+import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 class StyleSelectionPage extends StatefulWidget {
   StyleSelectionPageState createState() => StyleSelectionPageState();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'FilterNew.dart';
-import 'product_detail.dart';
-import 'side_navigation.dart';
-import 'shopping_cart.dart';
+import 'package:flutter_jahmaika/product_details_screens/FilterNew.dart';
+import 'package:flutter_jahmaika/product_details_screens/product_detail.dart';
+import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
+import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
 
 List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(

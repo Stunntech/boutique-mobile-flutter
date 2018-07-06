@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'user_profile.dart';
-import 'gender_selection.dart';
+import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/user_profile.dart';
+import 'package:flutter_jahmaika/home_screens/gender_selection.dart';
 
 List<_ShopItemTile> _tiles = <_ShopItemTile>[
   new _ShopItemTile(

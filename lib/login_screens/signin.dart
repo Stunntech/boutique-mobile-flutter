@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_jahmaika/home_screens/gender_selection.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'reset_password.dart';
+import 'package:flutter_jahmaika/login_screens/reset_password.dart';
 import 'package:http/http.dart' as http;
-import 'gender_selection.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPageState createState() => SignInPageState();

@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'shopping_cart.dart';
-import 'CustomShowDialog.dart';
-import 'side_navigation.dart';
+import 'package:flutter_jahmaika/custom_views/CustomShowDialog.dart';
+import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 List<_ReviewItemTile> _kReviewTiles = <_ReviewItemTile>[
   new _ReviewItemTile(

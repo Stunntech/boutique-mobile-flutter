@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
-import 'signin.dart';
+import 'package:flutter_jahmaika/login_screens/signup.dart';
+import 'package:flutter_jahmaika/login_screens/signin.dart';
 
 void main() => runApp(new MyApp());
 

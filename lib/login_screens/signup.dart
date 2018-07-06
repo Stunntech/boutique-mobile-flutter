@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'signin.dart';
+import 'package:flutter_jahmaika/login_screens/signin.dart';
 import 'package:http/http.dart' as http;
 
 class SignUpPage extends StatefulWidget {
