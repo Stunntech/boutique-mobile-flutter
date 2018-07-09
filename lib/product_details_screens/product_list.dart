@@ -112,10 +112,10 @@ List<_FilterItemTile> _kColorTiles = <_FilterItemTile>[
 ];
 
 class ProductListPage extends StatefulWidget {
-  ProductListPageState createState() => ProductListPageState();
+  _ProductListPageState createState() => _ProductListPageState();
 }
 
-class ProductListPageState extends State<ProductListPage> {
+class _ProductListPageState extends State<ProductListPage> {
   bool isCategoryExpanded = false;
   bool isBrandExpanded = false;
   bool isColorExpanded = false;

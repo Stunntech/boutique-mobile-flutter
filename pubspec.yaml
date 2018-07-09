@@ -128,6 +128,9 @@ flutter:
            fonts:
               - asset: assets/fonts/helvetica_neue_medium.ttf
 
-  #
+         - family: sign_painter_house_script
+           fonts:
+              - asset: assets/fonts/sign_painter_house_script.ttf
+ #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
