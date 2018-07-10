@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_jahmaika/product_details_screens/FilterNew.dart';
 import 'package:flutter_jahmaika/product_details_screens/product_detail.dart';
+import 'package:flutter_jahmaika/product_list_contract.dart';
+import 'package:flutter_jahmaika/product_list_model.dart';
+import 'package:flutter_jahmaika/product_list_presenter.dart';
 import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
 import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
 
@@ -115,11 +118,33 @@ class ProductListPage extends StatefulWidget {
   _ProductListPageState createState() => _ProductListPageState();
 }
 
-class _ProductListPageState extends State<ProductListPage> {
+class _ProductListPageState extends State<ProductListPage> implements View {
   bool isCategoryExpanded = false;
   bool isBrandExpanded = false;
   bool isColorExpanded = false;
   bool isSizeExpanded = false;
+
+  List<Item> _items;
+
+  HomePresenter _presenter;
+
+  bool _loadingInProgress;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadingInProgress = true;
+    _presenter = new HomePresenter(new HomeModel(), this);
+    _presenter.viewDisplayed();
+  }
+
+  @override
+  void showItems(List<Item> items) {
+    setState(() {
+      _items = items;
+      _loadingInProgress = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -238,7 +263,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   childAspectRatio: .70,
                   crossAxisCount: 2,
                   mainAxisSpacing: 20.0,
-                  children: _tiles.map((_ProductListTile item) {
+                  children: _items.map((Item item) {
                     return new GridTile(
                       child: new Container(
                         child: new GestureDetector(
