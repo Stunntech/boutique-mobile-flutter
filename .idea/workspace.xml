@@ -6,8 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7301f7b7-01fc-4b63-8a71-ab8e6c4c474d" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/product_details_screens/product_list.dart" afterPath="$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/product_list_contract.dart" afterPath="$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_contract.dart" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/product_list_model.dart" afterPath="$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_model.dart" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/product_list_presenter.dart" afterPath="$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_presenter.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/product_details_screens/product_list.dart" afterPath="$PROJECT_DIR$/lib/product_details_screens/product_list.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/home_screens/top_collection.dart" afterPath="$PROJECT_DIR$/lib/home_screens/top_collection.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -36,9 +40,9 @@
         </entry>
       </file>
       <file leaf-file-name="product_list_contract.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/product_list_contract.dart">
+        <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_contract.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="192">
               <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -48,21 +52,21 @@
         </entry>
       </file>
       <file leaf-file-name="product_list_presenter.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/product_list_presenter.dart">
+        <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_presenter.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="126">
               <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
               <folding>
-                <element signature="e#0#36#0" expanded="true" />
+                <element signature="e#0#103#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="product_list_model.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/product_list_model.dart">
+        <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_model.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
+            <state relative-caret-position="936">
               <caret line="55" column="3" lean-forward="false" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -99,9 +103,9 @@
         </entry>
       </file>
       <file leaf-file-name="product_list.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart">
+        <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
+            <state relative-caret-position="-8516">
               <caret line="259" column="16" lean-forward="false" selection-start-line="259" selection-start-column="16" selection-end-line="259" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -214,7 +218,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -259,10 +265,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flutter_jahmaika" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flutter_jahmaika" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="product_details_screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="product_list_page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -319,19 +345,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/product_details_screens/product_list_page" />
+      <recent name="$PROJECT_DIR$/lib/custom_views" />
+      <recent name="$PROJECT_DIR$/lib/product_details_screens" />
+      <recent name="$PROJECT_DIR$/lib/sidenavigation_and_tracking_screens" />
+      <recent name="$PROJECT_DIR$/lib/cart_checkout_screens" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi" />
       <recent name="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi" />
       <recent name="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/custom_views" />
-      <recent name="$PROJECT_DIR$/lib/product_details_screens" />
-      <recent name="$PROJECT_DIR$/lib/sidenavigation_and_tracking_screens" />
-      <recent name="$PROJECT_DIR$/lib/cart_checkout_screens" />
-      <recent name="$PROJECT_DIR$/lib/home_screens" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -414,7 +440,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531225116716" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531291402436" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -462,7 +488,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531225116716" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531291402437" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -507,6 +533,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -671,32 +718,32 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart</url>
+          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart</url>
           <line>674</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart</url>
+          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart</url>
           <line>648</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart</url>
+          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart</url>
           <line>625</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart</url>
+          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart</url>
           <line>599</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart</url>
+          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart</url>
           <line>574</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart</url>
+          <url>file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart</url>
           <line>422</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
@@ -995,19 +1042,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/product_list_contract.dart">
+    <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_model.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/product_list_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
+        <state relative-caret-position="936">
           <caret line="55" column="3" lean-forward="false" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -1015,19 +1052,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/product_list_presenter.dart">
+    <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_presenter.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="126">
           <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list.dart">
+    <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list_contract.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
+        <state relative-caret-position="192">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/product_details_screens/product_list_page/product_list.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8516">
           <caret line="259" column="16" lean-forward="false" selection-start-line="259" selection-start-column="16" selection-end-line="259" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />

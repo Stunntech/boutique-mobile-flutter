@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_list.dart';
+import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list.dart';
 import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
 import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
 

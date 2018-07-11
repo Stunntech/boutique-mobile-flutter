@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_jahmaika/product_details_screens/FilterNew.dart';
 import 'package:flutter_jahmaika/product_details_screens/product_detail.dart';
-import 'package:flutter_jahmaika/product_list_contract.dart';
-import 'package:flutter_jahmaika/product_list_model.dart';
-import 'package:flutter_jahmaika/product_list_presenter.dart';
+import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_contract.dart';
+import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_model.dart';
+import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_presenter.dart';
 import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
 import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
 
