@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/login_screens/create_account_page.dart';
-import 'package:flutter_jahmaika/main.dart';
+import 'package:flutter_jahmaika/screens/login_screens/create_account_page.dart';
 
 class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
@@ -10,35 +9,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  void handleTimeout() {
-    Navigator.of(context).pushReplacement(new MaterialPageRoute(
-        builder: (BuildContext context) => new MyHomePage()));
-  }
-
-  startTimeout() async {
-    var duration = const Duration(seconds: 5);
-    return new Timer(duration, handleTimeout);
-  }
-
   AnimationController _iconAnimationController;
+
   CurvedAnimation _iconAnimation;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    /* _iconAnimationController = new AnimationController(
-        vsync: this, duration: new Duration(milliseconds: 2000));
-
-    _iconAnimation = new CurvedAnimation(
-        parent: _iconAnimationController, curve: Curves.easeIn);
-    _iconAnimation.addListener(() => this.setState(() {}));
-
-    _iconAnimationController.forward();*/
-
-    startTimeout();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,5 +40,32 @@ class _SplashScreenState extends State<SplashScreen>
         ),
       ),
     );
+  }
+
+  void handleTimeout() {
+    Navigator.of(context).pushReplacement(new MaterialPageRoute(
+        builder: (BuildContext context) => new MyHomePage()));
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    /* _iconAnimationController = new AnimationController(
+        vsync: this, duration: new Duration(milliseconds: 2000));
+
+    _iconAnimation = new CurvedAnimation(
+        parent: _iconAnimationController, curve: Curves.easeIn);
+    _iconAnimation.addListener(() => this.setState(() {}));
+
+    _iconAnimationController.forward();*/
+
+    startTimeout();
+  }
+
+  startTimeout() async {
+    var duration = const Duration(seconds: 5);
+    return new Timer(duration, handleTimeout);
   }
 }

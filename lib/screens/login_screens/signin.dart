@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/home_screens/gender_selection.dart';
+import 'package:flutter_jahmaika/screens/home_screens/gender_selection.dart';
+import 'package:flutter_jahmaika/screens/login_screens/reset_password.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_jahmaika/login_screens/reset_password.dart';
 import 'package:http/http.dart' as http;
 
 class SignInPage extends StatefulWidget {
@@ -16,24 +16,6 @@ class SignInPageState extends State<SignInPage> {
 
   String url =
       'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/login/';
-
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // Clean up the controller when the Widget is disposed
-    myEmailAddressController.dispose();
-    myPasswordController.dispose();
-    super.dispose();
-  }
-
-  static Future<Map> signIn(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = JSON.decode(res.body);
-    return data;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,5 +143,23 @@ class SignInPageState extends State<SignInPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the Widget is disposed
+    myEmailAddressController.dispose();
+    myPasswordController.dispose();
+    super.dispose();
+  }
+
+  void initState() {
+    super.initState();
+  }
+
+  static Future<Map> signIn(String url, Map map) async {
+    http.Response res = await http.post(url, body: map); // post api call
+    Map data = JSON.decode(res.body);
+    return data;
   }
 }

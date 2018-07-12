@@ -1,9 +1,23 @@
 import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/custom_views/CustomShowDialog.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/custom_views/CustomShowDialog.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
+
+List<ProductFeatureFilter> _kFilterColorList = <ProductFeatureFilter>[
+  new ProductFeatureFilter('Red'),
+  new ProductFeatureFilter('Green'),
+];
+
+List<ProductFeatureFilter> _kFilterSizeList = <ProductFeatureFilter>[
+  new ProductFeatureFilter('S'),
+  new ProductFeatureFilter('M'),
+  new ProductFeatureFilter('L'),
+  new ProductFeatureFilter('XL'),
+  new ProductFeatureFilter('XXL'),
+];
 
 List<_ReviewItemTile> _kReviewTiles = <_ReviewItemTile>[
   new _ReviewItemTile(
@@ -18,38 +32,132 @@ List<_ReviewItemTile> _kReviewTiles = <_ReviewItemTile>[
   ),
 ];
 
-List<ProductFeatureFilter> _kFilterSizeList = <ProductFeatureFilter>[
-  new ProductFeatureFilter('S'),
-  new ProductFeatureFilter('M'),
-  new ProductFeatureFilter('L'),
-  new ProductFeatureFilter('XL'),
-  new ProductFeatureFilter('XXL'),
-];
+typedef void RatingChangeCallback(double rating);
 
-List<ProductFeatureFilter> _kFilterColorList = <ProductFeatureFilter>[
-  new ProductFeatureFilter('Red'),
-  new ProductFeatureFilter('Green'),
-];
+/// An indicator showing the currently selected page of a PageController
+class DotsIndicator extends AnimatedWidget {
+  static const double _kDotSize = 8.0;
+
+  static const double _kMaxZoom = 2.0;
+
+  static const double _kDotSpacing = 25.0;
+
+  /// The PageController that this DotsIndicator is representing.
+  final PageController controller;
+
+  /// The number of items managed by the PageController
+  final int itemCount;
+
+  // The base size of the dots
+  /// Called when a dot is tapped
+  final ValueChanged<int> onPageSelected;
+
+  // The increase in the size of the selected dot
+  /// The color of the dots.
+  ///
+  /// Defaults to `Colors.white`.
+  final Color color;
+
+  // The distance between the center of each dot
+  DotsIndicator({
+    this.controller,
+    this.itemCount,
+    this.onPageSelected,
+    this.color: Colors.white,
+  }) : super(listenable: controller);
+
+  Widget build(BuildContext context) {
+    return new Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: new List<Widget>.generate(itemCount, _buildDot),
+    );
+  }
+
+  Widget _buildDot(int index) {
+    double selectedness = Curves.easeOut.transform(
+      max(
+        0.0,
+        1.0 - ((controller.page ?? controller.initialPage) - index).abs(),
+      ),
+    );
+    double zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
+    return new Container(
+      width: _kDotSpacing,
+      child: new Center(
+        child: new Material(
+          color: color,
+          type: MaterialType.circle,
+          child: new Container(
+            width: _kDotSize * zoom,
+            height: _kDotSize * zoom,
+            child: new InkWell(
+              onTap: () => onPageSelected(index),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Page extends StatelessWidget {
+  final page;
+  final idx;
+
+  Page({
+    @required this.page,
+    @required this.idx,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return new Padding(
+      padding: const EdgeInsets.all(0.0),
+      child: new Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Container(
+            height: 250.0,
+            child: new Card(
+              child: new Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  this.page,
+                  new Material(
+                    type: MaterialType.transparency,
+                    child: new InkWell(onTap: this.onTap),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  onTap() {
+    print("${this.idx} selected.");
+  }
+}
 
 class ProductDetailPage extends StatefulWidget {
   ProductDetailPageState createState() => ProductDetailPageState();
 }
 
 class ProductDetailPageState extends State<ProductDetailPage> {
+  static const _kDuration = const Duration(milliseconds: 400);
+  static const _kCurve = Curves.ease;
+
   double productRating = 3.0;
+
   double rating = 3.5;
 
   final _controller = new PageController(viewportFraction: 1.0);
 
-  static const _kDuration = const Duration(milliseconds: 400);
-
-  static const _kCurve = Curves.ease;
-
   final _kArrowColor = Colors.black.withOpacity(0.8);
-
-  static onTap(index) {
-    print("$index selected.");
-  }
 
   final List<Widget> _pages = <Widget>[
     new Image.asset("assets/images/product_3.png"),
@@ -59,10 +167,6 @@ class ProductDetailPageState extends State<ProductDetailPage> {
     new Image.asset("assets/images/product_3.png"),
     new Image.asset("assets/images/product_3.png"),
   ];
-
-  Widget _buildPageItem(BuildContext context, int index) {
-    return new Page(page: _pages[index], idx: index);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -561,170 +665,14 @@ class ProductDetailPageState extends State<ProductDetailPage> {
       ),
     );
   }
-}
 
-class Page extends StatelessWidget {
-  final page;
-  final idx;
-
-  Page({
-    @required this.page,
-    @required this.idx,
-  });
-
-  onTap() {
-    print("${this.idx} selected.");
+  Widget _buildPageItem(BuildContext context, int index) {
+    return new Page(page: _pages[index], idx: index);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return new Padding(
-      padding: const EdgeInsets.all(0.0),
-      child: new Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          new Container(
-            height: 250.0,
-            child: new Card(
-              child: new Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  this.page,
-                  new Material(
-                    type: MaterialType.transparency,
-                    child: new InkWell(onTap: this.onTap),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+  static onTap(index) {
+    print("$index selected.");
   }
-}
-
-/// An indicator showing the currently selected page of a PageController
-class DotsIndicator extends AnimatedWidget {
-  DotsIndicator({
-    this.controller,
-    this.itemCount,
-    this.onPageSelected,
-    this.color: Colors.white,
-  }) : super(listenable: controller);
-
-  /// The PageController that this DotsIndicator is representing.
-  final PageController controller;
-
-  /// The number of items managed by the PageController
-  final int itemCount;
-
-  /// Called when a dot is tapped
-  final ValueChanged<int> onPageSelected;
-
-  /// The color of the dots.
-  ///
-  /// Defaults to `Colors.white`.
-  final Color color;
-
-  // The base size of the dots
-  static const double _kDotSize = 8.0;
-
-  // The increase in the size of the selected dot
-  static const double _kMaxZoom = 2.0;
-
-  // The distance between the center of each dot
-  static const double _kDotSpacing = 25.0;
-
-  Widget _buildDot(int index) {
-    double selectedness = Curves.easeOut.transform(
-      max(
-        0.0,
-        1.0 - ((controller.page ?? controller.initialPage) - index).abs(),
-      ),
-    );
-    double zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
-    return new Container(
-      width: _kDotSpacing,
-      child: new Center(
-        child: new Material(
-          color: color,
-          type: MaterialType.circle,
-          child: new Container(
-            width: _kDotSize * zoom,
-            height: _kDotSize * zoom,
-            child: new InkWell(
-              onTap: () => onPageSelected(index),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget build(BuildContext context) {
-    return new Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: new List<Widget>.generate(itemCount, _buildDot),
-    );
-  }
-}
-
-typedef void RatingChangeCallback(double rating);
-
-class StarRating extends StatelessWidget {
-  final int starCount;
-  final double rating;
-  final RatingChangeCallback onRatingChanged;
-  final Color color;
-
-  StarRating(
-      {this.starCount = 5, this.rating = .0, this.onRatingChanged, this.color});
-
-  Widget buildStar(BuildContext context, int index) {
-    Icon icon;
-    if (index >= rating) {
-      icon = new Icon(
-        Icons.star_border,
-        color: const Color(0xFF33b17c),
-        // color: Theme.of(context).buttonColor,
-      );
-    } else if (index > rating - 1 && index < rating) {
-      icon = new Icon(
-        Icons.star_half,
-        // color: color ?? Theme.of(context).primaryColor,
-        color: const Color(0xFF33b17c),
-      );
-    } else {
-      icon = new Icon(
-        Icons.star,
-        //color: color ?? Theme.of(context).primaryColor,
-        color: const Color(0xFF33b17c),
-      );
-    }
-    return new InkResponse(
-      onTap:
-          onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
-      child: icon,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new Row(
-        children:
-            new List.generate(starCount, (index) => buildStar(context, index)));
-  }
-}
-
-class _ReviewItemTile {
-  final String userName;
-  final double userRating;
-  final String userReview;
-
-  _ReviewItemTile(this.userName, this.userRating, this.userReview);
 }
 
 class ProductFeatureFilter {
@@ -845,4 +793,57 @@ class ReviewDialogState extends State<ReviewDialog> {
       ),
     );
   }
+}
+
+class StarRating extends StatelessWidget {
+  final int starCount;
+  final double rating;
+  final RatingChangeCallback onRatingChanged;
+  final Color color;
+
+  StarRating(
+      {this.starCount = 5, this.rating = .0, this.onRatingChanged, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return new Row(
+        children:
+            new List.generate(starCount, (index) => buildStar(context, index)));
+  }
+
+  Widget buildStar(BuildContext context, int index) {
+    Icon icon;
+    if (index >= rating) {
+      icon = new Icon(
+        Icons.star_border,
+        color: const Color(0xFF33b17c),
+        // color: Theme.of(context).buttonColor,
+      );
+    } else if (index > rating - 1 && index < rating) {
+      icon = new Icon(
+        Icons.star_half,
+        // color: color ?? Theme.of(context).primaryColor,
+        color: const Color(0xFF33b17c),
+      );
+    } else {
+      icon = new Icon(
+        Icons.star,
+        //color: color ?? Theme.of(context).primaryColor,
+        color: const Color(0xFF33b17c),
+      );
+    }
+    return new InkResponse(
+      onTap:
+          onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
+      child: icon,
+    );
+  }
+}
+
+class _ReviewItemTile {
+  final String userName;
+  final double userRating;
+  final String userReview;
+
+  _ReviewItemTile(this.userName, this.userRating, this.userReview);
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shipping_details.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shipping_details.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 List<_MyShoppingCartTile> _tiles = <_MyShoppingCartTile>[
   new _MyShoppingCartTile(

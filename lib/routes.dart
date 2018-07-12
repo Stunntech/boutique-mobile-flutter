@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shipping_details.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
-import 'package:flutter_jahmaika/home_screens/gender_selection.dart';
-import 'package:flutter_jahmaika/home_screens/item_category_selection.dart';
-import 'package:flutter_jahmaika/home_screens/style_selection.dart';
-import 'package:flutter_jahmaika/home_screens/top_collection.dart';
-import 'package:flutter_jahmaika/login_screens/change_password.dart';
-import 'package:flutter_jahmaika/login_screens/create_account_page.dart';
-import 'package:flutter_jahmaika/login_screens/reset_password.dart';
-import 'package:flutter_jahmaika/login_screens/signin.dart';
-import 'package:flutter_jahmaika/login_screens/signup.dart';
-import 'package:flutter_jahmaika/login_screens/splash_screen.dart';
-import 'package:flutter_jahmaika/product_details_screens/FilterNew.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_detail.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/my_orders.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/user_profile.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shipping_details.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/home_screens/gender_selection.dart';
+import 'package:flutter_jahmaika/screens/home_screens/item_category_selection.dart';
+import 'package:flutter_jahmaika/screens/home_screens/style_selection.dart';
+import 'package:flutter_jahmaika/screens/home_screens/top_collection.dart';
+import 'package:flutter_jahmaika/screens/login_screens/create_account_page.dart';
+import 'package:flutter_jahmaika/screens/login_screens/reset_password.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signin.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signup.dart';
+import 'package:flutter_jahmaika/screens/login_screens/splash_screen.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/FilterNew.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_detail.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/my_orders.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/user_profile.dart';
 
 final routes = {
   '/': (BuildContext context) => new SplashScreen(),

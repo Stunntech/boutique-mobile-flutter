@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/custom_views/CustomShowDialog.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/custom_views/CustomShowDialog.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 class ShippingDetailPage extends StatefulWidget {
   ShippingDetailPageState createState() => ShippingDetailPageState();

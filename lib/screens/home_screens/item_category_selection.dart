@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
-import 'package:flutter_jahmaika/home_screens/style_selection.dart';
-import 'package:flutter_jahmaika/home_screens/top_collection.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/home_screens/style_selection.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 List<_CategoryTile> _tiles = <_CategoryTile>[
   new _CategoryTile('assets/images/footwear.png', 'BEST IN FOOTWEAR',
@@ -137,14 +134,6 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
   }
 }
 
-class _CategoryTile {
-  final String imageUrl;
-  final String itemName;
-  final String itemDescription;
-
-  _CategoryTile(this.imageUrl, this.itemName, this.itemDescription);
-}
-
 class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -249,4 +238,12 @@ class TopSection extends StatelessWidget {
       ),
     );
   }
+}
+
+class _CategoryTile {
+  final String imageUrl;
+  final String itemName;
+  final String itemDescription;
+
+  _CategoryTile(this.imageUrl, this.itemName, this.itemDescription);
 }

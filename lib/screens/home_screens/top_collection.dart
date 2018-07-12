@@ -1,31 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
-
-class TopCollectionPage extends StatefulWidget {
-  TopCollectionPageState createState() => TopCollectionPageState();
-}
-
-class TopCollectionPageState extends State<TopCollectionPage> {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
-        child: new Column(
-          children: <Widget>[
-            new Expanded(
-              child: new TopSection(),
-            ),
-            new Expanded(
-              child: new BottomSection(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 class BottomSection extends StatelessWidget {
   @override
@@ -232,6 +208,30 @@ class BottomSection extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class TopCollectionPage extends StatefulWidget {
+  TopCollectionPageState createState() => TopCollectionPageState();
+}
+
+class TopCollectionPageState extends State<TopCollectionPage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Container(
+        child: new Column(
+          children: <Widget>[
+            new Expanded(
+              child: new TopSection(),
+            ),
+            new Expanded(
+              child: new BottomSection(),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,149 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/home_screens/style_selection.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
-import 'package:flutter_jahmaika/home_screens/item_category_selection.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-
-class GenderSelectionPage extends StatefulWidget {
-  GenderSelectionPageState createState() => GenderSelectionPageState();
-}
-
-class GenderSelectionPageState extends State<GenderSelectionPage> {
-  @override
-  void initState() {
-    super.initState();
-
-    // FlutterStatusbarcolor.setStatusBarColor(Colors.green);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("assets/images/bg_gender_selection.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: new Column(
-          children: <Widget>[
-            new CustomAppBar(),
-            new StaticText(),
-            new ButtonSection(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Container(
-      padding: new EdgeInsets.all(8.0),
-      decoration: new BoxDecoration(
-        color: const Color(0x4D4a4a4a),
-      ),
-      child: new Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          new GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new SideNavigationPage()),
-              );
-            },
-            child: new Container(
-              margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(10.0),
-              child: new Image.asset(
-                "assets/images/menu_white.png",
-              ),
-            ),
-          ),
-          new Container(
-            margin: new EdgeInsets.only(top: 25.0),
-            child: new Text(
-              'JAHMAIKA',
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-                fontFamily: 'avenir_black',
-                letterSpacing: 0.78,
-              ),
-            ),
-          ),
-          new GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new MyShoppingCartPage()),
-              );
-            },
-            child: new Container(
-              alignment: Alignment.topRight,
-              margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(10.0),
-              child: new Image.asset(
-                "assets/images/shopping_bag_white.png",
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class StaticText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Container(
-      margin: new EdgeInsets.only(top: 150.0),
-      alignment: Alignment.center,
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Container(
-            alignment: Alignment.center,
-            child: new Text(
-              "Let's find out your perfect match!",
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                color: Colors.white,
-                fontSize: 22.0,
-                fontFamily: 'helvetica_neue_medium',
-                letterSpacing: 0.69,
-              ),
-            ),
-          ),
-          new Container(
-            alignment: Alignment.center,
-            margin: new EdgeInsets.only(top: 32.0),
-            child: new Text(
-              "SHOP FOR",
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                color: Colors.white,
-                fontSize: 26.0,
-                fontFamily: 'helvetica_neue_medium',
-                letterSpacing: 0.83,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/home_screens/item_category_selection.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
 class ButtonSection extends StatelessWidget {
   @override
@@ -218,6 +76,146 @@ class ButtonSection extends StatelessWidget {
                         builder: (context) => new ItemCategorySelectionPage()),
                   );
                 }),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      padding: new EdgeInsets.all(8.0),
+      decoration: new BoxDecoration(
+        color: const Color(0x4D4a4a4a),
+      ),
+      child: new Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          new GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new SideNavigationPage()),
+              );
+            },
+            child: new Container(
+              margin: new EdgeInsets.only(top: 20.0),
+              padding: new EdgeInsets.all(10.0),
+              child: new Image.asset(
+                "assets/images/menu_white.png",
+              ),
+            ),
+          ),
+          new Container(
+            margin: new EdgeInsets.only(top: 25.0),
+            child: new Text(
+              'JAHMAIKA',
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                color: Colors.white,
+                fontSize: 14.0,
+                fontFamily: 'avenir_black',
+                letterSpacing: 0.78,
+              ),
+            ),
+          ),
+          new GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new MyShoppingCartPage()),
+              );
+            },
+            child: new Container(
+              alignment: Alignment.topRight,
+              margin: new EdgeInsets.only(top: 20.0),
+              padding: new EdgeInsets.all(10.0),
+              child: new Image.asset(
+                "assets/images/shopping_bag_white.png",
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class GenderSelectionPage extends StatefulWidget {
+  GenderSelectionPageState createState() => GenderSelectionPageState();
+}
+
+class GenderSelectionPageState extends State<GenderSelectionPage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Container(
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("assets/images/bg_gender_selection.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: new Column(
+          children: <Widget>[
+            new CustomAppBar(),
+            new StaticText(),
+            new ButtonSection(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // FlutterStatusbarcolor.setStatusBarColor(Colors.green);
+  }
+}
+
+class StaticText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      margin: new EdgeInsets.only(top: 150.0),
+      alignment: Alignment.center,
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          new Container(
+            alignment: Alignment.center,
+            child: new Text(
+              "Let's find out your perfect match!",
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                color: Colors.white,
+                fontSize: 22.0,
+                fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.69,
+              ),
+            ),
+          ),
+          new Container(
+            alignment: Alignment.center,
+            margin: new EdgeInsets.only(top: 32.0),
+            child: new Text(
+              "SHOP FOR",
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                color: Colors.white,
+                fontSize: 26.0,
+                fontFamily: 'helvetica_neue_medium',
+                letterSpacing: 0.83,
+              ),
+            ),
           ),
         ],
       ),
