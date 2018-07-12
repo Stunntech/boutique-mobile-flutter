@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'dart:typed_data';
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_contract.dart';
-import 'package:flutter/services.dart' show rootBundle;
+
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list_contract.dart';
 
 class HomeModel implements Model {
   List<Item> _items;

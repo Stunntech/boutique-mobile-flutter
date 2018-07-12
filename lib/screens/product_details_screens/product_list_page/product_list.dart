@@ -1,11 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/product_details_screens/FilterNew.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_detail.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_contract.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_model.dart';
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_presenter.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/side_navigation.dart';
-import 'package:flutter_jahmaika/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/FilterNew.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_detail.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list_contract.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list_model.dart';
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list_presenter.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
+
+List<_FilterItemTile> _kBrandTiles = <_FilterItemTile>[
+  new _FilterItemTile(
+    'BRAND 1',
+  ),
+  new _FilterItemTile(
+    'BRAND 2',
+  ),
+  new _FilterItemTile(
+    'BRAND 3',
+  ),
+  new _FilterItemTile(
+    'BRAND 4',
+  ),
+  new _FilterItemTile(
+    'BRAND 5',
+  ),
+];
+
+List<_FilterItemTile> _kCategoryTiles = <_FilterItemTile>[
+  new _FilterItemTile(
+    'CATEGORY 1',
+  ),
+  new _FilterItemTile(
+    'CATEGORY 2',
+  ),
+  new _FilterItemTile(
+    'CATEGORY 3',
+  ),
+  new _FilterItemTile(
+    'CATEGORY 4',
+  ),
+  new _FilterItemTile(
+    'CATEGORY 5',
+  ),
+];
+
+List<_FilterItemTile> _kColorTiles = <_FilterItemTile>[
+  new _FilterItemTile(
+    'assets/images/color_black.png',
+  ),
+  new _FilterItemTile(
+    'assets/images/color_white.png',
+  ),
+  new _FilterItemTile(
+    'assets/images/color_red.png',
+  ),
+  new _FilterItemTile(
+    'assets/images/color_green.png',
+  ),
+  new _FilterItemTile(
+    'assets/images/color_blue.png',
+  ),
+];
+
+List<_FilterItemTile> _kSizeTiles = <_FilterItemTile>[
+  new _FilterItemTile(
+    'S',
+  ),
+  new _FilterItemTile(
+    'M',
+  ),
+  new _FilterItemTile(
+    'L',
+  ),
+  new _FilterItemTile(
+    'XL',
+  ),
+  new _FilterItemTile(
+    'XXL',
+  ),
+];
 
 List<_ProductListTile> _tiles = <_ProductListTile>[
   new _ProductListTile(
@@ -42,80 +114,14 @@ List<_ProductListTile> _tiles = <_ProductListTile>[
   ),
 ];
 
-List<_FilterItemTile> _kCategoryTiles = <_FilterItemTile>[
-  new _FilterItemTile(
-    'CATEGORY 1',
-  ),
-  new _FilterItemTile(
-    'CATEGORY 2',
-  ),
-  new _FilterItemTile(
-    'CATEGORY 3',
-  ),
-  new _FilterItemTile(
-    'CATEGORY 4',
-  ),
-  new _FilterItemTile(
-    'CATEGORY 5',
-  ),
-];
-
-List<_FilterItemTile> _kBrandTiles = <_FilterItemTile>[
-  new _FilterItemTile(
-    'BRAND 1',
-  ),
-  new _FilterItemTile(
-    'BRAND 2',
-  ),
-  new _FilterItemTile(
-    'BRAND 3',
-  ),
-  new _FilterItemTile(
-    'BRAND 4',
-  ),
-  new _FilterItemTile(
-    'BRAND 5',
-  ),
-];
-
-List<_FilterItemTile> _kSizeTiles = <_FilterItemTile>[
-  new _FilterItemTile(
-    'S',
-  ),
-  new _FilterItemTile(
-    'M',
-  ),
-  new _FilterItemTile(
-    'L',
-  ),
-  new _FilterItemTile(
-    'XL',
-  ),
-  new _FilterItemTile(
-    'XXL',
-  ),
-];
-
-List<_FilterItemTile> _kColorTiles = <_FilterItemTile>[
-  new _FilterItemTile(
-    'assets/images/color_black.png',
-  ),
-  new _FilterItemTile(
-    'assets/images/color_white.png',
-  ),
-  new _FilterItemTile(
-    'assets/images/color_red.png',
-  ),
-  new _FilterItemTile(
-    'assets/images/color_green.png',
-  ),
-  new _FilterItemTile(
-    'assets/images/color_blue.png',
-  ),
-];
-
 class ProductListPage extends StatefulWidget {
   _ProductListPageState createState() => _ProductListPageState();
+}
+
+class _FilterItemTile {
+  final String itemName;
+
+  _FilterItemTile(this.itemName);
 }
 
 class _ProductListPageState extends State<ProductListPage> implements View {
@@ -129,22 +135,6 @@ class _ProductListPageState extends State<ProductListPage> implements View {
   HomePresenter _presenter;
 
   bool _loadingInProgress;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadingInProgress = true;
-    _presenter = new HomePresenter(new HomeModel(), this);
-    _presenter.viewDisplayed();
-  }
-
-  @override
-  void showItems(List<Item> items) {
-    setState(() {
-      _items = items;
-      _loadingInProgress = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -741,6 +731,22 @@ class _ProductListPageState extends State<ProductListPage> implements View {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadingInProgress = true;
+    _presenter = new HomePresenter(new HomeModel(), this);
+    _presenter.viewDisplayed();
+  }
+
+  @override
+  void showItems(List<Item> items) {
+    setState(() {
+      _items = items;
+      _loadingInProgress = false;
+    });
+  }
 }
 
 class _ProductListTile {
@@ -749,10 +755,4 @@ class _ProductListTile {
   final String itemDescription;
 
   _ProductListTile(this.imageUrl, this.itemName, this.itemDescription);
-}
-
-class _FilterItemTile {
-  final String itemName;
-
-  _FilterItemTile(this.itemName);
 }

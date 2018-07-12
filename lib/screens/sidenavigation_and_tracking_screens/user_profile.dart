@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/my_orders.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/my_orders.dart';
 
 class UserProfilePage extends StatefulWidget {
   UserProfilePageState createState() => UserProfilePageState();

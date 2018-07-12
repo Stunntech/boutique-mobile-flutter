@@ -1,5 +1,6 @@
-import 'package:flutter_jahmaika/product_details_screens/product_list_page/product_list_contract.dart';
 import 'dart:async';
+
+import 'package:flutter_jahmaika/screens/product_details_screens/product_list_page/product_list_contract.dart';
 
 class HomePresenter implements Presenter {
   Model _model;

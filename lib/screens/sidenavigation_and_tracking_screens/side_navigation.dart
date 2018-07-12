@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/sidenavigation_and_tracking_screens/user_profile.dart';
-import 'package:flutter_jahmaika/home_screens/gender_selection.dart';
+import 'package:flutter_jahmaika/screens/home_screens/gender_selection.dart';
+import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/user_profile.dart';
 
 List<_ShopItemTile> _tiles = <_ShopItemTile>[
   new _ShopItemTile(
@@ -35,14 +35,6 @@ class SideNavigationPage extends StatefulWidget {
 
 class SideNavigationPageState extends State<SideNavigationPage> {
   bool visibilityTag = false;
-
-  void _changed(bool visibility, String field) {
-    setState(() {
-      if (field == "tag") {
-        visibilityTag = visibility;
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -334,6 +326,14 @@ class SideNavigationPageState extends State<SideNavigationPage> {
         ),
       ),
     );
+  }
+
+  void _changed(bool visibility, String field) {
+    setState(() {
+      if (field == "tag") {
+        visibilityTag = visibility;
+      }
+    });
   }
 }
 

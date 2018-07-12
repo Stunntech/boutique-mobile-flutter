@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signin.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_jahmaika/login_screens/signin.dart';
 import 'package:http/http.dart' as http;
 
 class SignUpPage extends StatefulWidget {
@@ -18,32 +18,6 @@ class SignUpPageState extends State<SignUpPage> {
   final myEmailAddressController = new TextEditingController();
   final myPasswordController = new TextEditingController();
   final mVerificationCodeController = new TextEditingController();
-
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // Clean up the controller when the Widget is disposed
-    myUserNameController.dispose();
-    myEmailAddressController.dispose();
-    myPasswordController.dispose();
-    mVerificationCodeController.dispose();
-    super.dispose();
-  }
-
-  static Future<Map> postData(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = JSON.decode(res.body);
-    return data;
-  }
-
-  static Future<Map> _accountActivation(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map dataVerificationResponse = JSON.decode(res.body);
-    return dataVerificationResponse;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -169,6 +143,20 @@ class SignUpPageState extends State<SignUpPage> {
     );
   }
 
+  @override
+  void dispose() {
+    // Clean up the controller when the Widget is disposed
+    myUserNameController.dispose();
+    myEmailAddressController.dispose();
+    myPasswordController.dispose();
+    mVerificationCodeController.dispose();
+    super.dispose();
+  }
+
+  void initState() {
+    super.initState();
+  }
+
   void _showAlert() {
     AlertDialog dialog = new AlertDialog(
       content: new Container(
@@ -272,5 +260,17 @@ class SignUpPageState extends State<SignUpPage> {
     );
 
     showDialog(context: context, child: dialog);
+  }
+
+  static Future<Map> postData(String url, Map map) async {
+    http.Response res = await http.post(url, body: map); // post api call
+    Map data = JSON.decode(res.body);
+    return data;
+  }
+
+  static Future<Map> _accountActivation(String url, Map map) async {
+    http.Response res = await http.post(url, body: map); // post api call
+    Map dataVerificationResponse = JSON.decode(res.body);
+    return dataVerificationResponse;
   }
 }
