@@ -157,9 +157,5 @@ class SignInPageState extends State<SignInPage> {
     super.initState();
   }
 
-  static Future<Map> signIn(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = JSON.decode(res.body);
-    return data;
-  }
+
 }

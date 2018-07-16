@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signin.dart';
-import 'package:flutter_jahmaika/screens/login_screens/signup.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signup/signup.dart';
 
 class MyHomePage extends StatefulWidget {
   @override

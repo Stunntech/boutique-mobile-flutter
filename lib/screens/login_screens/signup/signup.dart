@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signin.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signup/signup_screen_presenter.dart';
+import 'package:flutter_jahmaika/utils/network_util.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 
@@ -9,7 +11,12 @@ class SignUpPage extends StatefulWidget {
   SignUpPageState createState() => new SignUpPageState();
 }
 
-class SignUpPageState extends State<SignUpPage> {
+class SignUpPageState extends State<SignUpPage>
+    implements SignUpScreenContract {
+  String _password;
+  String _firstName;
+  String _lastName;
+  String _emailId;
   String token;
   String status;
   String url =
@@ -18,6 +25,12 @@ class SignUpPageState extends State<SignUpPage> {
   final myEmailAddressController = new TextEditingController();
   final myPasswordController = new TextEditingController();
   final mVerificationCodeController = new TextEditingController();
+  NetworkUtil _netUtil = new NetworkUtil();
+  SignUpScreenPresenter _presenter;
+
+  SignUpPageState() {
+    _presenter = new SignUpScreenPresenter(this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,19 +135,26 @@ class SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   onPressed: () async {
-                    Map map = {
+                    _firstName = myUserNameController.text.toString();
+                    _lastName = 'Rajan';
+                    _emailId = myEmailAddressController.text.toString();
+                    _password = myPasswordController.text.toString();
+                    _presenter.doLogin(
+                        _firstName, _lastName, _emailId, _password);
+
+                    /*  Map map = {
                       'email': myEmailAddressController.text.toString(),
                       'password': myPasswordController.text.toString(),
                       'first_name': myUserNameController.text.toString(),
                       'last_name': 'Rajan',
                     };
 
-                    Map data = await postData(url, map);
+                    Map data = await _netUtil.postSignUpData(url, map);
                     token = data['token'];
                     status = data['msg'];
                     if (status.contains('Success')) {
                       _showAlert();
-                    }
+                    }*/
                   }),
             ),
           ],
@@ -243,14 +263,10 @@ class SignUpPageState extends State<SignUpPage> {
                         'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/account-activation/';
 
                     Map mAccountVerificationResponse =
-                        await _accountActivation(verificationUrl, map);
+                        await _netUtil.accountActivation(verificationUrl, map);
                     status = mAccountVerificationResponse['msg'];
                     if (status.contains('account activated')) {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new SignInPage()),
-                      );
+                      Navigator.of(context).pushReplacementNamed("/signIn");
                     }
                   }),
             ),
@@ -262,15 +278,17 @@ class SignUpPageState extends State<SignUpPage> {
     showDialog(context: context, child: dialog);
   }
 
-  static Future<Map> postData(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = JSON.decode(res.body);
-    return data;
+  @override
+  void onLoginError(String errorTxt) {
+    // TODO: implement onLoginError
   }
 
-  static Future<Map> _accountActivation(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map dataVerificationResponse = JSON.decode(res.body);
-    return dataVerificationResponse;
+  @override
+  void onLoginSuccess(res) {
+    token = res['token'];
+    status = res['msg'];
+    if (status.contains('Success')) {
+      _showAlert();
+    }
   }
 }
