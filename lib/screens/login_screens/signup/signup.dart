@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/screens/login_screens/signin.dart';
+import 'package:flutter_jahmaika/screens/custom_views/CustomShowDialog.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signup/signup_screen_presenter.dart';
-import 'package:flutter_jahmaika/utils/network_util.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart' as http;
 
 class SignUpPage extends StatefulWidget {
   SignUpPageState createState() => new SignUpPageState();
@@ -19,13 +14,12 @@ class SignUpPageState extends State<SignUpPage>
   String _emailId;
   String token;
   String status;
-  String url =
-      'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/registration/';
+  String _otpToken;
   final myUserNameController = new TextEditingController();
   final myEmailAddressController = new TextEditingController();
   final myPasswordController = new TextEditingController();
   final mVerificationCodeController = new TextEditingController();
-  NetworkUtil _netUtil = new NetworkUtil();
+
   SignUpScreenPresenter _presenter;
 
   SignUpPageState() {
@@ -141,20 +135,6 @@ class SignUpPageState extends State<SignUpPage>
                     _password = myPasswordController.text.toString();
                     _presenter.doLogin(
                         _firstName, _lastName, _emailId, _password);
-
-                    /*  Map map = {
-                      'email': myEmailAddressController.text.toString(),
-                      'password': myPasswordController.text.toString(),
-                      'first_name': myUserNameController.text.toString(),
-                      'last_name': 'Rajan',
-                    };
-
-                    Map data = await _netUtil.postSignUpData(url, map);
-                    token = data['token'];
-                    status = data['msg'];
-                    if (status.contains('Success')) {
-                      _showAlert();
-                    }*/
                   }),
             ),
           ],
@@ -177,14 +157,42 @@ class SignUpPageState extends State<SignUpPage>
     super.initState();
   }
 
+  @override
+  void onAccountActivationError(String errorTxt) {
+    // TODO: implement onAccountActivationError
+  }
+
+  @override
+  void onAccountActivationSuccess(res) {
+    status = res['msg'];
+    if (status.contains('account activated')) {
+      Navigator.of(context).pushReplacementNamed("/signIn");
+    }
+  }
+
+  @override
+  void onLoginError(String errorTxt) {
+    // TODO: implement onLoginError
+  }
+
+  @override
+  void onLoginSuccess(res) {
+    token = res['token'];
+    status = res['msg'];
+    if (status.contains('Success')) {
+      _showAlert();
+    }
+  }
+
   void _showAlert() {
-    AlertDialog dialog = new AlertDialog(
+    CustomAlertDialog dialog = new CustomAlertDialog(
       content: new Container(
-        width: 290.0,
-        height: 290.0,
+        width: 260.0,
+        height: 280.0,
         decoration: new BoxDecoration(
-          color: Colors.white,
           shape: BoxShape.rectangle,
+          color: const Color(0xFFFFFF),
+          borderRadius: new BorderRadius.all(new Radius.circular(32.0)),
         ),
         child: new Column(
           children: <Widget>[
@@ -255,19 +263,8 @@ class SignUpPageState extends State<SignUpPage>
                     ),
                   ),
                   onPressed: () async {
-                    Map map = {
-                      'token': mVerificationCodeController.text.toString(),
-                      'user_token': token,
-                    };
-                    String verificationUrl =
-                        'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/account-activation/';
-
-                    Map mAccountVerificationResponse =
-                        await _netUtil.accountActivation(verificationUrl, map);
-                    status = mAccountVerificationResponse['msg'];
-                    if (status.contains('account activated')) {
-                      Navigator.of(context).pushReplacementNamed("/signIn");
-                    }
+                    _otpToken = mVerificationCodeController.text.toString();
+                    _presenter.doAccountActivation(_otpToken, token);
                   }),
             ),
           ],
@@ -276,19 +273,5 @@ class SignUpPageState extends State<SignUpPage>
     );
 
     showDialog(context: context, child: dialog);
-  }
-
-  @override
-  void onLoginError(String errorTxt) {
-    // TODO: implement onLoginError
-  }
-
-  @override
-  void onLoginSuccess(res) {
-    token = res['token'];
-    status = res['msg'];
-    if (status.contains('Success')) {
-      _showAlert();
-    }
   }
 }

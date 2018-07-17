@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'signin.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signin/signin.dart';
 
 class ChangePasswordPage extends StatefulWidget {
   ChangePasswordPage(this.token);

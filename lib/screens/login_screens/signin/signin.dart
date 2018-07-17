@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_jahmaika/screens/home_screens/gender_selection.dart';
 import 'package:flutter_jahmaika/screens/login_screens/reset_password.dart';
+import 'package:flutter_jahmaika/screens/login_screens/signin/signin_screen_presenter.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 
@@ -10,12 +11,20 @@ class SignInPage extends StatefulWidget {
   SignInPageState createState() => SignInPageState();
 }
 
-class SignInPageState extends State<SignInPage> {
+class SignInPageState extends State<SignInPage>
+    implements SignInScreenContract {
   final myEmailAddressController = new TextEditingController();
   final myPasswordController = new TextEditingController();
+  String _emailId;
+  String _password;
+
+  SignInScreenPresenter _presenter;
 
   String url =
       'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/login/';
+  SignInPageState() {
+    _presenter = SignInScreenPresenter(this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,16 +114,21 @@ class SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   onPressed: () async {
+                    _emailId = myEmailAddressController.text.toString();
+                    _password = myPasswordController.text.toString();
+
+                    _presenter.doSignIn(_emailId, _password);
+
                     /*Map signInMap = {
                       'email': myEmailAddressController.text.toString(),
                       'password': myPasswordController.text.toString(),
                     };
                     Map signInResponse = await signIn(url, signInMap);*/
-                    Navigator.push(
+                    /* Navigator.push(
                       context,
                       new MaterialPageRoute(
                           builder: (context) => new GenderSelectionPage()),
-                    );
+                    );*/
                   }),
             ),
             new GestureDetector(
@@ -157,5 +171,18 @@ class SignInPageState extends State<SignInPage> {
     super.initState();
   }
 
+  @override
+  void onSignInError(String errorTxt) {
+    // TODO: implement onSignInError
+  }
 
+  @override
+  void onSignInSuccess(res) {
+    // TODO: implement onSignInSuccess
+
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => new GenderSelectionPage()),
+    );
+  }
 }
