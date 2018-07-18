@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/screens/login_screens/change_password.dart';
+import 'package:flutter_jahmaika/screens/login_screens/change_password/change_password.dart';
 import 'package:flutter_jahmaika/screens/login_screens/reset_password/reset_password_screen_presenter.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;

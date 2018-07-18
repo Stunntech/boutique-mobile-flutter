@@ -1,24 +1,26 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:flutter_jahmaika/screens/login_screens/change_password/change_password_screen_presenter.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signin/signin.dart';
 
 class ChangePasswordPage extends StatefulWidget {
-  ChangePasswordPage(this.token);
-  String token;
+  ChangePasswordPage(this._token);
+  String _token;
 
-  ChangePasswordPageState createState() => ChangePasswordPageState(token);
+  ChangePasswordPageState createState() => ChangePasswordPageState(_token);
 }
 
-class ChangePasswordPageState extends State<ChangePasswordPage> {
-  ChangePasswordPageState(this.tokenChangePassword);
-  String tokenChangePassword;
+class ChangePasswordPageState extends State<ChangePasswordPage>
+    implements ChangePasswordScreenContract {
+  String _tokenForChangePassword;
+  String _changePassword;
+  String _conformChangePassword;
+  ChangePasswordScreenPresenter _presenter;
   final mChangePassword = new TextEditingController();
   final mConformChangePassword = new TextEditingController();
 
+  ChangePasswordPageState(this._tokenForChangePassword) {
+    _presenter = ChangePasswordScreenPresenter(this);
+  }
   void initState() {
     super.initState();
   }
@@ -29,17 +31,6 @@ class ChangePasswordPageState extends State<ChangePasswordPage> {
     mChangePassword.dispose();
     mConformChangePassword.dispose();
     super.dispose();
-  }
-
-  static Future<Map> _accountChangePassword(
-      String url, Map map, String tokenChangePassword) async {
-    http.Response res = await http.post(
-      url,
-      body: map,
-      headers: {HttpHeaders.AUTHORIZATION: 'JWT' + tokenChangePassword},
-    );
-    Map dataVerificationResponse = JSON.decode(res.body);
-    return dataVerificationResponse;
   }
 
   @override
@@ -130,24 +121,29 @@ class ChangePasswordPageState extends State<ChangePasswordPage> {
                     ),
                   ),
                   onPressed: () async {
-                    String url =
-                        'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/change-password/';
-                    Map map = {
-                      'new_password1': mChangePassword.text.toString(),
-                      'new_password2': mConformChangePassword.text.toString(),
-                    };
-                    Map changePasswordResponse = await _accountChangePassword(
-                        url, map, tokenChangePassword);
-                    Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => new SignInPage()),
-                    );
+                    _changePassword = mChangePassword.text.toString();
+                    _conformChangePassword =
+                        mConformChangePassword.text.toString();
+                    _presenter.accountChangePassword(_changePassword,
+                        _conformChangePassword, _tokenForChangePassword);
                   }),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  @override
+  void onChangePasswordError(String errorTxt) {
+    // TODO: implement onChangePasswordError
+  }
+
+  @override
+  void onChangePasswordSuccess(res) {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => new SignInPage()),
     );
   }
 }

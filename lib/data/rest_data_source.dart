@@ -1,4 +1,5 @@
-import 'package:flutter_jahmaika/models/user.dart';
+import 'dart:_http';
+
 import 'package:flutter_jahmaika/utils/network_util.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -11,6 +12,7 @@ class RestDataSource {
   static final RESET_PASSWORD_URL = BASE_URL + 'api/v1/forgot-password/';
   static final RESET_PASSWORD_ACCOUNT_VERIFICATION_URL =
       BASE_URL + 'api/v1/forgot-password-change/';
+  static final CHANGE_PASSWORD_URL = BASE_URL + 'api/v1/change-password/';
   NetworkUtil _netUtil = new NetworkUtil();
 
   Future<dynamic> accountActivation(String otpToken, String token) {
@@ -18,6 +20,30 @@ class RestDataSource {
       'token': otpToken,
       'user_token': token,
     }).then((dynamic res) {
+      //return new User.map(res["user"]);
+      return res;
+    });
+  }
+
+  Future<dynamic> accountVerification(String otpTokenForAccountVerification) {
+    return _netUtil.post(RESET_PASSWORD_ACCOUNT_VERIFICATION_URL, body: {
+      'token': otpTokenForAccountVerification,
+    }).then((dynamic res) {
+      //return new User.map(res["user"]);
+      return res;
+    });
+  }
+
+  Future<dynamic> changePassword(String changePassword,
+      String conformChangePassword, String tokenForChangePassword) {
+    return _netUtil.post(
+      CHANGE_PASSWORD_URL,
+      headers: {HttpHeaders.AUTHORIZATION: 'JWT' + tokenForChangePassword},
+      body: {
+        'new_password1': changePassword,
+        'new_password2': conformChangePassword,
+      },
+    ).then((dynamic res) {
       //return new User.map(res["user"]);
       return res;
     });
@@ -36,16 +62,6 @@ class RestDataSource {
     });
   }
 
-  Future<dynamic> signIn(String emailId, String password) {
-    return _netUtil.post(SIGN_IN_URL, body: {
-      'email': emailId,
-      'password': password,
-    }).then((dynamic res) {
-      //return new User.map(res["user"]);
-      return res;
-    });
-  }
-
   Future<dynamic> resetPassword(String emailId) {
     return _netUtil.post(RESET_PASSWORD_URL, body: {
       'email': emailId,
@@ -55,9 +71,10 @@ class RestDataSource {
     });
   }
 
-  Future<dynamic> accountVerification(String otpTokenForAccountVerification) {
-    return _netUtil.post(RESET_PASSWORD_ACCOUNT_VERIFICATION_URL, body: {
-      'token': otpTokenForAccountVerification,
+  Future<dynamic> signIn(String emailId, String password) {
+    return _netUtil.post(SIGN_IN_URL, body: {
+      'email': emailId,
+      'password': password,
     }).then((dynamic res) {
       //return new User.map(res["user"]);
       return res;
