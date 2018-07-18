@@ -36,22 +36,4 @@ class NetworkUtil {
       return _decoder.convert(res);
     });
   }
-
- /* Future<Map> postSignUpData(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = _decoder.convert(res.body);
-    return data;
-  }*/
-
-  Future<Map> accountActivation(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map dataVerificationResponse = _decoder.convert(res.body);
-    return dataVerificationResponse;
-  }
-
-   Future<Map> signIn(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = JSON.decode(res.body);
-    return data;
-  }
 }

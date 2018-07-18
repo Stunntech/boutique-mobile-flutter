@@ -2,22 +2,28 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_jahmaika/screens/login_screens/change_password.dart';
+import 'package:flutter_jahmaika/screens/login_screens/reset_password/reset_password_screen_presenter.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'change_password.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   ResetPasswordPageState createState() => ResetPasswordPageState();
 }
 
-class ResetPasswordPageState extends State<ResetPasswordPage> {
-  String status;
-  String token;
+class ResetPasswordPageState extends State<ResetPasswordPage>
+    implements ReSetPasswordScreenContract {
+  String _emailId;
+  String _status;
+  String _token;
+  String _otpTokenForAccountVerification;
+  ReSetPasswordScreenPresenter _presenter;
   final myEmailAddressController = new TextEditingController();
   final mPasswordResetCodeController = new TextEditingController();
 
-  String url =
-      'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/forgot-password/';
+  ResetPasswordPageState() {
+    _presenter = ReSetPasswordScreenPresenter(this);
+  }
 
   void initState() {
     super.initState();
@@ -28,12 +34,6 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
     // Clean up the controller when the Widget is disposed
     myEmailAddressController.dispose();
     super.dispose();
-  }
-
-  static Future<Map> forgotPassword(String url, Map map) async {
-    http.Response res = await http.post(url, body: map); // post api call
-    Map data = JSON.decode(res.body);
-    return data;
   }
 
   void _showAlert() {
@@ -114,24 +114,11 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                   ),
                   onPressed: () async {
-                    Map map = {
-                      'token': mPasswordResetCodeController.text.toString(),
-                    };
-                    String verificationUrl =
-                        'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/forgot-password-change/';
+                    _otpTokenForAccountVerification =
+                        mPasswordResetCodeController.text.toString();
 
-                    Map mAccountVerificationResponse =
-                        await _accountActivation(verificationUrl, map);
-                    status = mAccountVerificationResponse['msg'];
-                    token = mAccountVerificationResponse['token'];
-                    if (status.contains('valid account')) {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) =>
-                                new ChangePasswordPage(token)),
-                      );
-                    }
+                    _presenter.accountVerificationForResetPassword(
+                        _otpTokenForAccountVerification);
                   }),
             ),
           ],
@@ -221,21 +208,44 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                   ),
                   onPressed: () async {
-                    Map resetPasswordMap = {
-                      'email': myEmailAddressController.text.toString(),
-                    };
-
-                    Map resetPasswordResponse =
-                        await forgotPassword(url, resetPasswordMap);
-                    status = resetPasswordResponse['msg'];
-                    if (status.contains('Success')) {
-                      _showAlert();
-                    }
+                    _emailId = myEmailAddressController.text.toString();
+                    _presenter.doResetPassword(_emailId);
                   }),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void onResetPasswordError(String errorTxt) {
+    // TODO: implement onResetPasswordError
+  }
+
+  @override
+  void onResetPasswordSuccess(res) {
+    _status = res['msg'];
+    if (_status.contains('Success')) {
+      _showAlert();
+    }
+  }
+
+  @override
+  void onAccountVerificationError(String errorTxt) {
+    // TODO: implement onAccountVerificationError
+  }
+
+  @override
+  void onAccountVerificationSuccess(res) {
+    _status = res['msg'];
+    _token = res['token'];
+    if (_status.contains('valid account')) {
+      Navigator.push(
+        context,
+        new MaterialPageRoute(
+            builder: (context) => new ChangePasswordPage(_token)),
+      );
+    }
   }
 }

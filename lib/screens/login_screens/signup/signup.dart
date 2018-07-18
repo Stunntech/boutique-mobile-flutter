@@ -12,14 +12,13 @@ class SignUpPageState extends State<SignUpPage>
   String _firstName;
   String _lastName;
   String _emailId;
-  String token;
-  String status;
+  String _token;
+  String _status;
   String _otpToken;
   final myUserNameController = new TextEditingController();
   final myEmailAddressController = new TextEditingController();
   final myPasswordController = new TextEditingController();
   final mVerificationCodeController = new TextEditingController();
-
   SignUpScreenPresenter _presenter;
 
   SignUpPageState() {
@@ -129,12 +128,7 @@ class SignUpPageState extends State<SignUpPage>
                     ),
                   ),
                   onPressed: () async {
-                    _firstName = myUserNameController.text.toString();
-                    _lastName = 'Rajan';
-                    _emailId = myEmailAddressController.text.toString();
-                    _password = myPasswordController.text.toString();
-                    _presenter.doLogin(
-                        _firstName, _lastName, _emailId, _password);
+                    _signUp();
                   }),
             ),
           ],
@@ -164,8 +158,8 @@ class SignUpPageState extends State<SignUpPage>
 
   @override
   void onAccountActivationSuccess(res) {
-    status = res['msg'];
-    if (status.contains('account activated')) {
+    _status = res['msg'];
+    if (_status.contains('account activated')) {
       Navigator.of(context).pushReplacementNamed("/signIn");
     }
   }
@@ -177,17 +171,22 @@ class SignUpPageState extends State<SignUpPage>
 
   @override
   void onLoginSuccess(res) {
-    token = res['token'];
-    status = res['msg'];
-    if (status.contains('Success')) {
+    _token = res['token'];
+    _status = res['msg'];
+    if (_status.contains('Success')) {
       _showAlert();
     }
+  }
+
+  void _accountActivation() {
+    _otpToken = mVerificationCodeController.text.toString();
+    _presenter.doAccountActivation(_otpToken, _token);
   }
 
   void _showAlert() {
     CustomAlertDialog dialog = new CustomAlertDialog(
       content: new Container(
-        width: 260.0,
+        width: 280.0,
         height: 280.0,
         decoration: new BoxDecoration(
           shape: BoxShape.rectangle,
@@ -263,8 +262,7 @@ class SignUpPageState extends State<SignUpPage>
                     ),
                   ),
                   onPressed: () async {
-                    _otpToken = mVerificationCodeController.text.toString();
-                    _presenter.doAccountActivation(_otpToken, token);
+                    _accountActivation();
                   }),
             ),
           ],
@@ -273,5 +271,13 @@ class SignUpPageState extends State<SignUpPage>
     );
 
     showDialog(context: context, child: dialog);
+  }
+
+  void _signUp() {
+    _firstName = myUserNameController.text.toString();
+    _lastName = '';
+    _emailId = myEmailAddressController.text.toString();
+    _password = myPasswordController.text.toString();
+    _presenter.doLogin(_firstName, _lastName, _emailId, _password);
   }
 }

@@ -3,14 +3,18 @@ import 'package:flutter_jahmaika/models/user.dart';
 
 abstract class SignUpScreenContract {
   void onAccountActivationError(String errorTxt);
+
   void onAccountActivationSuccess(res);
+
   void onLoginError(String errorTxt);
+
   void onLoginSuccess(res);
 }
 
 class SignUpScreenPresenter {
   SignUpScreenContract _view;
   RestDataSource api = new RestDataSource();
+
   SignUpScreenPresenter(this._view);
 
   doAccountActivation(String otpToken, String token) {

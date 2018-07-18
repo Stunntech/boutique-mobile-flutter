@@ -6,7 +6,7 @@ import 'package:flutter_jahmaika/screens/home_screens/item_category_selection.da
 import 'package:flutter_jahmaika/screens/home_screens/style_selection.dart';
 import 'package:flutter_jahmaika/screens/home_screens/top_collection.dart';
 import 'package:flutter_jahmaika/screens/login_screens/create_account_page.dart';
-import 'package:flutter_jahmaika/screens/login_screens/reset_password.dart';
+import 'package:flutter_jahmaika/screens/login_screens/reset_password/reset_password.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signin/signin.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signup/signup.dart';
 import 'package:flutter_jahmaika/screens/login_screens/splash_screen.dart';

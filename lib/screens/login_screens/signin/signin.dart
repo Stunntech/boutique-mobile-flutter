@@ -1,11 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_jahmaika/screens/home_screens/gender_selection.dart';
-import 'package:flutter_jahmaika/screens/login_screens/reset_password.dart';
 import 'package:flutter_jahmaika/screens/login_screens/signin/signin_screen_presenter.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart' as http;
 
 class SignInPage extends StatefulWidget {
   SignInPageState createState() => SignInPageState();
@@ -17,11 +11,8 @@ class SignInPageState extends State<SignInPage>
   final myPasswordController = new TextEditingController();
   String _emailId;
   String _password;
-
   SignInScreenPresenter _presenter;
 
-  String url =
-      'http://ec2-54-219-127-212.us-west-1.compute.amazonaws.com:8000/api/v1/login/';
   SignInPageState() {
     _presenter = SignInScreenPresenter(this);
   }
@@ -114,30 +105,12 @@ class SignInPageState extends State<SignInPage>
                     ),
                   ),
                   onPressed: () async {
-                    _emailId = myEmailAddressController.text.toString();
-                    _password = myPasswordController.text.toString();
-
-                    _presenter.doSignIn(_emailId, _password);
-
-                    /*Map signInMap = {
-                      'email': myEmailAddressController.text.toString(),
-                      'password': myPasswordController.text.toString(),
-                    };
-                    Map signInResponse = await signIn(url, signInMap);*/
-                    /* Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => new GenderSelectionPage()),
-                    );*/
+                    _signIn();
                   }),
             ),
             new GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => new ResetPasswordPage()),
-                );
+                _navigateToResendPasswordPage();
               },
               child: new Container(
                 alignment: Alignment.center,
@@ -178,11 +151,16 @@ class SignInPageState extends State<SignInPage>
 
   @override
   void onSignInSuccess(res) {
-    // TODO: implement onSignInSuccess
+    Navigator.of(context).pushReplacementNamed('/genderSelectionPage');
+  }
 
-    Navigator.push(
-      context,
-      new MaterialPageRoute(builder: (context) => new GenderSelectionPage()),
-    );
+  void _navigateToResendPasswordPage() {
+    Navigator.of(context).pushReplacementNamed('/resetPassword');
+  }
+
+  void _signIn() {
+    _emailId = myEmailAddressController.text.toString();
+    _password = myPasswordController.text.toString();
+    _presenter.doSignIn(_emailId, _password);
   }
 }
