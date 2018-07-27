@@ -9,34 +9,39 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  AnimationController _iconAnimationController;
-
-  CurvedAnimation _iconAnimation;
-
+  double _TEXT_JAHMAIKA_SIZE;
   @override
   Widget build(BuildContext context) {
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
     return new Scaffold(
       body: new Scaffold(
         body: new Container(
-          /* width: _iconAnimation.value * 100,
-          height: _iconAnimation.value * 100,*/
           decoration: new BoxDecoration(
             image: new DecorationImage(
               image: new AssetImage("assets/images/home_page_background.png"),
               fit: BoxFit.cover,
             ),
           ),
-          /* child: Center(
-            child: new Container(
-              child: new Text(
-                'JAHIMAKA',
-                style: new TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'signPainter_houseScript',
+          child: Center(
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Container(
+                  child: new FittedBox(
+                    child: new Text(
+                      'JAHMAIKA',
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: _TEXT_JAHMAIKA_SIZE,
+                        fontFamily: 'sign_painter_house_script',
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ),*/
+          ),
         ),
       ),
     );
@@ -49,23 +54,20 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    /* _iconAnimationController = new AnimationController(
-        vsync: this, duration: new Duration(milliseconds: 2000));
-
-    _iconAnimation = new CurvedAnimation(
-        parent: _iconAnimationController, curve: Curves.easeIn);
-    _iconAnimation.addListener(() => this.setState(() {}));
-
-    _iconAnimationController.forward();*/
-
     startTimeout();
   }
 
   startTimeout() async {
-    var duration = const Duration(seconds: 5);
+    var duration = const Duration(seconds: 7);
     return new Timer(duration, handleTimeout);
+  }
+
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _TEXT_JAHMAIKA_SIZE = 72.0;
+    } else if (shortestSide >= 600) {
+      _TEXT_JAHMAIKA_SIZE = 144.0;
+    }
   }
 }

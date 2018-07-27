@@ -8,111 +8,156 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<MyHomePage> {
+  double _TEXT_JAHMAIKA_SIZE;
+  double _TEXT_CREATE_ACCOUNT_SIZE;
+  double _TEXT_LOGIN_SIZE;
+  double _MARGIN_SMALL;
+  double _MARGIN_LARGE;
+  double _PADDING_SMALL;
+  double _PADDING_LARGE;
+  double _MARGIN_JAHMAIKA;
+  double _MARGIN_BUTTON;
+  TextStyle style72;
+  TextStyle style19;
+  TextStyle style15White;
+  TextStyle style15Green;
+
   @override
   Widget build(BuildContext context) {
-    TextStyle style50 = new TextStyle(
-      inherit: true,
-      fontSize: 50.0,
-      color: Colors.white,
-    );
-    TextStyle style19 = new TextStyle(
-      inherit: true,
-      color: Colors.white,
-      fontSize: 19.0,
-      fontFamily: 'helvetica_neue',
-    );
-    TextStyle style15White = new TextStyle(
-      inherit: true,
-      color: Colors.white,
-      fontSize: 15.0,
-      fontFamily: 'helvetica_neue',
-    );
-    TextStyle style15Green = new TextStyle(
-      inherit: true,
-      color: Colors.green,
-      fontSize: 15.0,
-      fontFamily: 'helvetica_neue',
-    );
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
+
     return new Scaffold(
       body: new Container(
-          decoration: new BoxDecoration(
-            image: new DecorationImage(
-              image: new AssetImage("assets/images/home_page_background.png"),
-              fit: BoxFit.cover,
-            ),
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("assets/images/home_page_background.png"),
+            fit: BoxFit.cover,
           ),
-          child: new Container(
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Container(
-                  margin: new EdgeInsets.only(top: 160.0),
-                  child: new Text(
-                    'JAHMAIKA',
-                    textAlign: TextAlign.center,
-                    style: style50,
-                  ),
+        ),
+        child: new Container(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Container(
+                margin: new EdgeInsets.only(top: _MARGIN_JAHMAIKA),
+                child: new Text(
+                  'JAHMAIKA',
+                  style: style72,
                 ),
-                new Container(
-                  margin: new EdgeInsets.only(top: 230.0),
-                  child: new FlatButton(
-                      child: new Container(
-                        padding: new EdgeInsets.only(
-                            left: 45.0, right: 45.0, top: 15.0, bottom: 15.0),
-                        decoration: new BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: new BorderRadius.all(
-                              new Radius.elliptical(40.0, 50.0)),
-                          border: new Border.all(
-                            color: Colors.white,
-                          ),
-                        ),
-                        child: new Text(
-                          'Create an account',
-                          style: style19,
+              ),
+              new Container(
+                margin: new EdgeInsets.only(top: _MARGIN_BUTTON),
+                child: new FlatButton(
+                    child: new Container(
+                      padding: new EdgeInsets.only(
+                          left: _PADDING_LARGE,
+                          right: _PADDING_LARGE,
+                          top: _PADDING_SMALL,
+                          bottom: _PADDING_SMALL),
+                      decoration: new BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: new BorderRadius.all(
+                            new Radius.elliptical(40.0, 50.0)),
+                        border: new Border.all(
+                          color: Colors.white,
                         ),
                       ),
-                      onPressed: () {
+                      child: new Text(
+                        'Create an account',
+                        style: style19,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new SignUpPage()),
+                      );
+                    }),
+              ),
+              new Container(
+                margin: new EdgeInsets.only(top: _MARGIN_SMALL),
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Container(
+                      child: new Text(
+                        'Already have an account?',
+                        textAlign: TextAlign.center,
+                        style: style15White,
+                      ),
+                    ),
+                    new GestureDetector(
+                      onTap: () {
                         Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (context) => new SignUpPage()),
+                              builder: (context) => new SignInPage()),
                         );
-                      }),
-                ),
-                new Container(
-                  margin: new EdgeInsets.only(top: 16.0),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Container(
-                        child: new Text(
-                          'Already have an account?',
-                          textAlign: TextAlign.center,
-                          style: style15White,
-                        ),
+                      },
+                      child: new Container(
+                        margin: new EdgeInsets.only(left: _MARGIN_SMALL),
+                        child: new Text('Login',
+                            textAlign: TextAlign.center, style: style15Green),
                       ),
-                      new GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) => new SignInPage()),
-                          );
-                        },
-                        child: new Container(
-                          margin: new EdgeInsets.only(left: 16.0),
-                          child: new Text('Login',
-                              textAlign: TextAlign.center, style: style15Green),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          )),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _TEXT_JAHMAIKA_SIZE = 72.0;
+      _TEXT_CREATE_ACCOUNT_SIZE = 19.0;
+      _TEXT_LOGIN_SIZE = 15.0;
+      _MARGIN_SMALL = 16.0;
+      _MARGIN_LARGE = 48.0;
+      _PADDING_SMALL = 16.0;
+      _PADDING_LARGE = 48.0;
+      _MARGIN_JAHMAIKA = 230.0;
+      _MARGIN_BUTTON = 120.0;
+    } else if (shortestSide >= 600) {
+      _TEXT_JAHMAIKA_SIZE = 144.0;
+      _TEXT_CREATE_ACCOUNT_SIZE = 34.0;
+      _TEXT_LOGIN_SIZE = 26.0;
+      _MARGIN_SMALL = 32.0;
+      _MARGIN_LARGE = 96.0;
+      _PADDING_SMALL = 32.0;
+      _PADDING_LARGE = 96.0;
+      _MARGIN_JAHMAIKA = 380.0;
+      _MARGIN_BUTTON = 180.0;
+    }
+
+    style72 = new TextStyle(
+      inherit: true,
+      fontSize: _TEXT_JAHMAIKA_SIZE,
+      color: Colors.white,
+      fontFamily: 'sign_painter_house_script',
+    );
+    style19 = new TextStyle(
+      inherit: true,
+      color: Colors.white,
+      fontSize: _TEXT_CREATE_ACCOUNT_SIZE,
+      fontFamily: 'helvetica_neue',
+    );
+    style15White = new TextStyle(
+      inherit: true,
+      color: Colors.white,
+      fontSize: _TEXT_LOGIN_SIZE,
+      fontFamily: 'helvetica_neue',
+    );
+    style15Green = new TextStyle(
+      inherit: true,
+      color: Colors.green,
+      fontSize: _TEXT_LOGIN_SIZE,
+      fontFamily: 'helvetica_neue',
     );
   }
 }

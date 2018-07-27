@@ -11,71 +11,79 @@ class ButtonSection extends StatelessWidget {
       child: new Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          new Container(
-            child: new FlatButton(
-                child: new Container(
-                  width: 130.0,
-                  height: 50.0,
-                  padding: new EdgeInsets.only(
-                      left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: new Border.all(
-                      color: Colors.white,
-                      width: 2.0,
+          new Expanded(
+            child: new Container(
+              child: new FlatButton(
+                  child: new Container(
+                    alignment: AlignmentDirectional.center,
+                    width: 130.0,
+                    height: 50.0,
+                    padding: new EdgeInsets.only(
+                        left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
+                    decoration: new BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border: new Border.all(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: new Text(
+                      'MEN',
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_medium',
+                        letterSpacing: 0.63,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                  child: new Text(
-                    'MEN',
-                    style: new TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontFamily: 'helvetica_neue_medium',
-                      letterSpacing: 0.63,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new ItemCategorySelectionPage()),
-                  );
-                }),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) =>
+                              new ItemCategorySelectionPage()),
+                    );
+                  }),
+            ),
           ),
-          new Container(
-            child: new FlatButton(
-                child: new Container(
-                  width: 130.0,
-                  height: 50.0,
-                  padding: new EdgeInsets.only(
-                      left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: new Border.all(
-                      color: Colors.white,
-                      width: 2.0,
+          new Expanded(
+            child: new Container(
+              child: new FlatButton(
+                  child: new Container(
+                    alignment: AlignmentDirectional.center,
+                    width: 130.0,
+                    height: 50.0,
+                    padding: new EdgeInsets.only(
+                        left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
+                    decoration: new BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border: new Border.all(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: new Text(
+                      'WOMEN',
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontFamily: 'helvetica_neue_medium',
+                        letterSpacing: 0.63,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                  child: new Text(
-                    'WOMEN',
-                    style: new TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontFamily: 'helvetica_neue_medium',
-                      letterSpacing: 0.63,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new ItemCategorySelectionPage()),
-                  );
-                }),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) =>
+                              new ItemCategorySelectionPage()),
+                    );
+                  }),
+            ),
           ),
         ],
       ),

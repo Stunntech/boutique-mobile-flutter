@@ -27,6 +27,9 @@ class SignUpPageState extends State<SignUpPage>
 
   @override
   Widget build(BuildContext context) {
+
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+
     return new Scaffold(
       backgroundColor: Colors.white,
       body: new Container(
