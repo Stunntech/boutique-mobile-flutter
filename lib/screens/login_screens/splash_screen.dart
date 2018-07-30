@@ -15,32 +15,30 @@ class _SplashScreenState extends State<SplashScreen>
     var shortestSide = MediaQuery.of(context).size.shortestSide;
     _setFontSizeAndStyle(shortestSide);
     return new Scaffold(
-      body: new Scaffold(
-        body: new Container(
-          decoration: new BoxDecoration(
-            image: new DecorationImage(
-              image: new AssetImage("assets/images/home_page_background.png"),
-              fit: BoxFit.cover,
-            ),
+      body: new Container(
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("assets/images/home_page_background.png"),
+            fit: BoxFit.cover,
           ),
-          child: Center(
-            child: new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Container(
-                  child: new FittedBox(
-                    child: new Text(
-                      'JAHMAIKA',
-                      style: new TextStyle(
-                        color: Colors.white,
-                        fontSize: _TEXT_JAHMAIKA_SIZE,
-                        fontFamily: 'sign_painter_house_script',
-                      ),
+        ),
+        child: Center(
+          child: new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Container(
+                child: new FittedBox(
+                  child: new Text(
+                    'JAHMAIKA',
+                    style: new TextStyle(
+                      color: Colors.white,
+                      fontSize: _TEXT_JAHMAIKA_SIZE,
+                      fontFamily: 'sign_painter_house_script',
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
