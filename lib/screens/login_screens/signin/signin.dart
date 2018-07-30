@@ -12,6 +12,18 @@ class SignInPageState extends State<SignInPage>
   String _emailId;
   String _password;
   SignInScreenPresenter _presenter;
+  double _PADDING_SMALL;
+  double _PADDING_EXTRA_SMALL;
+  double _MARGIN_SMALL;
+  double _MARGIN_MEDIUM;
+  double _MARGIN_EXTRA_MEDIUM;
+  double _MARGIN_LARGE;
+  double _MARGIN_EXTRA_LARGE;
+  double _TEXT_SIZE_SIGN_IN;
+  double _TEXT_SIZE_FORGOT_PASSWORD;
+  double _TEXT_SIZE_BUTTON_SIGN_IN;
+  double _BUTTON_HEIGHT;
+  double _BUTTON_WIDTH;
 
   SignInPageState() {
     _presenter = SignInScreenPresenter(this);
@@ -19,10 +31,12 @@ class SignInPageState extends State<SignInPage>
 
   @override
   Widget build(BuildContext context) {
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
     return new Scaffold(
       backgroundColor: Colors.white,
       body: new Container(
-        padding: new EdgeInsets.all(15.0),
+        padding: new EdgeInsets.all(_PADDING_SMALL),
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -31,33 +45,33 @@ class SignInPageState extends State<SignInPage>
                 Navigator.pop(context);
               },
               child: new Container(
-                margin: new EdgeInsets.only(top: 20.0),
-                padding: new EdgeInsets.all(3.0),
+                margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
+                padding: new EdgeInsets.all(_PADDING_EXTRA_SMALL),
                 child: new Image.asset(
                   "assets/images/back.png",
                 ),
               ),
             ),
             new Container(
-              margin: new EdgeInsets.only(top: 15.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
               child: new Text(
                 'Sign In',
                 textAlign: TextAlign.center,
                 style: new TextStyle(
                   color: Colors.black,
-                  fontSize: 30.0,
+                  fontSize: _TEXT_SIZE_SIGN_IN,
                   fontFamily: 'avenir_medium',
                 ),
               ),
             ),
             new Container(
-                margin: new EdgeInsets.only(top: 30.0),
+                margin: new EdgeInsets.only(top: _MARGIN_LARGE),
                 child: new TextField(
                   controller: myEmailAddressController,
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     filled: true,
-                    contentPadding: new EdgeInsets.all(15.0),
+                    contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                     hintText: 'Email Address',
                     hintStyle: new TextStyle(
                       color: Colors.grey.shade500,
@@ -66,13 +80,13 @@ class SignInPageState extends State<SignInPage>
                   ),
                 )),
             new Container(
-                margin: new EdgeInsets.only(top: 20.0),
+                margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
                 child: new TextField(
                   controller: myPasswordController,
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     filled: true,
-                    contentPadding: new EdgeInsets.all(15.0),
+                    contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                     hintText: 'password',
                     hintStyle: new TextStyle(
                       color: Colors.grey.shade500,
@@ -81,12 +95,13 @@ class SignInPageState extends State<SignInPage>
                   ),
                 )),
             new Container(
-              margin: new EdgeInsets.only(top: 40.0),
+              margin: new EdgeInsets.only(top: _MARGIN_EXTRA_LARGE),
               alignment: Alignment.center,
               child: new FlatButton(
                   child: new Container(
-                    padding: new EdgeInsets.only(
-                        left: 95.0, right: 95.0, top: 15.0, bottom: 15.0),
+                    alignment: Alignment.center,
+                    height: _BUTTON_HEIGHT,
+                    width: _BUTTON_WIDTH,
                     decoration: new BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: new BorderRadius.all(
@@ -99,7 +114,7 @@ class SignInPageState extends State<SignInPage>
                       'Sign In',
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: _TEXT_SIZE_BUTTON_SIGN_IN,
                         fontFamily: 'avenir_medium',
                       ),
                     ),
@@ -114,13 +129,13 @@ class SignInPageState extends State<SignInPage>
               },
               child: new Container(
                 alignment: Alignment.center,
-                margin: new EdgeInsets.only(top: 25.0),
+                margin: new EdgeInsets.only(top: _MARGIN_EXTRA_MEDIUM),
                 child: new Text(
                   'Forgot your password?',
                   textAlign: TextAlign.center,
                   style: new TextStyle(
                     color: Colors.black,
-                    fontSize: 15.0,
+                    fontSize: _TEXT_SIZE_FORGOT_PASSWORD,
                     fontFamily: 'avenir_medium',
                   ),
                 ),
@@ -162,5 +177,35 @@ class SignInPageState extends State<SignInPage>
     _emailId = myEmailAddressController.text.toString();
     _password = myPasswordController.text.toString();
     _presenter.doSignIn(_emailId, _password);
+  }
+
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _PADDING_SMALL = 15.0;
+      _PADDING_EXTRA_SMALL = 3.0;
+      _MARGIN_SMALL = 15.0;
+      _MARGIN_EXTRA_MEDIUM = 25.0;
+      _MARGIN_MEDIUM = 20.0;
+      _MARGIN_LARGE = 30.0;
+      _MARGIN_EXTRA_LARGE = 40.0;
+      _TEXT_SIZE_SIGN_IN = 30.0;
+      _TEXT_SIZE_FORGOT_PASSWORD = 15.0;
+      _TEXT_SIZE_BUTTON_SIGN_IN = 16.0;
+      _BUTTON_HEIGHT = 50.0;
+      _BUTTON_WIDTH = 300.0;
+    } else if (shortestSide >= 600) {
+      _PADDING_SMALL = 30.0;
+      _PADDING_EXTRA_SMALL = 6.0;
+      _MARGIN_SMALL = 30.0;
+      _MARGIN_MEDIUM = 40.0;
+      _MARGIN_EXTRA_MEDIUM = 50.0;
+      _MARGIN_LARGE = 60.0;
+      _MARGIN_EXTRA_LARGE = 80.0;
+      _TEXT_SIZE_SIGN_IN = 60.0;
+      _TEXT_SIZE_FORGOT_PASSWORD = 30.0;
+      _TEXT_SIZE_BUTTON_SIGN_IN = 32.0;
+      _BUTTON_HEIGHT = 100.0;
+      _BUTTON_WIDTH = 600.0;
+    }
   }
 }

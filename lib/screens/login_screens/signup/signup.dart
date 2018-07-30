@@ -15,6 +15,15 @@ class SignUpPageState extends State<SignUpPage>
   String _token;
   String _status;
   String _otpToken;
+  double _MARGIN_EXTRA_SMALL;
+  double _MARGIN_SMALL;
+  double _MARGIN_EXTRA_MEDIUM;
+  double _MARGIN_MEDIUM;
+  double _PADDING_SMALL;
+  double _PADDING_LARGE;
+  double _TEXT_SIZE_SIGN_UP;
+  double _TEXT_SIZE_CREATE_NEW_ACCOUNT;
+  double _MARGIN_BUTTON;
   final myUserNameController = new TextEditingController();
   final myEmailAddressController = new TextEditingController();
   final myPasswordController = new TextEditingController();
@@ -27,13 +36,13 @@ class SignUpPageState extends State<SignUpPage>
 
   @override
   Widget build(BuildContext context) {
-
     var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
 
     return new Scaffold(
       backgroundColor: Colors.white,
       body: new Container(
-        padding: new EdgeInsets.all(15.0),
+        padding: new EdgeInsets.all(_PADDING_SMALL),
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -42,7 +51,7 @@ class SignUpPageState extends State<SignUpPage>
                 Navigator.pop(context);
               },
               child: new Container(
-                margin: new EdgeInsets.only(top: 20.0),
+                margin: new EdgeInsets.only(top: _MARGIN_SMALL),
                 padding: new EdgeInsets.all(3.0),
                 child: new Image.asset(
                   "assets/images/back.png",
@@ -50,25 +59,25 @@ class SignUpPageState extends State<SignUpPage>
               ),
             ),
             new Container(
-              margin: new EdgeInsets.only(top: 15.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
               child: new Text(
                 'Create new account',
                 textAlign: TextAlign.center,
                 style: new TextStyle(
                   color: Colors.black,
-                  fontSize: 30.0,
+                  fontSize: _TEXT_SIZE_CREATE_NEW_ACCOUNT,
                   fontFamily: 'avenir_medium',
                 ),
               ),
             ),
             new Container(
-                margin: new EdgeInsets.only(top: 30.0),
+                margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
                 child: new TextField(
                   controller: myUserNameController,
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     filled: true,
-                    contentPadding: new EdgeInsets.all(15.0),
+                    contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                     hintText: 'Name',
                     hintStyle: new TextStyle(
                       color: Colors.grey.shade500,
@@ -77,13 +86,13 @@ class SignUpPageState extends State<SignUpPage>
                   ),
                 )),
             new Container(
-                margin: new EdgeInsets.only(top: 20.0),
+                margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
                 child: new TextField(
                   controller: myEmailAddressController,
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     filled: true,
-                    contentPadding: new EdgeInsets.all(15.0),
+                    contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                     hintText: 'Email Address',
                     hintStyle: new TextStyle(
                       color: Colors.grey.shade500,
@@ -92,13 +101,13 @@ class SignUpPageState extends State<SignUpPage>
                   ),
                 )),
             new Container(
-                margin: new EdgeInsets.only(top: 20.0),
+                margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
                 child: new TextField(
                   controller: myPasswordController,
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     filled: true,
-                    contentPadding: new EdgeInsets.all(15.0),
+                    contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                     hintText: 'Password',
                     hintStyle: new TextStyle(
                       color: Colors.grey.shade500,
@@ -112,7 +121,10 @@ class SignUpPageState extends State<SignUpPage>
               child: new FlatButton(
                   child: new Container(
                     padding: new EdgeInsets.only(
-                        left: 95.0, right: 95.0, top: 15.0, bottom: 15.0),
+                        left: 95.0,
+                        right: 95.0,
+                        top: _PADDING_SMALL,
+                        bottom: _PADDING_SMALL),
                     decoration: new BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: new BorderRadius.all(
@@ -125,7 +137,7 @@ class SignUpPageState extends State<SignUpPage>
                       'Sign Up',
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: _TEXT_SIZE_SIGN_UP,
                         fontFamily: 'avenir_medium',
                       ),
                     ),
@@ -282,5 +294,29 @@ class SignUpPageState extends State<SignUpPage>
     _emailId = myEmailAddressController.text.toString();
     _password = myPasswordController.text.toString();
     _presenter.doLogin(_firstName, _lastName, _emailId, _password);
+  }
+
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _TEXT_SIZE_CREATE_NEW_ACCOUNT = 30.0;
+      _TEXT_SIZE_SIGN_UP = 16.0;
+      _MARGIN_EXTRA_SMALL = 8.0;
+      _MARGIN_SMALL = 16.0;
+      _MARGIN_EXTRA_MEDIUM = 20.0;
+      _MARGIN_MEDIUM = 32.0;
+      _MARGIN_BUTTON = 40.0;
+      _PADDING_SMALL = 16.0;
+      _PADDING_LARGE = 48.0;
+    } else if (shortestSide >= 600) {
+      _TEXT_SIZE_CREATE_NEW_ACCOUNT = 60.0;
+      _TEXT_SIZE_SIGN_UP = 32.0;
+      _MARGIN_EXTRA_SMALL = 16.0;
+      _MARGIN_SMALL = 32.0;
+      _MARGIN_EXTRA_MEDIUM = 40.0;
+      _MARGIN_MEDIUM = 64.0;
+      _MARGIN_BUTTON = 80.0;
+      _PADDING_SMALL = 32.0;
+      _PADDING_LARGE = 96.0;
+    }
   }
 }
