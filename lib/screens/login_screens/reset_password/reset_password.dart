@@ -13,6 +13,13 @@ class ResetPasswordPage extends StatefulWidget {
 
 class ResetPasswordPageState extends State<ResetPasswordPage>
     implements ReSetPasswordScreenContract {
+  double _MARGIN_SMALL;
+  double _MARGIN_MEDIUM;
+  double _MARGIN_EXTRA_MEDIUM;
+  double _MARGIN_LARGE;
+  double _PADDING_SMALL;
+  double _TEXT_SIZE_RESET_PASSWORD;
+  double _TEXT_SIZE_BUTTON_RESET_PASSWORD;
   String _emailId;
   String _status;
   String _token;
@@ -59,14 +66,14 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
               ),
             ),
             new Container(
-              margin: new EdgeInsets.only(top: 15.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
               child: new TextField(
                 textAlign: TextAlign.center,
                 controller: mPasswordResetCodeController,
                 decoration: new InputDecoration(
                   border: InputBorder.none,
                   filled: true,
-                  contentPadding: new EdgeInsets.all(15.0),
+                  contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                   hintText: 'Enter password reset code',
                   hintStyle: new TextStyle(
                     color: Colors.grey.shade500,
@@ -77,7 +84,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
             ),
             new Container(
               alignment: Alignment.centerRight,
-              margin: new EdgeInsets.only(top: 15.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
               child: new Text(
                 'Resend Code',
                 textAlign: TextAlign.right,
@@ -137,10 +144,13 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
 
   @override
   Widget build(BuildContext context) {
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
+
     return new Scaffold(
       backgroundColor: Colors.white,
       body: new Container(
-        padding: new EdgeInsets.all(15.0),
+        padding: new EdgeInsets.all(_PADDING_SMALL),
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -149,7 +159,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
                 Navigator.pop(context);
               },
               child: new Container(
-                margin: new EdgeInsets.only(top: 20.0),
+                margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
                 padding: new EdgeInsets.all(3.0),
                 child: new Image.asset(
                   "assets/images/back.png",
@@ -157,25 +167,25 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
               ),
             ),
             new Container(
-              margin: new EdgeInsets.only(top: 15.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
               child: new Text(
                 'Reset password',
                 textAlign: TextAlign.center,
                 style: new TextStyle(
                   color: Colors.black,
-                  fontSize: 30.0,
+                  fontSize: _TEXT_SIZE_RESET_PASSWORD,
                   fontFamily: 'avenir_medium',
                 ),
               ),
             ),
             new Container(
-                margin: new EdgeInsets.only(top: 30.0),
+                margin: new EdgeInsets.only(top: _MARGIN_EXTRA_MEDIUM),
                 child: new TextField(
                   controller: myEmailAddressController,
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     filled: true,
-                    contentPadding: new EdgeInsets.all(15.0),
+                    contentPadding: new EdgeInsets.all(_PADDING_SMALL),
                     hintText: 'Email Address',
                     hintStyle: new TextStyle(
                       color: Colors.grey.shade500,
@@ -184,7 +194,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
                   ),
                 )),
             new Container(
-              margin: new EdgeInsets.only(top: 40.0),
+              margin: new EdgeInsets.only(top: _MARGIN_LARGE),
               alignment: Alignment.center,
               child: new FlatButton(
                   child: new Container(
@@ -202,7 +212,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
                       'Reset your password',
                       style: new TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: _TEXT_SIZE_BUTTON_RESET_PASSWORD,
                         fontFamily: 'avenir_medium',
                       ),
                     ),
@@ -246,6 +256,26 @@ class ResetPasswordPageState extends State<ResetPasswordPage>
         new MaterialPageRoute(
             builder: (context) => new ChangePasswordPage(_token)),
       );
+    }
+  }
+
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _MARGIN_SMALL = 15.0;
+      _MARGIN_MEDIUM = 20.0;
+      _MARGIN_EXTRA_MEDIUM = 30.0;
+      _MARGIN_LARGE = 40.0;
+      _PADDING_SMALL = 15.0;
+      _TEXT_SIZE_RESET_PASSWORD = 30.0;
+      _TEXT_SIZE_BUTTON_RESET_PASSWORD = 16.0;
+    } else if (shortestSide >= 600) {
+      _MARGIN_SMALL = 30.0;
+      _MARGIN_MEDIUM = 40.0;
+      _MARGIN_EXTRA_MEDIUM = 60.0;
+      _MARGIN_LARGE = 80.0;
+      _PADDING_SMALL = 30.0;
+      _TEXT_SIZE_RESET_PASSWORD = 60.0;
+      _TEXT_SIZE_BUTTON_RESET_PASSWORD = 32.0;
     }
   }
 }
