@@ -3,132 +3,47 @@ import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dar
 import 'package:flutter_jahmaika/screens/home_screens/top_collection.dart';
 import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
-class ButtonSection extends StatelessWidget {
+class StyleSelectionPage extends StatefulWidget {
+  StyleSelectionPageState createState() => StyleSelectionPageState();
+}
+
+class StyleSelectionPageState extends State<StyleSelectionPage> {
+  double _TEXT_SIZE_BUTTON;
+  double _BUTTON_HEIGHT;
+  double _BUTTON_WIDTH;
+  double _MARGIN_SMALL;
+  double _MARGIN_MEDIUM;
+  double _MARGIN_LARGE;
+  double _PADDING_SMALL;
+  double _TEXT_SIZE_PERFECT_MATCH;
+  double _TEXT_SIZE_YOUR_STYLE;
+
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      child: new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          new Container(
-            margin: new EdgeInsets.only(top: 32.0),
-            child: new FlatButton(
-                child: new Container(
-                  width: 170.0,
-                  height: 50.0,
-                  padding: new EdgeInsets.only(
-                      left: 20.0, right: 20.0, top: 15.0, bottom: 15.0),
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.rectangle,
-                    borderRadius:
-                        new BorderRadius.all(new Radius.elliptical(40.0, 50.0)),
-                    border: new Border.all(
-                      color: Colors.white,
-                    ),
-                  ),
-                  child: new Text(
-                    'CASUAL',
-                    style: new TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontFamily: 'helvetica_neue_medium',
-                      letterSpacing: 2.57,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new TopCollectionPage()),
-                  );
-                }),
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
+
+    return new Scaffold(
+      body: new Container(
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("assets/images/bg_style_selection.png"),
+            fit: BoxFit.cover,
           ),
-          new Container(
-            margin: new EdgeInsets.only(top: 40.0),
-            child: new FlatButton(
-                child: new Container(
-                  width: 170.0,
-                  height: 50.0,
-                  padding: new EdgeInsets.only(
-                      left: 20.0, right: 20.0, top: 15.0, bottom: 15.0),
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.rectangle,
-                    borderRadius:
-                        new BorderRadius.all(new Radius.elliptical(40.0, 50.0)),
-                    border: new Border.all(
-                      color: Colors.white,
-                    ),
-                  ),
-                  child: new Text(
-                    'CLASSICAL',
-                    style: new TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontFamily: 'helvetica_neue_medium',
-                      letterSpacing: 2.57,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new TopCollectionPage()),
-                  );
-                }),
-          ),
-          new Container(
-            margin: new EdgeInsets.only(top: 40.0),
-            child: new FlatButton(
-                child: new Container(
-                  width: 170.0,
-                  height: 50.0,
-                  padding: new EdgeInsets.only(
-                      left: 20.0, right: 20.0, top: 15.0, bottom: 15.0),
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.rectangle,
-                    borderRadius:
-                        new BorderRadius.all(new Radius.elliptical(40.0, 50.0)),
-                    border: new Border.all(
-                      color: Colors.white,
-                    ),
-                  ),
-                  child: new Text(
-                    'SPORT',
-                    style: new TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontFamily: 'helvetica_neue_medium',
-                      letterSpacing: 2.57,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new TopCollectionPage()),
-                  );
-                }),
-          ),
-        ],
+        ),
+        child: new Column(
+          children: <Widget>[
+            _buildCustomAppBar(),
+            _buildScreenBody(),
+          ],
+        ),
       ),
     );
   }
-}
 
-class CustomAppBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildCustomAppBar() {
     return new Container(
-      padding: new EdgeInsets.all(8.0),
+      padding: new EdgeInsets.all(_PADDING_SMALL),
       decoration: new BoxDecoration(
         color: const Color(0x4D4a4a4a),
       ),
@@ -144,21 +59,21 @@ class CustomAppBar extends StatelessWidget {
               );
             },
             child: new Container(
-              margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(10.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
+              padding: new EdgeInsets.all(_PADDING_SMALL),
               child: new Image.asset(
                 "assets/images/menu_white.png",
               ),
             ),
           ),
           new Container(
-            margin: new EdgeInsets.only(top: 25.0),
+            margin: new EdgeInsets.only(top: _MARGIN_MEDIUM),
             child: new Text(
               'JAHMAIKA',
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 14.0,
+                fontSize: _TEXT_SIZE_BUTTON,
                 fontFamily: 'avenir_black',
                 letterSpacing: 0.78,
               ),
@@ -174,8 +89,8 @@ class CustomAppBar extends StatelessWidget {
             },
             child: new Container(
               alignment: Alignment.topRight,
-              margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(10.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
+              padding: new EdgeInsets.all(_PADDING_SMALL),
               child: new Image.asset(
                 "assets/images/shopping_bag_white.png",
               ),
@@ -185,16 +100,10 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
-}
 
-class StaticText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Container(
-      margin: new EdgeInsets.only(top: 60.0),
-      alignment: Alignment.center,
+  Widget _buildScreenBody() {
+    return new Expanded(
       child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           new Container(
@@ -204,7 +113,7 @@ class StaticText extends StatelessWidget {
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 22.0,
+                fontSize: _TEXT_SIZE_PERFECT_MATCH,
                 fontFamily: 'helvetica_neue_medium',
                 letterSpacing: 0.69,
               ),
@@ -212,47 +121,149 @@ class StaticText extends StatelessWidget {
           ),
           new Container(
             alignment: Alignment.center,
-            margin: new EdgeInsets.only(top: 32.0),
+            margin: new EdgeInsets.only(top: _MARGIN_LARGE),
             child: new Text(
               "YOUR STYLE",
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 26.0,
+                fontSize: _TEXT_SIZE_YOUR_STYLE,
                 fontFamily: 'helvetica_neue_medium',
                 letterSpacing: 0.83,
               ),
             ),
           ),
+          new Container(
+            margin: new EdgeInsets.only(top: _MARGIN_LARGE),
+            child: new FlatButton(
+                child: new Container(
+                  alignment: Alignment.center,
+                  width: _BUTTON_WIDTH,
+                  height: _BUTTON_HEIGHT,
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                    borderRadius:
+                        new BorderRadius.all(new Radius.elliptical(40.0, 50.0)),
+                    border: new Border.all(
+                      color: Colors.white,
+                    ),
+                  ),
+                  child: new Text(
+                    'CASUAL',
+                    style: new TextStyle(
+                      color: Colors.black,
+                      fontSize: _TEXT_SIZE_BUTTON,
+                      fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 2.57,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new TopCollectionPage()),
+                  );
+                }),
+          ),
+          new Container(
+            margin: new EdgeInsets.only(top: _MARGIN_LARGE),
+            child: new FlatButton(
+                child: new Container(
+                  alignment: Alignment.center,
+                  width: _BUTTON_WIDTH,
+                  height: _BUTTON_HEIGHT,
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                    borderRadius:
+                        new BorderRadius.all(new Radius.elliptical(40.0, 50.0)),
+                    border: new Border.all(
+                      color: Colors.white,
+                    ),
+                  ),
+                  child: new Text(
+                    'CLASSICAL',
+                    style: new TextStyle(
+                      color: Colors.black,
+                      fontSize: _TEXT_SIZE_BUTTON,
+                      fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 2.57,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new TopCollectionPage()),
+                  );
+                }),
+          ),
+          new Container(
+            margin: new EdgeInsets.only(top: _MARGIN_LARGE),
+            child: new FlatButton(
+                child: new Container(
+                  alignment: Alignment.center,
+                  width: _BUTTON_WIDTH,
+                  height: _BUTTON_HEIGHT,
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                    borderRadius:
+                        new BorderRadius.all(new Radius.elliptical(40.0, 50.0)),
+                    border: new Border.all(
+                      color: Colors.white,
+                    ),
+                  ),
+                  child: new Text(
+                    'SPORT',
+                    style: new TextStyle(
+                      color: Colors.black,
+                      fontSize: _TEXT_SIZE_BUTTON,
+                      fontFamily: 'helvetica_neue_medium',
+                      letterSpacing: 2.57,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new TopCollectionPage()),
+                  );
+                }),
+          ),
         ],
       ),
     );
   }
-}
 
-class StyleSelectionPage extends StatefulWidget {
-  StyleSelectionPageState createState() => StyleSelectionPageState();
-}
-
-class StyleSelectionPageState extends State<StyleSelectionPage> {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("assets/images/bg_style_selection.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: new Column(
-          children: <Widget>[
-            new CustomAppBar(),
-            new StaticText(),
-            new ButtonSection(),
-          ],
-        ),
-      ),
-    );
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _TEXT_SIZE_BUTTON = 12.0;
+      _BUTTON_HEIGHT = 60.0;
+      _BUTTON_WIDTH = 180.0;
+      _MARGIN_SMALL = 20.0;
+      _MARGIN_MEDIUM = 25.0;
+      _PADDING_SMALL = 8.0;
+      _MARGIN_LARGE = 40.0;
+      _TEXT_SIZE_PERFECT_MATCH = 20.0;
+      _TEXT_SIZE_YOUR_STYLE = 22.0;
+    } else if (shortestSide >= 600) {
+      _TEXT_SIZE_BUTTON = 24.0;
+      _BUTTON_HEIGHT = 95.0;
+      _BUTTON_WIDTH = 380.0;
+      _MARGIN_SMALL = 30.0;
+      _MARGIN_MEDIUM = 40.0;
+      _MARGIN_LARGE = 60.0;
+      _PADDING_SMALL = 12.0;
+      _TEXT_SIZE_PERFECT_MATCH = 40.0;
+      _TEXT_SIZE_YOUR_STYLE = 44.0;
+    }
   }
 }

@@ -24,6 +24,8 @@ class ItemCategorySelectionPage extends StatefulWidget {
 class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
   @override
   Widget build(BuildContext context) {
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
     return new Scaffold(
       body: new Container(
         color: Colors.white,
@@ -132,6 +134,8 @@ class ItemCategorySelectionPageState extends State<ItemCategorySelectionPage> {
       ),
     );
   }
+
+  void _setFontSizeAndStyle(double shortestSide) {}
 }
 
 class TopSection extends StatelessWidget {
