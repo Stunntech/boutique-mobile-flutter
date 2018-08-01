@@ -3,99 +3,55 @@ import 'package:flutter_jahmaika/screens/cart_checkout_screens/shopping_cart.dar
 import 'package:flutter_jahmaika/screens/home_screens/item_category_selection.dart';
 import 'package:flutter_jahmaika/screens/sidenavigation_and_tracking_screens/side_navigation.dart';
 
-class ButtonSection extends StatelessWidget {
+class GenderSelectionPage extends StatefulWidget {
+  GenderSelectionPageState createState() => GenderSelectionPageState();
+}
+
+class GenderSelectionPageState extends State<GenderSelectionPage> {
+  double _TEXT_SIZE_BUTTON_TEXT;
+  double _TEXT_SIZE_SHOP_FOR;
+  double _TEXT_SIZE_PERFECT_MATCH;
+  double _TEXT_SIZE_JAHMAIKA;
+  double _BUTTON_WIDTH;
+  double _BUTTON_HEIGHT;
+  double _BUTTON_BORDER_WIDTH;
+  double _PADDING_SMALL;
+  double _MARGIN_SMALL;
+  double _MARGIN_LARGE;
+
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      margin: new EdgeInsets.only(top: 32.0),
-      child: new Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Expanded(
-            child: new Container(
-              child: new FlatButton(
-                  child: new Container(
-                    alignment: AlignmentDirectional.center,
-                    width: 130.0,
-                    height: 50.0,
-                    padding: new EdgeInsets.only(
-                        left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      border: new Border.all(
-                        color: Colors.white,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: new Text(
-                      'MEN',
-                      style: new TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontFamily: 'helvetica_neue_medium',
-                        letterSpacing: 0.63,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) =>
-                              new ItemCategorySelectionPage()),
-                    );
-                  }),
-            ),
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    _setFontSizeAndStyle(shortestSide);
+
+    return new Scaffold(
+      body: new Container(
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("assets/images/bg_gender_selection.png"),
+            fit: BoxFit.cover,
           ),
-          new Expanded(
-            child: new Container(
-              child: new FlatButton(
-                  child: new Container(
-                    alignment: AlignmentDirectional.center,
-                    width: 130.0,
-                    height: 50.0,
-                    padding: new EdgeInsets.only(
-                        left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      border: new Border.all(
-                        color: Colors.white,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: new Text(
-                      'WOMEN',
-                      style: new TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontFamily: 'helvetica_neue_medium',
-                        letterSpacing: 0.63,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) =>
-                              new ItemCategorySelectionPage()),
-                    );
-                  }),
-            ),
-          ),
-        ],
+        ),
+        child: new Column(
+          children: <Widget>[
+            _buildCustomAppBar(),
+            _buildScreenBody(),
+          ],
+        ),
       ),
     );
   }
-}
 
-class CustomAppBar extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+
+    // FlutterStatusbarcolor.setStatusBarColor(Colors.green);
+  }
+
+  Widget _buildCustomAppBar() {
     return new Container(
-      padding: new EdgeInsets.all(8.0),
+      padding: new EdgeInsets.all(_PADDING_SMALL),
       decoration: new BoxDecoration(
         color: const Color(0x4D4a4a4a),
       ),
@@ -111,21 +67,21 @@ class CustomAppBar extends StatelessWidget {
               );
             },
             child: new Container(
-              margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(10.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
+              padding: new EdgeInsets.all(_PADDING_SMALL),
               child: new Image.asset(
                 "assets/images/menu_white.png",
               ),
             ),
           ),
           new Container(
-            margin: new EdgeInsets.only(top: 25.0),
+            margin: new EdgeInsets.only(top: _MARGIN_SMALL),
             child: new Text(
               'JAHMAIKA',
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 14.0,
+                fontSize: _TEXT_SIZE_JAHMAIKA,
                 fontFamily: 'avenir_black',
                 letterSpacing: 0.78,
               ),
@@ -141,8 +97,8 @@ class CustomAppBar extends StatelessWidget {
             },
             child: new Container(
               alignment: Alignment.topRight,
-              margin: new EdgeInsets.only(top: 20.0),
-              padding: new EdgeInsets.all(10.0),
+              margin: new EdgeInsets.only(top: _MARGIN_SMALL),
+              padding: new EdgeInsets.all(_PADDING_SMALL),
               child: new Image.asset(
                 "assets/images/shopping_bag_white.png",
               ),
@@ -152,60 +108,21 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
-}
 
-class GenderSelectionPage extends StatefulWidget {
-  GenderSelectionPageState createState() => GenderSelectionPageState();
-}
-
-class GenderSelectionPageState extends State<GenderSelectionPage> {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("assets/images/bg_gender_selection.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: new Column(
-          children: <Widget>[
-            new CustomAppBar(),
-            new StaticText(),
-            new ButtonSection(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    // FlutterStatusbarcolor.setStatusBarColor(Colors.green);
-  }
-}
-
-class StaticText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Container(
-      margin: new EdgeInsets.only(top: 150.0),
-      alignment: Alignment.center,
+  Widget _buildScreenBody() {
+    return new Expanded(
       child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           new Container(
+            margin: new EdgeInsets.only(bottom: _MARGIN_LARGE),
             alignment: Alignment.center,
             child: new Text(
               "Let's find out your perfect match!",
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 22.0,
+                fontSize: _TEXT_SIZE_PERFECT_MATCH,
                 fontFamily: 'helvetica_neue_medium',
                 letterSpacing: 0.69,
               ),
@@ -213,20 +130,124 @@ class StaticText extends StatelessWidget {
           ),
           new Container(
             alignment: Alignment.center,
-            margin: new EdgeInsets.only(top: 32.0),
+            margin: new EdgeInsets.only(bottom: _MARGIN_LARGE),
             child: new Text(
               "SHOP FOR",
               textAlign: TextAlign.center,
               style: new TextStyle(
                 color: Colors.white,
-                fontSize: 26.0,
+                fontSize: _TEXT_SIZE_SHOP_FOR,
                 fontFamily: 'helvetica_neue_medium',
                 letterSpacing: 0.83,
               ),
             ),
           ),
+          new Container(
+            margin: new EdgeInsets.only(top: _MARGIN_SMALL),
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Expanded(
+                  child: new Container(
+                    child: new FlatButton(
+                        child: new Container(
+                          alignment: Alignment.center,
+                          width: _BUTTON_WIDTH,
+                          height: _BUTTON_HEIGHT,
+                          decoration: new BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            border: new Border.all(
+                              color: Colors.white,
+                              width: _BUTTON_BORDER_WIDTH,
+                            ),
+                          ),
+                          child: new Text(
+                            'MEN',
+                            style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: _TEXT_SIZE_BUTTON_TEXT,
+                              fontFamily: 'helvetica_neue_medium',
+                              letterSpacing: 0.63,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) =>
+                                    new ItemCategorySelectionPage()),
+                          );
+                        }),
+                  ),
+                ),
+                new Expanded(
+                  child: new Container(
+                    child: new FlatButton(
+                        child: new Container(
+                          alignment: Alignment.center,
+                          width: _BUTTON_WIDTH,
+                          height: _BUTTON_HEIGHT,
+                          decoration: new BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            border: new Border.all(
+                              color: Colors.white,
+                              width: _BUTTON_BORDER_WIDTH,
+                            ),
+                          ),
+                          child: new Text(
+                            'WOMEN',
+                            style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: _TEXT_SIZE_BUTTON_TEXT,
+                              fontFamily: 'helvetica_neue_medium',
+                              letterSpacing: 0.63,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) =>
+                                    new ItemCategorySelectionPage()),
+                          );
+                        }),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  void _setFontSizeAndStyle(double shortestSide) {
+    if (shortestSide < 600) {
+      _TEXT_SIZE_BUTTON_TEXT = 18.0;
+      _TEXT_SIZE_SHOP_FOR = 24.0;
+      _TEXT_SIZE_PERFECT_MATCH = 20.0;
+      _TEXT_SIZE_JAHMAIKA = 12.0;
+      _BUTTON_WIDTH = 100.0;
+      _BUTTON_HEIGHT = 50.0;
+      _BUTTON_BORDER_WIDTH = 2.0;
+      _PADDING_SMALL = 8.0;
+      _MARGIN_SMALL = 20.0;
+      _MARGIN_LARGE = 24.0;
+    } else if (shortestSide >= 600) {
+      _TEXT_SIZE_BUTTON_TEXT = 36.0;
+      _TEXT_SIZE_SHOP_FOR = 48.0;
+      _TEXT_SIZE_PERFECT_MATCH = 40.0;
+      _TEXT_SIZE_JAHMAIKA = 24.0;
+      _BUTTON_WIDTH = 200.0;
+      _BUTTON_HEIGHT = 80.0;
+      _BUTTON_BORDER_WIDTH = 3.0;
+      _PADDING_SMALL = 12.0;
+      _MARGIN_SMALL = 30.0;
+      _MARGIN_LARGE = 36.0;
+    }
   }
 }
